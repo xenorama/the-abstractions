@@ -1,3 +1,17 @@
+/*
+jit.gl.text.multiple
+abstraction imitating the behaviour of jit.gl.multiple but for a jit.gl.text instance
+
+This JS code hosts the individual instances and replicates the parent instance as jit.gl.node to synchronise all children
+and allocate attributes individually.
+
+Aim is to provide a means of using char-matrices to control the text contents of jit.gl.text instances as jit.gl.multiple does with OB3D-objects
+
+Written by Tim Heinze © 2022, www.xenorama.com.
+
+*/
+
+
 autowatch = 1;
 inlets = 3;
 outlets = 2;
@@ -55,35 +69,35 @@ function glparams(){
   init_txtobjs();
 }
 
-function textmode(ts){
+function textmode(ts){ // 'coll' referene or 'charcode'
   text_source = ts
   // populate_dict();
   // init_txtobjs()
 }
 
-function drawto(d){
+function drawto(d){ // render context name, if provided
   ctx = d;
   node.drawto = ctx;
   seek_textobj();
 }
 
-function targetname(t){
+function targetname(t){ // parent jit.gl.text name (@name attribute, not varname)
   target_name = t
   seek_textobj();
 }
 
-function instances(i){
+function instances(i){ // number of text instances
   count = i;
   init_txtobjs();
 }
 
-function source(coll){
+function source(coll){ // reference name of a coll object
   source_name = coll
   populate_dict();
   init_txtobjs();
 }
 
-function quiet(q){
+function quiet(q){ // dont post errors to Max console
   quiet = q;
 }
 
