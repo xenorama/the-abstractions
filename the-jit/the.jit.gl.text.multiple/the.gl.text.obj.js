@@ -241,7 +241,7 @@ function txt_func(data){
 }
 
 /*
-CREATE INSTANCES OF JIT.GL.TEXT
+CRETAE INSTANCES OF JIT.GL.TEXT
 */
 init_txtobjs.local = 1
 function init_txtobjs(){
