@@ -204,7 +204,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 397.650946378707886, 502.475727915763855, 118.0, 21.0 ],
-									"presentation_linecount" : 3,
 									"text" : "text (textmode coll)"
 								}
 
@@ -511,23 +510,23 @@
 											}
 , 											{
 												"key" : 2,
-												"value" : [ "Lhì/rÚJVk" ]
+												"value" : [ "Lhì/rÚJVk" ]
 											}
 , 											{
 												"key" : 3,
-												"value" : [ "Õ¦Xç<Àú" ]
+												"value" : [ "Õ¦Xç<Àú" ]
 											}
 , 											{
 												"key" : 4,
-												"value" : [ "Ñ³©\"-ëè{" ]
+												"value" : [ "Ñ³©\"-ëè{" ]
 											}
 , 											{
 												"key" : 5,
-												"value" : [ "é0]³ÅQ>U" ]
+												"value" : [ "é0]³ÅQ>U" ]
 											}
 , 											{
 												"key" : 6,
-												"value" : [ "´\"kqUU\nb" ]
+												"value" : [ "´\"kqUU\nb" ]
 											}
 , 											{
 												"key" : 7,
@@ -535,11 +534,11 @@
 											}
 , 											{
 												"key" : 8,
-												"value" : [ "1Z`gZvØâ|Þ" ]
+												"value" : [ "1Z`gZvØâ|Þ" ]
 											}
 , 											{
 												"key" : 9,
-												"value" : [ "Þ÷ýp¨Å=êb" ]
+												"value" : [ "Þ÷ýp¨Å=êb" ]
 											}
  ]
 									}
@@ -1128,23 +1127,23 @@
 															}
 , 															{
 																"key" : 2,
-																"value" : [ "Lhì/rÚJVk" ]
+																"value" : [ "Lhì/rÚJVk" ]
 															}
 , 															{
 																"key" : 3,
-																"value" : [ "Õ¦Xç<Àú" ]
+																"value" : [ "Õ¦Xç<Àú" ]
 															}
 , 															{
 																"key" : 4,
-																"value" : [ "Ñ³©\"-ëè{" ]
+																"value" : [ "Ñ³©\"-ëè{" ]
 															}
 , 															{
 																"key" : 5,
-																"value" : [ "é0]³ÅQ>U" ]
+																"value" : [ "é0]³ÅQ>U" ]
 															}
 , 															{
 																"key" : 6,
-																"value" : [ "´\"kqUU\nb" ]
+																"value" : [ "´\"kqUU\nb" ]
 															}
 , 															{
 																"key" : 7,
@@ -1152,11 +1151,11 @@
 															}
 , 															{
 																"key" : 8,
-																"value" : [ "1Z`gZvØâ|Þ" ]
+																"value" : [ "1Z`gZvØâ|Þ" ]
 															}
 , 															{
 																"key" : 9,
-																"value" : [ "Þ÷ýp¨Å=êb" ]
+																"value" : [ "Þ÷ýp¨Å=êb" ]
 															}
  ]
 													}
@@ -7239,20 +7238,20 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 393.0, 718.975727915763855, 320.6844482421875, 54.0 ]
+									"patching_rect" : [ 393.0, 718.0, 320.6844482421875, 54.0 ]
 								}
 
 							}
 , 							{
 								"box" : 								{
 									"id" : "obj-88",
-									"linecount" : 3,
+									"linecount" : 4,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 565.726419568061829, 54.0, 248.0, 52.0 ],
-									"text" : ";\rmax launchbrowser https://github.com/xenorama/the-package"
+									"patching_rect" : [ 565.726419568061829, 54.0, 272.0, 67.0 ],
+									"text" : ";\rmax launchbrowser https://github.com/xenorama/the-abstractions/tree/main/the-jit/the.jit.gl.text.multiple"
 								}
 
 							}
@@ -13836,14 +13835,14 @@
 , 			{
 				"name" : "jit.gl.text.multiple.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/the-package/abstractions/the.jit.gl.text.multiple",
-				"patcherrelativepath" : ".",
+				"patcherrelativepath" : "../../../the-package/abstractions/the.jit.gl.text.multiple",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "the.gl.text.obj.js",
 				"bootpath" : "~/Documents/Max 8/Packages/the-package/abstractions/the.jit.gl.text.multiple",
-				"patcherrelativepath" : ".",
+				"patcherrelativepath" : "../../../the-package/abstractions/the.jit.gl.text.multiple",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
