@@ -25001,7 +25001,7 @@
 			"enablehscroll" : 1,
 			"enabletransparentbgwithtitlebar" : 0,
 			"enablevscroll" : 1,
-			"filepath" : "",
+			"filepath" : "Macintosh HD:/Users/Oni/Documents/Max 8/Packages/the.oneirotomy/testground/jit-mat-record-random_noise.maxpat",
 			"fontface" : 0,
 			"fontname" : "Franklin Gothic Book",
 			"fontsize" : 12,
@@ -25016,7 +25016,7 @@
 			"objectsnaponopen" : 1,
 			"openinpresentation" : 0,
 			"openrect" : [ 0, 0, 0, 0 ],
-			"patchlinecolor" : [ 0.435294117647059, 0.929411764705882, 1, 1 ],
+			"patchlinecolor" : [ 0.435294117647059, 0.929411764705882, 1, 0.74 ],
 			"righttoolbarpinned" : 0,
 			"selectioncolor" : [ 0.850980392156863, 0.752941176470588, 0.129411764705882, 1 ],
 			"showontab" : 0,
@@ -25032,6 +25032,12 @@
 			"toolbarvisible" : 1,
 			"toptoolbarpinned" : 0,
 			"workspacedisabled" : 0
+		}
+,
+		"jit.cellblock" : 		{
+			"bgcolor" : [ "jit.cellblock", 1, 1, 1, 1 ],
+			"color" : [ "jit.cellblock", 1, 1, 1, 1 ],
+			"textcolor" : [ "jit.cellblock", 0, 0, 0, 1 ]
 		}
 
 	}
