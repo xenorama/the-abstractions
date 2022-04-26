@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.rgb.patch" module="max" category="Workflow Enhancement">
+
+	<digest>
+		Manage and apply custom colours of object boxes and patch design
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2017, www.xenorama.com. <br/>
+		Set custom colours for specific object boxes in the patcher and apply them with a specified key command. A comprehensive GUI can be opened to manage the colour schemes and export the data to support a growing set of objects to be identified in messy or complex patchers. Custom patcher layouts can too be recalled.
+	</description>
+
+	<discussion>
+		Based on a <i>object.box.apply.js</i>. Note that object box colors of subpatchers or custom abstractions cannot be changed using scripting in Max and only valid Maxobjects (externals) can be modified using <o>the.rgb.patch</o>.
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Workflow Enhancement</metadata>
+		<metadata name="tag">Max</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="preset" optional="1" type="symbol" size="1">
+			<digest>
+				Specify a valid preset layout
+			</digest>
+			<description>
+				Specify a valid preset layout. The default is &quot;xenorama&quot;, an initial layout <o>the.rgb.patch</o> ships with. To store new presets, see the <m>grab</m> method, and recall them using the <m>preset</m> method
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="apply" get="1" set="1" type="int" size="1">
+			<digest>
+				Specify the ASCII code for the key command to apply colours
+			</digest>
+			<description>
+				By default, <m>shift</m> + <m>#</m> (39) will apply stored colour data to objects.
+			</description>
+		</attribute>
+		<attribute name="edit" get="1" set="1" type="int" size="1">
+			<digest>
+				Specify the ASCII code for the key command to open the editing GUI
+			</digest>
+			<description>
+				By default, <m>shift</m> + <m>+</m> (42) will open the GUI to add, edit or remove colour settings. See also the <m>open</m> listing.
+			</description>
+		</attribute>
+		<attribute name="exclude" get="1" set="1" type="list" size="1">
+			<digest>
+				Specify all objects to be excluded from coloring
+			</digest>
+			<description>
+				Specify all objects to be excluded from coloring. These objects can still be colored using the <m>symbol</m> message separately.
+			</description>
+		</attribute>
+		<attribute name="default" get="1" set="1" type="bool" size="1">
+			<digest>
+				Toggle between custom and default object colors
+			</digest>
+			<description>
+				Toggle between custom and default object colors. By default, <o>the.rgb.patch</o> colores all objects to the custom layout &quot;0&quot;), when the <at>default</at> flag is set to &quot;1&quot;, all objects are given their default Max colors. Same applies to the patchers and subpatchers, depending on the <at>thispatcher</at> and <at>descend</at> flags.
+			</description>
+		</attribute>
+		<attribute name="thispatcher" get="1" set="1" type="bool" size="1">
+			<digest>
+				Toggle patcher style coloring
+			</digest>
+			<description>
+				Toggle patcher style coloring. Depending on the <at>descend</at> flag, all subpatchers are too colored in the same style. This also pertains to any <o>comment</o> object, which will be colored in either default or custom style, accordingly.<br/>
+				The default for <at>thispatcher</at> is &quot;1&quot; (perform patcher coloring).
+			</description>
+		</attribute>
+		<attribute name="objects" get="1" set="1" type="bool" size="1">
+			<digest>
+				Toggle custom object style coloring
+			</digest>
+			<description>
+				Toggle custom object style coloring. Depending on the <at>descend</at> flag, all objects in the patch (and subpatches) are colored a per individual settings. Setting this flag to &quot;0&quot; will apply the preset's default colors to all object boxes instead. Note that this overrides the <at>exclude</at> listings entirely.<br/>
+				The default for <at>objects</at> is &quot;1&quot; (perform object coloring).
+			</description>
+		</attribute>
+		<attribute name="grab_objects" get="1" set="1" type="bool" size="1">
+			<digest>
+				Toggle object color grabbing enable
+			</digest>
+			<description>
+				Toggle object color grabbing enable. Depending on the <at>descend</at> flag, all object box colors in the patch (and subpatches) are grabbed when the <m>grab</m> message is called and added to the given preset. Setting this flag to &quot;0&quot; will ignore object colorings and grab/save patcher layout settings only. Note that this overrides the <at>exclude</at> listings entirely.<br/>
+				The default for <at>grab_objects</at> is &quot;1&quot; (perform object color grabbing).
+			</description>
+		</attribute>
+		<attribute name="descend" get="1" set="1" type="bool" size="1">
+			<digest>
+				Toggle subpatcher style and object coloring
+			</digest>
+			<description>
+				Toggle subpatcher style and object coloring. Depending on the <at>thispatcher</at> flag, will color all subpatchers and their objects accordingly. This also pertains to any <o>comment</o> object, which will be colored in either default or custom style, accordingly.<br/>
+				The default <at>descend</at> flag is &quot;1&quot; (perform subpatcher coloring).
+			</description>
+		</attribute>
+		<attribute name="preset" get="1" set="1" type="symbol" size="1">
+			<digest>
+				Specify a valid preset layout
+			</digest>
+			<description>
+				Specify a valid preset layout. The default is &quot;xenorama&quot;, a xenorama layout <o>the.rgb.patch</o> ships with. To store new presets, see the <m>grab</m> method, and recall them using the <m>preset</m> method
+			</description>
+		</attribute>
+	<!-- <attribute name="focus" get="1" set="1" type="bool" size="1">
+		<digest>
+			Apply colours only when a <m>1</m> is present at the middle inlet.
+		</digest>
+		<description>
+			When an <o>active</o> object is connected to the middle inlet, a nonzero number will apply colours only when the patcher is in focus.
+		<br/> The default is 1 (apply only when frontmost patcher)
+		</description>
+	</attribute> -->
+	<!-- <attribute name="onecopy" get="1" set="1" type="bool" size="1">
+		<digest>
+			Apply colours to objects in current patch only
+		</digest>
+		<description>
+			When set to <m>0</m>, will apply colours to all open patchers globally, where <o>the.rgb.patch</o> is present. The <at>focus</at> atribute should be set to <m>0</m> for all instances to avoid redundant application—which may take some time if applied to complex patchers with <m>Caps Lock</m> active (see the <m>bang</m> listing).
+			<br/> The default is 1 (local application only), a <o>universal</o> object needs to be connected to the leftmost outlet.
+		</description>
+	</attribute> -->
+	<attribute name="opacity" get="1" set="1" type="bool" size="1">
+		<digest>
+		Set the locked patcher background's opacity
+		</digest>
+		<description>
+		Set the locked patcher background's opacity. When applying the colours using the <m>bang</m> message or <m>apply</m> key command, will set the patcher background colour's opacity between 0. and 1. <br/>
+		Will take effect only when the patcher is locked and will automatically set the patcher's <at>enabletransparentbgwithtitlebar</at> flag to &quot;1&quot;
+		<br/>
+		The default is 0 (no transparent background)
+		</description>
+	</attribute>
+		<attribute name="style" get="1" set="1" type="symbol" size="1">
+			<digest>
+			Set the general object style from the palette
+			</digest>
+			<description>
+			Set the general object style from the available palette. Will colorize all objects according to the chosen style, if valid.<br/>
+			Settings the style using <o>the.rgb.patch</o> will replace every object's style with the provided style and hence will override all custom color settings applied hitherto. This is useful for coloring patches from other users and size objects to default values, for example. Should this not be intended, one may simply choose the &quot;style&quot; from the patcher's inspector, which will not override custom objects' colors.
+			</description>
+	</attribute>
+		<attribute name="fonts" get="1" set="1" type="bool" size="1">
+			<digest>
+			Include font changes with layout
+			</digest>
+			<description>
+			Include font changes with layout. The default is &quot;0&quot; (ignore layout fonts). When this flag is enabled, all fonts saved with the preset will be recalled inclusive of the set &quot;fontsize&quot;. While this may be visually appealing in line with the layout, transforming patches by other users, for example, could lead to unreadability due to varying object box sizes and word wrapping. Note that the <m>grab</m> command still saves the current font of the patcher with the preset.
+			</description>
+	</attribute>
+		<attribute name="verbose" get="1" set="1" type="bool" size="1">
+			<digest>
+			Toggle detailed max window information
+			</digest>
+			<description>
+			Toggle detailed max window information. The default is &quot;0&quot; (no extra information posted).
+			</description>
+	</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="symbol">
+			<arglist>
+			</arglist>
+			<digest>
+				Apply coloring to single object boxes
+			</digest>
+			<description>
+				Apply coloring to single object boxes. A single symbol, or a list of symbols representing a valid max object can be sent to <o>the.rgb.path</o> to apply custom coloring to respective objects only
+			</description>
+		</method>
+		<method name="open">
+			<arglist>
+			</arglist>
+			<digest>
+				Open the editing GUI
+			</digest>
+			<description>
+				Open the editing GUI. This can also be done usind a specified key command (see the <at>edit</at> listing).
+			</description>
+		</method>
+		<method name="grab">
+			<arglist>
+				<arg name="preset" optional="0" type="symbol" />
+			</arglist>
+			<digest>
+				Grab patcher settings and save preset
+			</digest>
+			<description>
+				Grab patcher settings and save preset. If an additional argument (symbol = <at>preset</at> name) is provided, a layout preset under the given name will be stored to disk for later recall using the <m>preset</m> method. Without any arguments, the previously set <at>preset</at> will be overwritten, the default preset is &quot;xenorama&quot;.
+			</description>
+		</method>
+		<method name="preset">
+			<arglist>
+				<arg name="preset" optional="0" type="symbol" />
+			</arglist>
+			<digest>
+				Specify a preset to be recalled
+			</digest>
+			<description>
+				Specify a preset to be recalled. Any xenorama presets previously stored using the <m>grab</m> method can be recalled. Note, that a <m>bang</m> message is reuired to apply colors still. The default preset is &quot;xenorama&quot;.
+			</description>
+		</method>
+		<method name="duplicate">
+			<arglist>
+				<arg name="preset" optional="0" type="symbol" />
+			</arglist>
+			<digest>
+				Duplicate the current preset
+			</digest>
+			<description>
+				Duplicate the current preset. An additional arguments for the name of the new preset is required, otherwise this message is ignored. Note that the underlying json-file is immediately written to disk without further notice.
+			</description>
+		</method>
+		<method name="remove">
+			<arglist>
+				<arg name="preset" optional="0" type="symbol" />
+			</arglist>
+			<digest>
+				Remove a preset
+			</digest>
+			<description>
+				Remove a preset. An additional arguments for the name of the preset to be removed is required, otherwise this message is ignored. Note that the underlying json-file is immediately written to disk without further notice.
+			</description>
+		</method>
+		<method name="import_objs_from">
+			<arglist>
+			</arglist>
+			<digest>
+				Import object colors from a named preset into current
+			</digest>
+			<description>
+				Import object colors from a named preset into current. This will overwrite any previously stored object colors in the current preset.
+			</description>
+		</method>
+		<method name="purge_obj_colors">
+			<arglist>
+			</arglist>
+			<digest>
+				Purge all object specific colors from preset
+			</digest>
+			<description>
+				Purge all object specific colors from preset and maintain only patcher aesthetics. Object entries will be immediately and permanently deleted.
+			</description>
+		</method>
+		<method name="getcurrent">
+			<arglist>
+			</arglist>
+			<digest>
+				Post the current preset name to the max window
+			</digest>
+			<description>
+				Post the current preset name to the max window.
+			</description>
+		</method>
+		<method name="getstate">
+			<arglist>
+			</arglist>
+			<digest>
+				Post all current attributes to the max window
+			</digest>
+			<description>
+				Post all current attributes to the max window
+			</description>
+		</method>
+		<method name="getpresets">
+			<arglist>
+			</arglist>
+			<digest>
+				Post a list of stored presets to the max window
+			</digest>
+			<description>
+				Post a list of stored presets to the max window
+			</description>
+		</method>
+	</methodlist>
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealso name="js"/>
+		<seealso name="jsui"/>
+		<seealso name="thispatcher"/>
+		<seealso name="bpatcher"/>
+	</seealsolist>
+
+</c74object>
