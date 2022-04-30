@@ -1,5 +1,4 @@
 outlets = 3;
-max.clearmaxwindow();
 
 var obj = undefined;
 var obj_type = undefined;
@@ -9,8 +8,7 @@ var aliases = new Dict("the.object.aliases")
 var thisobj = {}
 var log = 0;
 var changed_objs = []
-// var color_types = Object.keys(thisobj)
-
+var identifier = jsarguments[1]
 
 
 function ThisOBJ(){
@@ -22,8 +20,6 @@ function ThisOBJ(){
 }
 
 function set_obj(o){
-  // post(dict.getkeys(),'\n')
-  // post(aliases.getkeys(),'\n')
   obj = undefined;
   obj_type = undefined;
   log = 0;
@@ -33,8 +29,9 @@ function set_obj(o){
     obj_type = obj.maxclass;
     aliases.replace(obj_type,obj_type);
   }
-  // post(aliases.get(obj.maxclass))
-  apply(obj_type)
+  apply_obj(obj.maxclass)
+  changed_objs = [];
+  update_log();
 }
 
 function check_obj(o){
@@ -44,11 +41,20 @@ function check_obj(o){
 function clear_log(){
   log = 0;
   changed_objs = [];
+  update_log();
+  find_related_objs();
+}
+
+function update_log(){
+  outlet(2,"clear");
+  if (changed_objs instanceof Array) changed_objs.forEach(function (x) {
+    outlet(2,"append",x)
+  })
 }
 
 function change(c,r,g,b,a){
   log = 1;
-  if (changed_objs.indexOf(thisobj.class) !== -1) changed_objs.push(thisobj.class);
+  if (changed_objs.indexOf(thisobj.class) == -1) changed_objs.push(thisobj.class);
   colorize(c,r,g,b,a)
 }
 
@@ -56,9 +62,10 @@ function colorize(c,r,g,b,a){
   var attr = (c == "bordercolor") ? "color" : c;
   if (obj) obj.setboxattr(attr,r,g,b,a)
   outlet(0,c,r,g,b,a);
-  if (log == 1) {
-    outlet(2,thisobj.class)
-    dict.replace(thisobj.class+"::"+c,thisobj.class,r,g,b,a);
+  if (log) {
+    update_log();
+    attr = (attr == "color") ? "bordercolor" : attr;
+    dict.replace(thisobj.class+"::"+attr,thisobj.class,r,g,b,a);
   }
 }
 
@@ -79,17 +86,17 @@ function find_related_objs(o){
     })
   }
 
-function apply(target,source){
+function apply_obj(target,source){
   var obj_source = (!source) ? target : source;
+  thisobj = new ThisOBJ()
+  thisobj.class = target;
   if (dict.contains(obj_source)) {
     var colors = dict.get(obj_source).getkeys()
-    thisobj = new ThisOBJ()
-    thisobj.class = target;
     for (k in colors) {
       if (Object.keys(thisobj).indexOf(colors[k]) !== -1){
         thisobj[colors[k]] = dict.get(obj_source+"::"+colors[k])
         thisobj[colors[k]].splice(0,1);
-        colorize(colors[k],thisobj[colors[k]])
+        change(colors[k],thisobj[colors[k]])
       }
     }
     find_related_objs(thisobj)
@@ -97,13 +104,29 @@ function apply(target,source){
 }
 
 function copy_from(c){
-  post(thisobj.class,c,'\n')
-  apply(thisobj.class,c)
-}
+  apply_obj(thisobj.class,c)
+};
 
 function default(){
   var all = dict.get("patcher_style");
   colorize("bgcolor",all.get("bgcolor"))
   colorize("textcolor",all.get("textcolor_inverse"))
-  colorize("color",all.get("accentcolor"))
+  colorize("bordercolor",all.get("accentcolor"))
+}
+
+function save_for_all(){
+  var all_colors = new Dict()
+  all_colors.readany("the.rgb.layouts.json")
+  var presets = all_colors.getkeys();
+  if (changed_objs) {
+    if (!changed_objs instanceof Array) changed_objs = [changed_objs]
+    changed_objs.forEach(function (obj) {
+      presets.forEach(function (prst) {
+        all_colors.replace(prst+"::"+obj,dict.get(obj))
+      });
+    });
+    all_colors.writeagain();
+    all_colors.freepeer();
+    messnamed(identifier+"_toRGB","reloaddict");
+}
 }

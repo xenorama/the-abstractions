@@ -177,24 +177,45 @@
 	<!--MESSAGES-->
 
 	<methodlist>
-		<method name="symbol">
+		<method name="duplicate">
 			<arglist>
+				<arg name="preset" optional="0" type="symbol" />
 			</arglist>
 			<digest>
-				Apply coloring to single object boxes
+				Duplicate the current preset
 			</digest>
 			<description>
-				Apply coloring to single object boxes. A single symbol, or a list of symbols representing a valid max object can be sent to <o>the.rgb.path</o> to apply custom coloring to respective objects only
+				Duplicate the current preset. An additional arguments for the name of the new preset is required, otherwise this message is ignored. Note that the underlying json-file is immediately written to disk without further notice.
 			</description>
 		</method>
-		<method name="open">
+		<method name="getcurrent">
 			<arglist>
 			</arglist>
 			<digest>
-				Open the editing GUI
+				Post the current preset name to the max window
 			</digest>
 			<description>
-				Open the editing GUI. This can also be done usind a specified key command (see the <at>edit</at> listing).
+				Post the current preset name to the max window.
+			</description>
+		</method>
+		<method name="getpresets">
+			<arglist>
+			</arglist>
+			<digest>
+				Post a list of stored presets to the max window
+			</digest>
+			<description>
+				Post a list of stored presets to the max window
+			</description>
+		</method>
+		<method name="getstate">
+			<arglist>
+			</arglist>
+			<digest>
+				Post all current attributes to the max window
+			</digest>
+			<description>
+				Post all current attributes to the max window
 			</description>
 		</method>
 		<method name="grab">
@@ -208,6 +229,38 @@
 				Grab patcher settings and save preset. If an additional argument (symbol = <at>preset</at> name) is provided, a layout preset under the given name will be stored to disk for later recall using the <m>preset</m> method. Without any arguments, the previously set <at>preset</at> will be overwritten, the default preset is &quot;xenorama&quot;.
 			</description>
 		</method>
+		<method name="import_objs_from">
+			<arglist>
+			</arglist>
+			<digest>
+				Import object colors from a named preset into current
+			</digest>
+			<description>
+				Import object colors from a named preset into current. This will overwrite any previously stored object colors in the current preset.
+			</description>
+		</method>
+		<method name="merge">
+			<arglist>
+			</arglist>
+			<digest>
+				Merge stored object colors among presets
+			</digest>
+			<description>
+				Merge stored object colors among presets. When this method is called without any arguments, all vacant object colors for all presets are replaced by the first color setting that is found in the scan, unless a native color setting has previously been stored. Note, that scanning begins at the first preset (natively &quot;xenorama&quot;) and all other color settings will be ignored.<br/>
+				To prioritize color settings of a specific preset, use its name as single argument to the <m>merge</m> message. To merge to presets only, provide both their names as arguments. In the latter case, the first preset name is prioritized over the second.<br/>
+				Note also, that this only pertains to obejct colors, not patcher theme colors.
+			</description>
+		</method>
+		<method name="open">
+			<arglist>
+			</arglist>
+			<digest>
+				Open the editing GUI
+			</digest>
+			<description>
+				Open the editing GUI. This can also be done usind a specified key command (see the <at>edit</at> listing).
+			</description>
+		</method>
 		<method name="preset">
 			<arglist>
 				<arg name="preset" optional="0" type="symbol" />
@@ -217,17 +270,6 @@
 			</digest>
 			<description>
 				Specify a preset to be recalled. Any xenorama presets previously stored using the <m>grab</m> method can be recalled. Note, that a <m>bang</m> message is reuired to apply colors still. The default preset is &quot;xenorama&quot;.
-			</description>
-		</method>
-		<method name="duplicate">
-			<arglist>
-				<arg name="preset" optional="0" type="symbol" />
-			</arglist>
-			<digest>
-				Duplicate the current preset
-			</digest>
-			<description>
-				Duplicate the current preset. An additional arguments for the name of the new preset is required, otherwise this message is ignored. Note that the underlying json-file is immediately written to disk without further notice.
 			</description>
 		</method>
 		<method name="remove">
@@ -241,14 +283,14 @@
 				Remove a preset. An additional arguments for the name of the preset to be removed is required, otherwise this message is ignored. Note that the underlying json-file is immediately written to disk without further notice.
 			</description>
 		</method>
-		<method name="import_objs_from">
+		<method name="symbol">
 			<arglist>
 			</arglist>
 			<digest>
-				Import object colors from a named preset into current
+				Apply coloring to single object boxes
 			</digest>
 			<description>
-				Import object colors from a named preset into current. This will overwrite any previously stored object colors in the current preset.
+				Apply coloring to single object boxes. A single symbol, or a list of symbols representing a valid max object can be sent to <o>the.rgb.path</o> to apply custom coloring to respective objects only
 			</description>
 		</method>
 		<method name="purge_obj_colors">
@@ -259,36 +301,6 @@
 			</digest>
 			<description>
 				Purge all object specific colors from preset and maintain only patcher aesthetics. Object entries will be immediately and permanently deleted.
-			</description>
-		</method>
-		<method name="getcurrent">
-			<arglist>
-			</arglist>
-			<digest>
-				Post the current preset name to the max window
-			</digest>
-			<description>
-				Post the current preset name to the max window.
-			</description>
-		</method>
-		<method name="getstate">
-			<arglist>
-			</arglist>
-			<digest>
-				Post all current attributes to the max window
-			</digest>
-			<description>
-				Post all current attributes to the max window
-			</description>
-		</method>
-		<method name="getpresets">
-			<arglist>
-			</arglist>
-			<digest>
-				Post a list of stored presets to the max window
-			</digest>
-			<description>
-				Post a list of stored presets to the max window
 			</description>
 		</method>
 	</methodlist>

@@ -211,7 +211,7 @@
 	"matrix~" : [ "matrix~", 1, 1 ],
 	"maximum" : "maximum",
 	"mc.channelcount~" : "mc.channelcount~",
-	"mc.combine~" : [ "linedrive", 127, 1.0, 1.06, 30 ],
+	"mc.combine~" : [ "mc.combine~" ],
 	"mc.deinterleave~" : "mc.deinterleave~",
 	"mc.dup~" : "mc.dup~",
 	"mc.interleave~" : "mc.interleave~",

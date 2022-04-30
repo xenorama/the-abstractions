@@ -1,6 +1,5 @@
 autowatch = 1;
 outlets = 4;
-max.clearmaxwindow()
 
 setinletassist(0,"specify settings and apply colors");
 setoutletassist(0,"print as the.rgb.patch to console");
@@ -62,8 +61,6 @@ setoutletassist(3,"connect to dict.view");
           set_default_layout(0);
           (objc.contains(prst) == 1) ? preset = prst : outlet(0,"no preset named '"+prst+"' in database, ignoring.\ncurrent preset: '"+preset+"'");
           thisparse();
-          // output_colormat()
-          // post("selectioncolor",objc.get(preset+"::patcher_style::selectioncolor"),'\n')
         }
       dict_view()
       }; set_preset.local = 1;
@@ -98,15 +95,8 @@ setoutletassist(3,"connect to dict.view");
         else if (ignore_patch_attrs.indexOf("fontname") !== -1) {
           ignore_patch_attrs.splice(ignore_patch_attrs.indexOf("fontname"),ignore_patch_attrs.indexOf("fontname")+1);
           ignore_patch_attrs.splice(ignore_patch_attrs.indexOf("fontsize"),ignore_patch_attrs.indexOf("fontsize")+1);
-          // var filtered = ignore_patch_attrs.filter(function(value, index, arr)
-          // {
-          //   return (value == "fontname" || value == "fontsize");
-          // });
-          // ignore_patch_attrs = filtered;
         }
-        // post(ignore_patch_attrs)
-      dict_view()
-      }; set_fonts.local = 1;
+      dict_view()}; set_fonts.local = 1;
       function get_fonts() { return fonts };
 
       var locked = 1;
@@ -164,8 +154,46 @@ setoutletassist(3,"connect to dict.view");
         outlet(1,"setsymbol",preset)
         if (loaded) output_colormat();
         dict_view()
-        // post("fonts?",ignore_patch_attrs,'\n')
-        // print("update");
+      }
+
+      function output_colormat(){
+        var mat = new JitterMatrix(4,"float32",1,3)
+        var patch_colors = []
+        var patch_attrs = thisobjc.get("patcher_style").getkeys()
+        patch_attrs.forEach(function (x,i) {
+          if ((/.*color$/).test(x)) patch_colors.push(thisobjc.get("patcher_style::"+patch_attrs[i]))
+        });
+        mat.dim = [patch_colors.length * 16,4];
+        outlet(2,"dim",mat.dim[0],64);
+        for (c=0;c<patch_colors.length;c++) {
+          var f = patch_colors[c]
+          if (f instanceof Array) for(d=0;d<16;d++) { mat.setcell2d(d+c*16,0,f) }
+          else {
+            if (f.get("type") == "gradient") {
+              var fx = f.get("color1")
+              var fy = f.get("color2")
+              if (fx instanceof Array) for(d=0;d<16;d++) { mat.setcell2d(d+c*16,1,fx) }
+              if (fy instanceof Array) for(d=0;d<16;d++) { mat.setcell2d(d+c*16,2,fy); mat.setcell2d(d+c*16,3,1) }
+            }
+          }
+        }
+        outlet(2,"jit_matrix",mat.name);
+      }
+
+      function dict_view(){
+        thisstate.replace("preset name:",preset);
+        thisstate.replace("locked:",locked);
+        thisstate.replace("descend into subpatchers:",descend);
+        thisstate.replace("apply patcher colors:",thispatch);
+        thisstate.replace("apply object colors:",objects);
+        thisstate.replace("excluded objects:",exclude);
+        thisstate.replace("change fonts with preset:",fonts);
+        thisstate.replace("apply Max default layout:",default_layout);
+        thisstate.replace("patcher opacity:",opacity);
+        thisstate.replace("grab objects:",grab_objects);
+        thisstate.replace("verbose:",verbose);
+        outlet(3,"dictionary",thisstate.name);
+
       }
 
 
@@ -175,10 +203,7 @@ setoutletassist(3,"connect to dict.view");
 var objc = new Dict("the.obj.colors");
 objc.readany("the.rgb.layouts.json");
 var thisobjc = new Dict(jsarguments[1]+"_this.layout");
-// thisparse();
 var thisstate = new Dict()
-// objc.quiet = 1;
-// thisobjc.quiet = 1;
 
 var default_palette = new Dict("maxcolors")
 default_palette.readany("maxcolors.json")
@@ -207,22 +232,13 @@ function bang() {
   if (default_layout == 0) {
     if (thispatch == 1) {
       var patcher_attributes = thisobjc.get("patcher_style").getkeys();
-      // post("ignored:",ignore_patch_attrs,'\n')
-      // post("patcher attributes:",patcher_attributes,'\n')
       for (var v in patcher_attributes){
-        // if (ignore_patch_attrs.indexOf(patcher_attributes[v]) == -1)
         if ((/.*color.*/).test(patcher_attributes[v]) || (fonts == 1 && (/font.+/).test(patcher_attributes[v])))
         {
-          // post(patcher_attributes[v],'\n');
-
-          // var complex_color = thisobjc.get("patcher_style::"+patcher_attributes[v]); // dictionary ?
-          // if (complex_color instanceof Array) this.patcher.parentpatcher.setattr(patcher_attributes[v],thisobjc.get("patcher_style::"+patcher_attributes[v]));
-          // else if (complex_color.name) this.patcher.parentpatcher.setattr(patcher_attributes[v],"dictionary",complex_color.name)
           var complex_color = thisobjc.get("patcher_style::"+patcher_attributes[v]).name; // dictionary ?
           if (complex_color === undefined) this.patcher.parentpatcher.setattr(patcher_attributes[v],thisobjc.get("patcher_style::"+patcher_attributes[v]));
           else if (complex_color) {
             this.patcher.parentpatcher.setattr(patcher_attributes[v],"dictionary",complex_color)
-            // post("dictionary",complex_color.get("type"))
           }
         }
       }
@@ -263,7 +279,7 @@ function obj_default(e){
   if (objects == 1) {
     if (obj_class.substr(0,3) == "mc." && thisobjc.contains(obj_class) == 0) obj_class = obj_class.substr(3,obj_class.length-3);
     else if ((obj_class.substr(0,4) == "mcs." || obj_class.substr(0,4) == "mcp.") && thisobjc.contains(obj_class) == -1) obj_class = obj_class.substr(4,obj_class.length-4);
-    if (thisobjc.contains(obj_class) == 1 && (exclude.indexOf(obj_class) == -1 || singles.indexOf(obj_class) !== -1) && obj_class !== "mc.combine~")
+    if (thisobjc.contains(obj_class) == 1 && (exclude.indexOf(obj_class) == -1 || singles.indexOf(obj_class) !== -1) /* && obj_class !== "mc.combine~"*/)
     {
       var attrs = thisobjc.get(obj_class).getkeys();
       if (obj_class == "live.line" && thispatch == 1) e.message("sendbox","linecolor",default_style.get("elementcolor"));
@@ -292,30 +308,17 @@ function obj_default(e){
 // APPLY CUSTOM PER OBJECT
 function obj_apply(e){
   var obj_class = e.maxclass;
-  // print("SUBSTRING",(obj_class.substr(0,4)));
-  // print(obj_class);
-  // if (obj_class.match(/mc\..+/)) error("matched!\n");
-  // print("CONTAINS",obj_class,"?",thisobjc.contains(obj_class))
   if (obj_class == "comment" && thispatch == 1) {
     var tc = (e.getboxattr("bubble") == 1 && e.getboxattr("bubbleusescolors") == 0) ? [0., 0., 0., 1.] : thisobjc.get("patcher_style").get("textcolor"); // add bubble opton here
     e.setattr("textcolor",tc);
   }
   if ((obj_class.match(/mc\..+/)) && thisobjc.contains(obj_class) == 0) obj_class = obj_class.substr(3,obj_class.length-3);
-  // if ((obj_class.match(/mc\..+/)) && thisobjc.contains(obj_class) == -1) { obj_class = obj_class.substr(3,obj_class.length-3); print(obj_class,"is an mc.-object"); };
   if ((obj_class.substr(0,4) == "mcs." || obj_class.substr(0,4) == "mcp.") && thisobjc.contains(obj_class) == 0) obj_class = obj_class.substr(4,obj_class.length-4);
   if (obj_class == "live.line" && thispatch == 1) e.setboxattr("linecolor", textcolor);
-  // print("CLASS STRIP",obj_class,obj_class.substr(4,obj_class.length-4));
   if (obj_class == "patcher") { obj_class = e.getattr("name"); } // post(obj_class,'\n')
-  if (thisobjc.contains(obj_class) == 1 && obj_class !== "mc.combine~" && obj_class !== "message") {
-    // print("contains",obj_class);
-  // if (thisobjc.contains(obj_class) == 1 && obj_class !== "mc.combine~") {
-  // if (obj_class == "patcher") {
-    //   e.setboxattr("textcolor",thisobjc.get("patcher_style::bgcolor"))
-    //   e.setboxattr("bgcolor",thisobjc.get("patcher_style::textcolor_inverse"))
-    // }
+  if (thisobjc.contains(obj_class) == 1 /* && obj_class !== "mc.combine~"*/ && obj_class !== "message") {
     if (exclude.indexOf(obj_class) == -1 || singles.indexOf(obj_class) !== -1){
       var attrs = thisobjc.get(obj_class).getkeys();
-      // if (obj_class == "live.line" && thispatch == 1) e.message("sendbox","linecolor",objc.get(obj_class).get("linecolor").slice(1,5));
       if (objects == 1) {
         if (attrs.length) // else if
           {
@@ -325,7 +328,6 @@ function obj_apply(e){
               e.setboxattr(obj_attr,thisobjc.get(obj_class).get(attrs[a]).slice(1,5));
             }
             else {
-              // post(attrs,"no instance of Array\n")
               var obj_attr = (attrs == "bordercolor") ? "color" : attrs;
               e.setboxattr(obj_attr,thisobjc.get(obj_class).get(attrs).slice(1,5));
             }
@@ -344,7 +346,6 @@ function obj_apply(e){
     e.setboxattr("color",obj_color);
     e.setboxattr("textcolor",obj_textcolor);
   }
-  // else   print(obj_class)
   if (e.maxclass == "patcher" && !thisobjc.contains(obj_class)) {
     e.setboxattr("textcolor",thisobjc.get("patcher_style::bgcolor"))
     e.setboxattr("bgcolor",thisobjc.get("patcher_style::textcolor_inverse"))
@@ -352,12 +353,7 @@ function obj_apply(e){
   if (e.maxclass == "patcher" && descend == 1 && thispatch == 1) {
     var patcher_attributes = thisobjc.get("patcher_style").getkeys();
     for (var v in patcher_attributes){
-      // if (ignore_patch_attrs.indexOf(patcher_attributes[v]) == -1)
       if ((/.*color.*/).test(patcher_attributes[v]))
-      // {
-      //   // post(patcher_attributes[v],objc.get("patcher_style::"+preset+"::"+patcher_attributes[v]),'\n')
-      //   e.setattr(patcher_attributes[v],thisobjc.get("patcher_style::"+patcher_attributes[v]));
-      // }
       {
         var complex_color = thisobjc.get("patcher_style::"+patcher_attributes[v]).name; // dictionary ?
         if (complex_color == undefined)
@@ -416,7 +412,6 @@ function grab(presetname){
     var p_attrs = new Dict("rgb.patcher.style");
     for (var p in p_attr_names){
       p_attrs.replace(p_attr_names[p],this.patcher.parentpatcher.getattr(p_attr_names[p]));
-      // post(p_attr_names[p],this.patcher.parentpatcher.getattr(p_attr_names[p]),'\n')
     }
     this_preset = presetname;
     objc.replace(presetname+"::patcher_style","dictionary",p_attrs.name);
@@ -428,9 +423,8 @@ function grab(presetname){
       (descend == 1) ? this.patcher.parentpatcher.applydeep(single_grab) : this.patcher.parentpatcher.apply(single_grab);
     }
     dictexport();
-    thisparse();
-    // thisobjc.replace(objc.get(presetname));
     preset = presetname;
+    thisparse();
     p_attrs.freepeer();
     outlet(0,"written style '"+presetname+"' to the.rgb.layouts.json");
     update();
@@ -505,6 +499,7 @@ function duplicate(d){
     objc.replace(d,"dictionary",objc.get(preset).name)
     dictexport();
     outlet(0,"duplicated current style '"+preset+"' into new style '"+d+"' in the.rgb.layouts.json")
+    getpresets()
     preset = d;
   }
 }
@@ -553,6 +548,53 @@ function msg_int(i){
   }
 }
 
+function merge(a,b){
+  if (locked) outlet(0,"presets cannot be merged unless the @locked flag is set '0' (by default '1')");
+  else {
+    var presets = objc.getkeys()
+    var allow_merge = 0;
+    if (a && b) {
+      if (presets.indexOf(a) !== -1 && presets.indexOf(b) !== -1) { presets = [a,b]; allow_merge = 1 }
+      else post("please provide two valid preset names to merge\n")
+    }
+    else if (a){
+      if (presets.indexOf(a) !== -1) { prioritize(presets,a); allow_merge = 1 }
+      else post("please provide a valid preset to merge from")
+    }
+    else allow_merge = 1;
+
+    if (allow_merge)
+    {
+      var merge_dict = new Dict("all.objs");
+      merge_dict.clear();
+      presets.forEach(function (p) {
+        var p_objs = objc.get(p).getkeys();
+        if (p_objs instanceof Array)
+          p_objs.forEach(function (obj,i) {
+            if (obj !== "patcher_style" && !merge_dict.contains(obj)) merge_dict.replace(obj,objc.get(p+"::"+obj))
+          });
+      });
+      merge_dict.getkeys().forEach(function (o) {
+        presets.forEach(function (prst) {
+          if (!objc.contains(prst+"::"+o)) objc.replace(prst+"::"+o,merge_dict.get(o))
+        })
+      })
+      objc.writeagain();
+      merge_dict.freepeer();
+      thisparse();
+      outlet(0,"merged presets "+presets+" in the.rgb.layouts.json")
+    }
+  }
+}
+
+prioritize.local = 1;
+function prioritize(arr,element) {
+    var orig_pos = arr.indexOf(element);
+    arr.splice(arr.indexOf(element),1);
+    arr.splice(0,0,element);
+}
+
+
 // ————————————————————————————————————————————————————————————————————————————————————————————————
 
 // MANAGE DICTIONARY
@@ -560,7 +602,7 @@ function thisparse(){
   thisobjc.clear();
   (objc.contains(preset)) ? thisobjc.clone(objc.get(preset).name) : thisobjc.clone(objc.get("xenorama").name);
   if (loaded) output_colormat();
-}
+} thisparse.local = 1;
 
 function dictexport(){
   objc.writeagain();
@@ -575,55 +617,49 @@ function reloaddict(){
   thisparse();
 }
 
-// // SAVE LAYOUT
-// function backup(){
-//
-// }
+function rebuild(){
+  var presets = objc.getkeys()
+  presets.forEach(function (p) {
+    var p_objs = objc.get(p).getkeys();
+    if (p_objs instanceof Array)
+      p_objs.forEach(function (obj,i) {
+        if (!isNaN(obj) || obj == "prepend" || obj == "append") objc.remove(p+"::"+obj)
+        else if (obj !== "patcher_style"){
+          var po_vals = objc.get(p+"::"+obj).getkeys();
+          if (po_vals instanceof Array)
+            po_vals.forEach(function (attr) {
+              if (attr == "color" && po_vals.indexOf("bordercolor") !== -1) objc.remove(p+"::"+obj+"::color")
+              else if (attr == "color") objc.replace(p+"::"+obj+"::bordercolor",objc.get(p+"::"+obj+"::color"))
+              var poa_vals = objc.get(p+"::"+obj+"::"+attr)
+              var c = poa_vals;
+              if (poa_vals instanceof Array) {
+                if (c.length > 5) {
+                  var d = [obj]
+                  var e = c.length
+                  d.push(c[e-4],c[e-3],c[e-2],c[e-1])
+                }
+                if (isNaN(c[1])) c.splice(1,1);
+                if (c.length == 4) {
+                  c.push(1);
+                }
+                objc.replace(p+"::"+obj+"::"+attr,obj,c[1],c[2],c[3],c[4]);
+              }
+            });
+        }
+      });
+  });
+  objc.writeagain();
+}
+
+function save(){
+  dictexport();
+}
 
 // CONSOLE WITH LINE BREAK
 function print(){
   post(arrayfromargs(arguments),'\n');
 } print.local = 1;
 
-function output_colormat(){
-  var mat = new JitterMatrix(4,"float32",1,3)
-  var patch_colors = []
-  var patch_attrs = thisobjc.get("patcher_style").getkeys()
-  patch_attrs.forEach(function (x,i) {
-    if ((/.*color$/).test(x)) patch_colors.push(thisobjc.get("patcher_style::"+patch_attrs[i]))
-  });
-  mat.dim = [patch_colors.length * 16,4];
-  outlet(2,"dim",mat.dim[0],64);
-  for (c=0;c<patch_colors.length;c++) {
-    var f = patch_colors[c]
-    if (f instanceof Array) for(d=0;d<16;d++) { mat.setcell2d(d+c*16,0,f) }
-    else {
-      if (f.get("type") == "gradient") {
-        var fx = f.get("color1")
-        var fy = f.get("color2")
-        if (fx instanceof Array) for(d=0;d<16;d++) { mat.setcell2d(d+c*16,1,fx) }
-        if (fy instanceof Array) for(d=0;d<16;d++) { mat.setcell2d(d+c*16,2,fy); mat.setcell2d(d+c*16,3,1) }
-      }
-    }
-  }
-  outlet(2,"jit_matrix",mat.name);
-}
-
-function dict_view(){
-  thisstate.replace("preset name:",preset);
-  thisstate.replace("locked:",locked);
-  thisstate.replace("descend into subpatchers:",descend);
-  thisstate.replace("apply patcher colors:",thispatch);
-  thisstate.replace("apply object colors:",objects);
-  thisstate.replace("excluded objects:",exclude);
-  thisstate.replace("change fonts with preset:",fonts);
-  thisstate.replace("apply Max default layout:",default_layout);
-  thisstate.replace("patcher opacity:",opacity);
-  thisstate.replace("grab objects:",grab_objects);
-  thisstate.replace("verbose:",verbose);
-  outlet(3,"dictionary",thisstate.name);
-
-}
 
 function loadbang(){
   loaded = 1;

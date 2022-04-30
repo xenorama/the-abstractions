@@ -1,5 +1,3 @@
-// max.clearmaxwindow()
-
 inlets=1;
 outlets=1;
 
@@ -23,9 +21,6 @@ function init()
 {
 	dict = max.getrefdict(name);
  	args = dict.get("attributes");
- 	// args = dict.get("objargs");
-	// if(args) if(args.getkeys() instanceof Array) for(var i=0;i<args.getkeys().length;i++) value[i] = (args.getkeys()[i] + " " + "(" + args.get(args.getkeys()[i]).get("type") + "): " + args.get(args.getkeys()[i]+"::digest"));
-	// if(args) if(args.getkeys() instanceof Array) for(var i=0;i<args.getkeys().length;i++) value[i] = (args.getkeys()[i] + " " + "(" + args.get(args.getkeys()[i]).get("type") + ") --> "+ args.get(args.getkeys()[i]).get("default"));
 	if(args) if(args.getkeys() instanceof Array) for(var i=0;i<args.getkeys().length;i++) value[i] = (args.getkeys()[i] + " " + "(" + args.get(args.getkeys()[i]).get("type") + ")");
 	dict.freepeer();
 	if(args) { args.freepeer(); }
