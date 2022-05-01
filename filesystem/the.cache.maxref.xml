@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.cache" module="max" category="Data">
+
+	<digest>
+		View and empty a Max application's cache folder
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2020, www.xenorama.com. <br/>
+		View and delete any unwanted files from Max' cache folder. When used in an executable/standalone requires the application's name as argument or symbol in rightmost inlet.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Max</metadata>
+		<metadata name="tag">Data</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="standalone-name" optional="1" type="symbol" size="1">
+			<digest>
+				Name of standalone application
+			</digest>
+			<description>
+				Name of standalone application. By default, <o>the.cache</o> manages the cache folder of the Max application (default: <m>Max 8</m>). An additional symbol can be provided to manage the cache folder of the Max standalone by the same name instead.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="types" get="1" set="1" type="symbol" size="1">
+		<digest>
+			Specify file types to filter
+		</digest>
+		<description>
+			Specify file types to filter. See the <m>gettypes</m> method to post supported filetype-nomenclature to the Max window or check the <o>folder</o> helpfile.
+			<br/>
+			The default is <m>types</m> without any argument, listing and managing all files.
+		</description>
+	</attribute>
+		<attribute name="post" get="1" set="1" type="list" size="1">
+		<digest>
+			Post executed commands to Max Window
+		</digest>
+		<description>
+			Post executed commands to Max Window (default: 1). When disabled, the user will not be notified about cleared files, however, the abstraction is based around <o>node.script</o> which posts its file handling steps to the console.
+		</description>
+	</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Populate attached menu with cache files
+			</digest>
+			<description>
+				Populate attached menu with cache files. If a <o>umenu</o> or <o>chooser</o> is connected to the middle outlet of <o>the.cache</o>, sending <m>bang</m> to the first inlet will populate the menu with all files in the cache folder specified by the <at>types</at> attribute.
+				<br/>
+				The menu entries can be used to manually remove single files using the <m>remove</m> method.
+			</description>
+		</method>
+		<method name="empty">
+			<arglist>
+			</arglist>
+			<digest>
+				Will delete all files from the cache folder
+			</digest>
+			<description>
+				Will delete all files from the cache folder of the specified filetype.
+			</description>
+		</method>
+		<method name="reveal">
+			<arglist>
+			</arglist>
+			<digest>
+				Open and view the cache folder
+			</digest>
+			<description>
+				The word <m>reveal</m> Will launch the filebrowser and open the cahce folder.
+			</description>
+		</method>
+		<method name="remove">
+			<arglist>
+			</arglist>
+			<digest>
+				Delete single files from cache folder
+			</digest>
+			<description>
+				Delete single files from cache folder. Only the filename is required, not the entire filepath since it is assumed we are targeting the cache folder.
+			</description>
+		</method>
+		<method name="gettypes">
+			<arglist>
+			</arglist>
+			<digest>
+				Post supported filetypes to the max console
+			</digest>
+			<description>
+				Post supported filetypes to the max console. The match those filetypes supported by the <o>fodler</o> object. Any of the listed filetypes can be specified using the <at>types</at> attribute.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

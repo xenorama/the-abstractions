@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.schedule" module="max" category="Timing">
+
+	<digest>
+		Specify time slot scenes for unattended installations
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2022, www.xenorama.com. <br/>
+		Specify scenes as time slots in ISO8601 code (hh:mm:ss) to set modes of a patch while unattended. An external file can be used and modified along a determined syntax, or scene times, names and numeric output mappings can be hard-coded to the object box instead.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Max</metadata>
+		<metadata name="tag">Timing</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="filename" optional="1" type="symbol" size="1">
+			<digest>
+				Textfile to be loaded
+			</digest>
+			<description>
+				Textfile to be loaded. File must contain at least a 'scenes' entry followed by a list of ISO8601 timecodes (hh:mm:ss) and optionally a 'names' and 'map' list. See the <at>scenes</at>, <at>names</at> and <at>map</at> listings for more detail.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="file" get="1" set="1" type="symbol" size="1">
+		<digest>
+			Textfile to be loaded
+		</digest>
+		<description>
+			Textfile to be loaded. File must contain at least a 'scenes' entry followed by a list of ISO8601 timecodes (hh:mm:ss) and optionally a 'names' and 'map' list. See the <at>scenes</at>, <at>names</at> and <at>map</at> listings for more detail.
+		</description>
+	</attribute>
+		<attribute name="scenes" get="1" set="1" type="symbol" size="1">
+		<digest>
+			List of time slots
+		</digest>
+		<description>
+			List of time slots in ISO8601 code. Supported entries are of type <m>hh:mm:ss</m>, <m>hh:mm</m> or <m>hh</m> — number paddying can be ignored for simplicity.
+		</description>
+	</attribute>
+	<attribute name="names" get="1" set="1" type="list" size="1">
+	<digest>
+		List of scene names
+	</digest>
+	<description>
+		List of scene names. The name of the current scene will always be output from the second outlet and if a names-list is provided, a sub-dictionary with a comprehensive name/scene table is output from the dump outlet.
+	</description>
+</attribute>
+	<attribute name="map" get="1" set="1" type="list" size="1">
+	<digest>
+		List of numeric scene mappings
+	</digest>
+	<description>
+		List of numeric scene mappings. When not specified (default), scenes are icnremented starting from '1' from the leftmost outlet. '0' is reserved since it represents the assumed idle state of the installation. Should no idle sate be desired, the slot between the last and the first entry can be used as '0', i.e. the last/first scene.<br/>
+		Note that symbols are not supported as mapping entries and will always be converted to -1.
+	</description>
+</attribute>
+	<attribute name="mode" get="1" set="1" type="bool" size="1">
+	<digest>
+		Specify absolute or relative mode
+	</digest>
+	<description>
+		Specify absolute or relative mode. By default, the mode is <m>0</m> (absolute) using 24 hours of clock time. When set to <m>1</m> (relative), all specified time slots will be counted towards from the moment <o>the.schedule</o> is launched or generally acitvated. In relative mode, the internal clock stops running upon reaching the final slot and will revert to <m>0</m> accordingly.<br/>
+		Disclaimer: relative mode has not been tested under all crcumstances and surely yields output errors in the ISO8601-domain.
+	</description>
+</attribute>
+	<attribute name="active" get="1" set="1" type="bool" size="1">
+	<digest>
+		Set the active flag of the schedule
+	</digest>
+	<description>
+		Set the active flag of the schedule. When deactivated, <o>the.schedule</o> will not output any timing data antil it is flagged again.<br/>
+		Same as <at>int</at>.
+	</description>
+</attribute>
+	<attribute name="int" get="1" set="1" type="int" size="1">
+	<digest>
+		Set the active flag of the schedule
+	</digest>
+	<description>
+		Set the active flag of the schedule. When deactivated, <o>the.schedule</o> will not output any timing data antil it is flagged again.<br/>
+		Same as <at>active</at>.
+	</description>
+</attribute>
+	<attribute name="quiet" get="1" set="1" type="bool" size="1">
+	<digest>
+		Don't print info to the Max console
+	</digest>
+	<description>
+		Don't print info to the Max console
+	</description>
+</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Re-send current status out all outlets
+			</digest>
+			<description>
+				Re-send current status out all outlets. This includes a dictionary from the dump outlet.
+			</description>
+		</method>
+		<method name="inc">
+			<arglist>
+			</arglist>
+		<digest>
+		  Increment timecode
+		</digest>
+		<description>
+		  Increment timecode. Useful when testing installations at times other than the schedule, supported formats are both <m>hh:mm:ss</m> and spaces instead of colons, unlike with the <at>scenes</at> method.
+		</description>
+		</method>
+		<method name="dec">
+			<arglist>
+			</arglist>
+		<digest>
+		  Decrement timecode
+		</digest>
+		<description>
+		  Decrement timecode. Useful when testing installations at times other than the schedule, supported formats are both <m>hh:mm:ss</m> and spaces instead of colons, unlike with the <at>scenes</at> method.
+		</description>
+		</method>
+		<method name="query">
+			<arglist>
+			</arglist>
+		<digest>
+		  Output info dictionary
+		</digest>
+		<description>
+		  Output info dictionary from the dump outlet
+		</description>
+		</method>
+		<method name="dictionary">
+			<arglist>
+			</arglist>
+		<digest>
+		  Modify all internal data
+		</digest>
+		<description>
+		  Modify all internal data
+		</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

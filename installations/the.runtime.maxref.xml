@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.runtime" module="max" category="Data">
+
+	<digest>
+		Query runtime mode and application path
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2020, www.xenorama.com. <br/>
+		Query the runtime mode of a patch or standalone application to further adapt file paths and preferences in the application accordingly. The path to the application as well as subfolders can be queried based on the current runtime mode.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Max</metadata>
+		<metadata name="tag">Data</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="autoquery" optional="1" type="anything" size="1">
+			<digest>
+				Query and send runtime information on load
+			</digest>
+			<description>
+				Add any nonzero argument to query and send runtime information on load. <br/>
+				The default is 0 (disabled).
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="p" get="1" set="1" type="symbol" size="1">
+		<digest>
+			Receive port to send path to
+		</digest>
+		<description>
+			Provide an available receive port to send the patcher/application's path to.
+		</description>
+	</attribute>
+		<attribute name="rt" get="1" set="1" type="symbol" size="1">
+		<digest>
+			Receive port to send runtime flag to
+		</digest>
+		<description>
+			Provide an available receive port to send the runtime flag to.
+		</description>
+	</attribute>
+	<attribute name="c74sub" get="1" set="1" type="list" size="1">
+	<digest>
+		Target specific subfolder of an application's Resources
+	</digest>
+	<description>
+		Target specific subfolder of an application's Resources (only for standalones). Instead of the actual application path, the word <m>c74sub</m> followed by a symbol representing a valid folder within the Resource-folder of the application will format the application path to accordingly point to this directory. Common desirable folders to scan or write to are <m>media</m> or <m>data</m>. <br/>
+		Hence, the attribute <m>@c74sub media</m> would yield the internal application's path to its 'media'-folder (…/[standalone]/Contents/C74/Resources/media/).
+	</description>
+</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Get runtime flag and path
+			</digest>
+			<description>
+				Get runtime flag and path. <br/>
+				leftmost outlet: path of patcher if runtime is 0 <br/>
+				middle outlet: path of standalone if runtime is 1 <br/>
+				rightmost outlet: runtime flag (0/1)
+			</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

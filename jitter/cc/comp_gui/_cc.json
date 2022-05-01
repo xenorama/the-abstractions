@@ -1,0 +1,17 @@
+{
+	"pattrstorage" : 	{
+		"name" : "cc",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"data" : 				{
+					"the.jit.gl.cc.comp::cc_comp" : [ 17 ]
+				}
+
+			}
+
+		}
+
+	}
+
+}

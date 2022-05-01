@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.bzmap~" module="msp" category="MC, busymaps">
+
+	<digest>
+		Provide and manage a Signal-driven named Busymap
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2020, www.xenorama.com. <br/>
+		Allows for dynamically managing Busymaps of MC-Objects based on values in a global Buffer using the same name, or by means of an incoming Multichannel-Signal.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">MC-busymaps</metadata>
+		<metadata name="tag">MSP</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="number-of-channels" optional="0" type="int" size="1">
+			<digest>
+				Specify a maximum number of voices
+			</digest>
+			<description>
+				Specify a maximum number of voices. These can be muted or toggled into busy state for mc-objects using the <at>bzname</at> attribute with this named busymap. Their initial number of channels defines how many of the busymap channels these objects can use.
+			</description>
+		</objarg>
+		<objarg name="busymapname" optional="0" type="symbol" size="1">
+			<digest>
+				Provide the name for this global busymap
+			</digest>
+			<description>
+				Provide the name for this global busymap. This name is also used for the buffer which it reads its busymap from. This buffer's values can be modified externally to manage busymaps dynamically.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="map" get="1" set="1" type="list" size="1">
+		<digest>
+			List of nonzero values activates voices
+		</digest>
+		<description>
+			List of nonzero values activates respective voices. Shorter lists than the total number of channels is allowed, but unaddressed voices will be ignored.
+		</description>
+	</attribute>
+		<attribute name="voice" get="1" set="1" type="list" size="1">
+		<digest>
+			Toggle specific voices
+		</digest>
+		<description>
+			Toggle specific voices. A list consisting of index (zero-based) and value will toggle the respective voice. Several pairs can be toggled using one list command.
+		</description>
+	</attribute>
+	<attribute name="mute" get="1" set="1" type="int" size="1">
+		<digest>
+			Toggle the mute flag for entire busymap
+		</digest>
+		<description>
+			Toggle the mute flag for entire busymap. When set to '1' all voices will be muted, when set to '0' all voices will be activated regardless of previous map.
+		</description>
+	</attribute>
+			<attribute name="threshold" get="1" set="1" type="float" size="1">
+			<digest>
+				Specify an activation threshold
+			</digest>
+			<description>
+				Specify an activation threshold. The default is 0 (any non-zero value will activate voices). Any normalised float value (0.-1.) will only activate voices if its value exceed the given threshold.
+			</description>
+		</attribute>
+		<attribute name="manual" get="1" set="1" type="int" size="1">
+		<digest>
+			Set voice activation mode
+		</digest>
+		<description>
+			Set voice activation mode. The default is 0 (buffer-based). When set to '1' any incoming multichannelsignal will handle activation of voices in the busymap and the buffer contents will be ignored.
+		</description>
+	</attribute>
+		<attribute name="cpumonitor" get="1" set="1" type="int" size="1">
+		<digest>
+			Set CPU-Monitoring interval (ms)
+		</digest>
+		<description>
+			Set CPU-Monitoring interval (ms). The default is 0 (no CPU-Monitoring). Higher integer values specify time (in ms) between successive CPU-usage queries; the current CPU-usage is sent out the right outlet (0-100).
+		</description>
+	</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Manual CPU-usage query
+			</digest>
+			<description>
+				Manual CPU-usage query. The current CPU-usage will be sent out the right outlet (0-100).
+			</description>
+		</method>
+		<method name="map">
+			<arglist>
+			</arglist>
+			<digest>
+				List of nonzero values activates voices
+			</digest>
+			<description>
+				List of nonzero values activates voices
+			</description>
+		</method>
+		<method name="voice">
+			<arglist>
+			</arglist>
+			<digest>
+				Toggle specific voices
+			</digest>
+			<description>
+				Toggle specific voices
+			</description>
+		</method>
+		<method name="mute">
+			<arglist>
+			</arglist>
+			<digest>
+				Toggle the mute flag for entire busymap
+			</digest>
+			<description>
+				Toggle the mute flag for entire busymap
+			</description>
+		</method>
+		<method name="threshold">
+			<arglist>
+			</arglist>
+			<digest>
+				Specify an activation threshold
+			</digest>
+			<description>
+				Specify an activation threshold
+			</description>
+		</method>
+		<method name="manual">
+			<arglist>
+			</arglist>
+			<digest>
+				Set voice activation mode
+			</digest>
+			<description>
+				Set voice activation mode
+			</description>
+		</method>
+<method name="cpumonitor">
+	<arglist>
+	</arglist>
+	<digest>
+		Set CPU-Monitoring interval (ms)
+	</digest>
+	<description>
+		Set CPU-Monitoring interval (ms)
+	</description>
+</method>
+<method name="multichannelsignal">
+	<arglist>
+	</arglist>
+	<digest>
+		Set busymap manually
+	</digest>
+	<description>
+		Set busymap manually when the <at>manual</at> flag is set to '1', otherwise the internal buffer handles the busymap.
+	</description>
+</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

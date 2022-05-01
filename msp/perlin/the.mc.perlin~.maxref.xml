@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.perlin~" module="msp" category="Audio">
+
+	<digest>
+		Generate Perlin-Noise function with easing interpolation (Multi-Channel)
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2020, www.xenorama.com. <br/>
+		Reads from Ken Perlins procedural noise function and interpolates between successive values for pseudo-random progressions. The output is either normalized or signed.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Msp</metadata>
+		<metadata name="tag">Function</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="maximum-number-of-channels" optional="0" type="int" size="1">
+			<digest>
+				Initial number of channels in the multichannel-signal
+			</digest>
+			<description>
+				Initial number of channels in the multichannel-signal. Any incoming multichannel-signal will override the initial count but never exceeds it.
+			</description>
+		</objarg>
+		<objarg name="initial-frequency" optional="1" type="float" size="1">
+			<digest>
+				Initial frequency in Hz
+			</digest>
+			<description>
+				Initial frequency in Hz. Any non-zero incoming signal will override the initial frequency, see the <m>multichannelsignal</m> method. Providing more than one value will apply the respective frequencies to channels in the multichannel-signal.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="ease" get="1" set="1" type="int" size="1">
+		<digest>
+			Easing interpolation between successive values
+		</digest>
+		<description>
+			Easing interpolation between successive values.<br/>
+			10 Easing functions are available, all of which interpolate birectionally:<br/>
+			0 = Quadratic<br/>
+			1 = Cubic<br/>
+			2 = Quartic<br/>
+			3 = Quintic<br/>
+			4 = Sine<br/>
+			5 = Circular<br/>
+			6 = Exponential<br/>
+			7 = Elastic<br/>
+			8 = Back<br/>
+			9	= Bounce<br/>
+			The default is <m>4</m> (Sine).
+		</description>
+	</attribute>
+	<attribute name="ease_amt" get="1" set="1" type="float" size="1">
+	<digest>
+		Amount of easing to be applied
+	</digest>
+	<description>
+		Amount of easing to be applied. A normalized floating point value of 0.-1. sets the amount of easing interpolation to be applied between successive values.<br/>
+		The default is <m>1</m> (full easing), a value of <m>0</m> results in linear interpolation (no easing). This setting is dependent on the <at>interp</at> amount.
+	</description>
+</attribute>
+<attribute name="interp" get="1" set="1" type="float" size="1">
+<digest>
+	Amount of interpolation to be applied
+</digest>
+<description>
+	Amount of interpolation to be applied. A normalized floating point value of 0.-1. sets the amount of fundamental interpolation to be applied between successive values.<br/>
+	The default is <m>1</m> (full interpolation), a value of <m>0</m> results in clipped sample jumps.
+</description>
+	</attribute>
+	<attribute name="sign" get="1" set="1" type="bool" size="1">
+	<digest>
+		Signed output
+	</digest>
+	<description>
+		Signed Output (default: <m>1</m>)<br/>
+		0 = normalized (0.-1.)
+	</description>
+</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="multichannelsignal">
+			<arglist>
+			</arglist>
+			<digest>
+				Override initial frequencies (Hz) and channelcount
+			</digest>
+			<description>
+				Override initial frequencies and channelcount. Any multichannel-signal will be interpreted as frequency in Hz to fade between successive values while the channelcount will be applied to the output (clipped to initial count).
+			</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+	<mcwrapper>
+		<mcwrappermethod name="applyvalues" />
+		<mcwrappermethod name="deviate" />
+		<mcwrappermethod name="exponential" />
+		<mcwrappermethod name="harmonic" />
+		<mcwrappermethod name="increment" />
+		<mcwrappermethod name="replicatevalues" />
+		<mcwrappermethod name="scaledexponential" />
+		<mcwrappermethod name="setvalue" />
+		<mcwrappermethod name="setvaluerange" />
+		<mcwrappermethod name="spread" />
+		<mcwrappermethod name="spreadexclusive" />
+		<mcwrappermethod name="spreadincludefirst" />
+		<mcwrappermethod name="spreadincludesecond" />
+		<mcwrappermethod name="spreadinclusive" />
+		<mcwrappermethod name="subharmonic" />
+		<mcwrapperattr name="busymapname" />
+		<mcwrapperattr name="bz" />
+		<mcwrapperattr name="bzname" />
+		<mcwrapperattr name="chans" />
+		<mcwrapperattr name="initialvalues" />
+		<mcwrapperattr name="replicate" />
+		<mcwrapperattr name="target" />
+		<mcwrapperattr name="usebusymap" />
+		<mcwrapperattr name="values" />
+		<mcwrapperattr name="zero" />
+	</mcwrapper>
+
+</c74object>

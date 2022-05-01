@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.wrapper~" module="msp" category="Multichannel">
+
+	<digest>
+		Manage messages and attributes for mc.objects~ in an abstraction
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2020, www.xenorama.com. <br/>
+		Distribute hard-coded attributes and incoming messages to mc.objects~ within an abstraction with up to 5 variations. 'setvalue' messages directed at attributes of specific voices can be handled separately.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">msp</metadata>
+		<metadata name="tag">Multichannel</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<!-- <objarglist>
+		<objarg name="maximum-number-of-channels" optional="0" type="int" size="1">
+			<digest>
+				Initial number of channels in the multichannel-signal
+			</digest>
+			<description>
+				Initial number of channels in the multichannel-signal. Any incoming multichannel-signal will override the initial count but never exceeds it. Pass down any pound-sign patcher argument (#) as initial first argument to <o>the.mc.wrapper~</o>.
+			</description>
+		</objarg>
+	</objarglist> -->
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="out2" get="1" set="1" type="int" size="1">
+	  <digest>
+	    Specify messages and attributes for outlet 2
+	  </digest>
+	  <description>
+	    Specify messages and attributes for outlet 2. <br/>
+	    By default all outlets forward all mc-related messages and attributes. Providing specific messages/attributes will output only those to this outlet. Adding a <m>-</m> will sforward everything except the listed entries.<br/>
+	    For example, the attribute <m>@out2 -bzname -chans</m> will not forward busymapnames nor channelcount to outlet 1 but everything else. Note that <m>bzname</m> and <m>busymapname</m> are interchangeable, as well as <m>bz</m> and <m>usebusymap</m>.<br/>
+	    <br/>
+	    For convenience, every outlet provides information about its distributing messages/attributes on hover.
+	  </description>
+	</attribute>
+	<attribute name="out3" get="1" set="1" type="int" size="1">
+	  <digest>
+	    Specify messages and attributes for outlet 3
+	  </digest>
+	  <description>
+	    Specify messages and attributes for outlet 3. <br/>
+	    By default all outlets forward all mc-related messages and attributes. Providing specific messages/attributes will output only those to this outlet. Adding a <m>-</m> will sforward everything except the listed entries.<br/>
+	    For example, the attribute <m>@out3 -bzname -chans</m> will not forward busymapnames nor channelcount to outlet 1 but everything else. Note that <m>bzname</m> and <m>busymapname</m> are interchangeable, as well as <m>bz</m> and <m>usebusymap</m>.<br/>
+	    <br/>
+	    For convenience, every outlet provides information about its distributing messages/attributes on hover.
+	  </description>
+	</attribute>
+	<attribute name="out4" get="1" set="1" type="int" size="1">
+	  <digest>
+	    Specify messages and attributes for outlet 4
+	  </digest>
+	  <description>
+	    Specify messages and attributes for outlet 4. <br/>
+	    By default all outlets forward all mc-related messages and attributes. Providing specific messages/attributes will output only those to this outlet. Adding a <m>-</m> will sforward everything except the listed entries.<br/>
+	    For example, the attribute <m>@out4 -bzname -chans</m> will not forward busymapnames nor channelcount to outlet 1 but everything else. Note that <m>bzname</m> and <m>busymapname</m> are interchangeable, as well as <m>bz</m> and <m>usebusymap</m>.<br/>
+	    <br/>
+	    For convenience, every outlet provides information about its distributing messages/attributes on hover.
+	  </description>
+	</attribute>
+	<attribute name="out5" get="1" set="1" type="int" size="1">
+		<digest>
+			Specify messages and attributes for outlet 5
+		</digest>
+		<description>
+			Specify messages and attributes for outlet 5. <br/>
+			By default all outlets forward all mc-related messages and attributes. Providing specific messages/attributes will output only those to this outlet. Adding a <m>-</m> will sforward everything except the listed entries.<br/>
+			For example, the attribute <m>@out5 -bzname -chans</m> will not forward busymapnames nor channelcount to outlet 1 but everything else. Note that <m>bzname</m> and <m>busymapname</m> are interchangeable, as well as <m>bz</m> and <m>usebusymap</m>.<br/>
+			<br/>
+			For convenience, every outlet provides information about its distributing messages/attributes on hover.
+		</description>
+	</attribute>
+	<attribute name="out6" get="1" set="1" type="int" size="1">
+		<digest>
+			Specify messages and attributes for outlet 6
+		</digest>
+		<description>
+			Specify messages and attributes for outlet 6. <br/>
+			By default all outlets forward all mc-related messages and attributes. Providing specific messages/attributes will output only those to this outlet. Adding a <m>-</m> will sforward everything except the listed entries.<br/>
+			For example, the attribute <m>@out6 -bzname -chans</m> will not forward busymapnames nor channelcount to outlet 1 but everything else. Note that <m>bzname</m> and <m>busymapname</m> are interchangeable, as well as <m>bz</m> and <m>usebusymap</m>.<br/>
+			<br/>
+			For convenience, every outlet provides information about its distributing messages/attributes on hover.
+		</description>
+	</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+	<mcwrapper>
+		<mcwrappermethod name="applyvalues" />
+		<mcwrappermethod name="deviate" />
+		<mcwrappermethod name="exponential" />
+		<mcwrappermethod name="harmonic" />
+		<mcwrappermethod name="increment" />
+		<mcwrappermethod name="replicatevalues" />
+		<mcwrappermethod name="scaledexponential" />
+		<mcwrappermethod name="setvalue" />
+		<mcwrappermethod name="setvaluerange" />
+		<mcwrappermethod name="spread" />
+		<mcwrappermethod name="spreadexclusive" />
+		<mcwrappermethod name="spreadincludefirst" />
+		<mcwrappermethod name="spreadincludesecond" />
+		<mcwrappermethod name="spreadinclusive" />
+		<mcwrappermethod name="subharmonic" />
+		<mcwrapperattr name="busymapname" />
+		<mcwrapperattr name="bz" />
+		<mcwrapperattr name="bzname" />
+		<mcwrapperattr name="chans" />
+		<mcwrapperattr name="initialvalues" />
+		<mcwrapperattr name="replicate" />
+		<mcwrapperattr name="target" />
+		<mcwrapperattr name="usebusymap" />
+		<mcwrapperattr name="values" />
+		<mcwrapperattr name="zero" />
+	</mcwrapper>
+
+</c74object>

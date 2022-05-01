@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.jit.attr.wrapper" module="jit" category="Jitter">
+
+	<digest>
+		Automatically direct and filter messages to specific jitter objects (in an abstraction)
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2021, www.xenorama.com. <br/>
+		Route all relevant messages/attributes to specific jitter objects in an abstraction. This enables automatic routing and filtering ensuring maximum functionality.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">jit</metadata>
+		<metadata name="tag">Jitter System</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="jitter-object-name" optional="0" type="symbol" size="1">
+			<digest>
+				Target jitter object
+			</digest>
+			<description>
+				Target jitter object to which relevant messages are filtered. A jitter object of the same name should be connected to leftmost outlet and will receive only messages applicable to it.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="pass" get="1" set="1" type="int" size="1">
+			<digest>
+				Pass on all specific messages through rightmost outlet
+			</digest>
+			<description>
+				Pass on all specific messages through rightmost outlet too. The default is <m>1</m> (pass specific messages to target object and through rightmost outlet as well). When set to '0', all object-specific messages will be filtered and not passed on through rightmost outlet.
+			</description>
+		</attribute>
+		<attribute name="custom" get="1" set="1" type="list" size="1">
+			<digest>
+				Specify custom code params to be supported
+			</digest>
+			<description>
+				Specify custom code params to be supported for target <o>jit.gl.pix</o>, <o>jit.pix</o>, <o>jit.gen</o>, <o>jit.gl.slab</o> or <o>jit.gl.shader</o> objects. All custom shader params listed as symbol arguments for this attribute will be automatically routed to the respective object. In the case of <o>jit.gl.slab</o> or <o>jit.gl.shader</o> 'param' is prepended, this way no extra attribute routing needs to be performed thereafter, and the word 'param' is likewise idle.
+			</description>
+		</attribute>
+	</attributelist>
+
+	<!--MOP-->
+	<mop matrixinputcount="-1" matrixoutputcount="1">
+		<matrixoutput name="out" planelink="1" typelink="1" dimlink="1" minplanecount="1" maxplanecount="32" mindimcount="1" maxdimcount="32">
+			<types>
+				char long float32 float64
+			</types>
+		</matrixoutput>
+	</mop>
+
+		<!--MESSAGES-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealsolist>
+			<seealso name="jit.gen" />
+			<seealso name="jit.gl.pix" />
+			<seealso name="jit.expr" />
+			<seealso name="jit.matrix" />
+			<seealso name="jit.gl.slab" />
+			<seealso name="gen~" />
+			<seealso module="gen" name="gen_overview" type="vignette" />
+			<seealso module="gen" name="gen_genexpr" type="vignette" />
+			<seealso module="gen" name="gen_common_operators" type="vignette" />
+			<seealso module="gen" name="gen_jitter_operators" type="vignette" />
+		</seealsolist>
+	</seealsolist>
+
+</c74object>

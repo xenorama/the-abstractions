@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.gl.engine" module="max" category="Jitter">
+
+	<digest>
+		Specify the gl engine a Jitter GL patch uses
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2021, www.xenorama.com. <br/>
+		When sharing Jitter GL patches, including <o>the.gl.engine</o> can ensure a user is informed about the gl engine required and prompted to change it should it not match. This object can be used as a patcher or as <o>bpatcher</o> with simple GUI and user notifications.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Max</metadata>
+		<metadata name="tag">Jitter</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="gl-engine" optional="0" type="symbol" size="1">
+			<digest>
+				Name or index of gl engine in use
+			</digest>
+			<description>
+				Name or index of gl engine in use. The argument is necessary to specify an engine the patch relies on. It has to be provided as single argument though merely the index number of the respective engine is required, i.e., for gl3 both 'gl3' or the single index '3' are accepted.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="quiet" get="1" set="1" type="bool" size="1">
+		<digest>
+			Disable autocheck flag
+		</digest>
+		<description>
+			Disable autocheck flag. Should only a minor part of the patch be dependent on the gl engine in question, setting this attribute to '1' can invoke a check only when a certain setting is flagged in the user interface for this specific purpose.
+			<br/>
+			The default is <m>0</m> (autocheck on launch)
+		</description>
+	</attribute>
+	<attribute name="bogusclass" get="1" set="1" type="list" size="1">
+		<digest>
+			List unsupported externals in engine mismatch
+		</digest>
+		<description>
+			List unsupported externals in engine mismatch. All Max objects found in the patcher (or any subpatcher) of any of the classes provided as arguments will be rendered bogus optically to highlight their dysfunctionality.
+		</description>
+	</attribute>
+	<attribute name="bogusvar" get="1" set="1" type="list" size="1">
+		<digest>
+			List unsupported scripting names in engine mismatch
+		</digest>
+		<description>
+			List unsupported scripting names in engine mismatch. All Max objects found in the toplevel patcher matching the scripting names provided as arguments will be rendered bogus optically to highlight their dysfunctionality.
+		</description>
+	</attribute>
+</attributelist>
+
+<!-- <attribute name="autorelaunch" get="1" set="1" type="bool" size="1">
+	<digest>
+		Specify whether Max should immediately attempt to relaunch
+	</digest>
+	<description>
+		Specify whether Max should immediately attempt to relaunch on engine change by the user.
+		<br/>
+		The default is <m>1</m> (attempt to relaunch automatically). A user will always be prompted to savbe changes to any dirty patches.
+	</description>
+</attribute> -->
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Perform gl engine check manually
+			</digest>
+			<description>
+				Perform gl engine check manually. Should a user cancel the gl engine change, they can still perform a new check at any time.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

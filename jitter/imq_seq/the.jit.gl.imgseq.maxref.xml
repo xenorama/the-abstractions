@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.jit.gl.imgseq" module="jit" category="Jitter OpenGL">
+
+	<digest>
+		Load and playback an image sequence
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2021, www.xenorama.com. <br/>
+		Load an image sequence by providing a single sample containing a numerical index pattern representing the entire sequence. Using bangs and frame commands the sequence can be played back losslessly in any direction or fashion. Especially useful for resampling during an offline rendering process. Requires the.imgseq.js. Apart from dedicated methods and attributes <o>the.jit.gl.imgseq</o> can be treated as a regular <o>jit.gl.texture</o> object.
+	</description>
+
+	<discussion>
+		<o>the.jit.gl.imgseq</o> is particularly designed to support lossless frame recall of a movie by supporting image sequences. However, the object itself does not load every single image of the seuence into memory for a fluid playback, it reads everyfile from disk into a single texture upon every frame instead. While this method is not suitable for realtime renderings it can be utilised when operating non-realtime capturing and resampling, ensuring lossless frame recall.
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">jitter</metadata>
+		<metadata name="tag">Jitter System</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="drawing-context" optional="1" type="symbol" size="1">
+			<digest>
+				Explicit drawing context
+			</digest>
+			<description>
+				Explicit drawing context.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Recall frame and increment
+			</digest>
+			<description>
+				Recall frame and increment
+			</description>
+		</method>
+		<method name="int">
+			<arglist>
+			</arglist>
+			<digest>
+				Recall specific frame immediately
+			</digest>
+			<description>
+				Recall specific frame immediately
+			</description>
+		</method>
+		<method name="set">
+			<arglist>
+				<arg name="frame" optional="0" type="int" />
+			</arglist>
+			<digest>
+				Recall specific frame on next bang
+			</digest>
+			<description>
+				Recall specific frame on next bang
+			</description>
+		</method>
+		<method name="reset">
+			<arglist>
+			</arglist>
+			<digest>
+				Go to first frame immediately
+			</digest>
+			<description>
+				Go to first frame immediately
+			</description>
+		</method>
+		<method name="getcount">
+			<arglist>
+			</arglist>
+			<digest>
+				Output number of frames from dumpout
+			</digest>
+			<description>
+				Output number of frames from rightmost dumpout, preceded by the word <m>count</m>
+			</description>
+		</method>
+		<method name="clear">
+			<arglist>
+			</arglist>
+			<digest>
+				Clear all internal attributes and references
+			</digest>
+			<description>
+				Clear all internal attributes and references. This will erase all data from the internal texture object, including the texture name. Any desired attributes will have to be applied anew.
+			</description>
+		</method>
+	</methodlist>
+
+
+			<!--MOP-->
+	<jittermethodlist>
+		<jittermethod name="bang" />
+		<jittermethod name="draw" />
+		<jittermethod name="drawimmediate" />
+		<jittermethod name="drawraw" />
+		<jittermethod name="exportattrs" />
+		<jittermethod name="exportsummary" />
+		<jittermethod name="getattributes" />
+		<jittermethod name="getstate" />
+		<jittermethod name="importattrs" />
+		<jittermethod name="jit_gl_texture" />
+		<jittermethod name="jit_matrix" />
+		<jittermethod name="summary" />
+	</jittermethodlist>
+
+
+
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="load" get="1" set="1" type="symbol" size="1">
+			<digest>
+				Load an image sequence
+			</digest>
+			<description>
+				Load an image sequence by providing a valid path to a single sample of the entire sequence
+			</description>
+		</attribute>
+		<attribute name="range" get="1" set="1" type="int" size="2">
+			<digest>
+				Specify a frame range to cover
+			</digest>
+			<description>
+				Specify a frame range to cover between 0 and maximum number of frames (-1).
+			</description>
+		</attribute>
+		<attribute name="direction" get="1" set="1" type="int" size="1">
+			<digest>
+				Playback direction
+			</digest>
+			<description>
+				Playback direction. Available options match those of the internal <o>counter</o> object.<br/>
+				<br/>
+				0 = forward<br/>
+				1 = backward<br/>
+				2 = palindrome<br/>
+			</description>
+		</attribute>
+		<attribute name="pattrmode" get="1" set="1" type="int" size="1">
+			<digest>
+				Expose sequence reference to any <o>pattrstorage</o>
+			</digest>
+			<description>
+				Expose sequence reference to any <o>pattrstorage</o> (default: 1). Setting this flag to 0 will hide the sequence reference from <o>pattrstorage</o> and will not change/be recalled with presets.
+			</description>
+		</attribute>
+		<attribute name="verbose" get="1" set="1" type="int" size="1">
+			<digest>
+				Output metadata and progress information
+			</digest>
+			<description>
+				Output metadata and progress information. By default, this falg is disabled (0), if enabled, will output the following messages per frame from the rightmost dumpout: <br/>
+				<br/>
+				frame (int) = current frame index<br/>
+				progress (0.-1.) = normalised position within <at>range</at><br/>
+				position (0.-1.) = normalised position within entire sequence
+			</description>
+		</attribute>
+	</attributelist>
+
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealsolist>
+			<seealso name="jit.gl.texture" />
+			<seealso name="jit.movie" />
+		</seealsolist>
+	</seealsolist>
+
+</c74object>
