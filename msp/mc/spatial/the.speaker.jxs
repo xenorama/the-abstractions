@@ -1,0 +1,182 @@
+<jittershader>
+	<param name="position" type="vec3" state="POSITION" />
+	<param name="instance_position" type="vec3" state="VERTEX_ATTR" />
+	<param name="grid" type="float" state="VERTEX_ATTR1" />
+	<param name="modelViewProjectionMatrix" type="mat4" state="MODELVIEW_PROJECTION_MATRIX" />
+	<param name="modelViewMatrix" type="mat4" state="MODELVIEW_MATRIX" />
+	<param name="normal" type="vec3" state="NORMAL" />
+	<param name="FrontMaterialParameters" state="FRONT_MATERIAL" />
+	<param name="LightingParameters" state="LIGHT" />
+	<param name="colorize" type="vec4" default = "0 1 2 0" />
+	<language name="glsl" version="1.5">
+		<bind param="position" program="vp" />
+		<bind param="instance_position" program="vp" />
+		<bind param="grid" program="vp" />
+		<bind param="modelViewProjectionMatrix" program="vp" />
+		<bind param="modelViewMatrix" program="vp" />
+		<bind param="normal" program="vp" />
+		<bind param="FrontMaterialParameters" program="vp" />
+		<bind param="LightingParameters" program="vp" />
+		<bind param="colorize" program="vp" />
+		<program name="vp" type="vertex">
+<![CDATA[
+// Preprocessor
+#version 330 core
+
+// Definitions
+struct MaterialParameters {
+	vec4 emission;
+	vec4 ambient;
+	vec4 diffuse;
+	vec4 specular;
+	float shininess;
+};
+
+struct LightModelParameters {
+	vec4 ambient;
+};
+
+struct LightSourceParameters {
+	vec4 ambient;
+	vec4 diffuse;
+	vec4 specular;
+	vec4 position;
+	vec3 spotDirection;
+	float spotExponent;
+	float spotCutoff;
+	float spotCosCutoff;
+	float constantAttenuation;
+	float linearAttenuation;
+	float quadraticAttenuation;
+};
+
+// Uniforms
+layout (std140) uniform FrontMaterialParameters {
+	MaterialParameters frontMaterial;
+};
+
+#define NUM_LIGHTS (1)
+layout (std140) uniform LightingParameters {
+	LightModelParameters lightModel;
+	LightSourceParameters light[NUM_LIGHTS];
+};
+
+uniform mat4 modelViewProjectionMatrix;
+uniform mat4 modelViewMatrix;
+
+uniform vec4 colorize;
+
+// Attributes
+in vec3 position;
+in vec4 col;
+in vec3 normal;
+in vec3 instance_position;
+in float grid;
+
+// Output
+out jit_PerVertex {
+	vec4 color;
+	// flat vec4 poly_mode;
+} jit_out;
+
+
+float lambertian(vec3 Nn, vec3 L) {
+	return max(dot(Nn, L), 0.);
+}
+
+float blinn(vec3 Vn, vec3 Nn, vec3 L, float Ns) {
+	vec3 H = normalize(L + Vn);
+	return pow(max(dot(Nn, H), 0.), Ns);
+}
+
+vec4 calc_spot_light(vec3 Vn, vec3 Nn, vec3 pos, MaterialParameters mtl, LightSourceParameters light) {
+	vec3 L = light.position.xyz - pos;
+	float d = length(L);
+	float atten = light.constantAttenuation+light.linearAttenuation*d+light.quadraticAttenuation*d*d;
+	atten = 1.0/atten;
+	L = normalize(L);
+	float spotatten = dot(-L, normalize(light.spotDirection));
+	if(spotatten>light.spotCosCutoff) {
+		atten = atten*pow(spotatten, light.spotExponent);
+	}else {
+		atten = 0.;
+	}
+
+	vec4 res_color = mtl.ambient*light.ambient*atten;
+	res_color += mtl.diffuse*light.diffuse*lambertian(Nn, L)*atten;
+	res_color += mtl.specular*light.specular*blinn(Vn, Nn, L, mtl.shininess)*atten;
+	return res_color;
+}
+
+vec4 calc_point_light(vec3 Vn, vec3 Nn, vec3 pos, MaterialParameters mtl, LightSourceParameters light) {
+	vec3 L = light.position.xyz - pos;
+	float d = length(L);
+	float atten = light.constantAttenuation+light.linearAttenuation*d+light.quadraticAttenuation*d*d;
+	atten = 1.0/atten;
+	L = normalize(L);
+
+	vec4 res_color = mtl.ambient*light.ambient*atten;
+	res_color += mtl.diffuse*light.diffuse*lambertian(Nn, L)*atten;
+	res_color += mtl.specular*light.specular*blinn(Vn, Nn, L, mtl.shininess)*atten;
+	return res_color;
+}
+
+vec4 calc_directional_light(vec3 Vn, vec3 Nn, vec3 pos, MaterialParameters mtl, LightSourceParameters light) {
+	vec3 L = normalize(light.position.xyz);
+	vec4 res_color = mtl.ambient*light.ambient;
+	res_color += mtl.diffuse*light.diffuse*lambertian(Nn, L);
+	res_color += mtl.specular*light.specular*blinn(Vn, Nn, L, mtl.shininess);
+	return res_color;
+}
+
+void main() {
+
+
+			gl_Position = modelViewProjectionMatrix * vec4(position + instance_position, 1.);
+			mat4 mvMatrix = modelViewMatrix;
+
+			// lighting calculations
+			vec3 eyePosition = (mvMatrix*vec4(position + (instance_position), 1.)).xyz;
+			vec3 Vn = normalize(-eyePosition);
+
+			mat3 mv33 = mat3x3(mvMatrix);
+			mv33[0] = normalize(mv33[0]);
+			mv33[1] = normalize(mv33[1]);
+			mv33[2] = normalize(mv33[2]);
+			mat3 normalMatrix = transpose(inverse(mv33));
+			vec3 Nn = normalMatrix*normalize(normal);
+
+			vec3 cos_color = (0.5 + 0.5 * cos( (gl_InstanceID/100.)* 6.2831 + colorize.rgb)) * colorize.a + (1 - colorize.a);
+
+			vec4 lit_color = frontMaterial.emission + frontMaterial.ambient*lightModel.ambient;
+			lit_color += calc_directional_light(Vn, Nn, eyePosition, frontMaterial, light[0]);
+			float alpha = (grid == 0) ? 1 : 0.05;
+			jit_out.color = lit_color * vec4(cos_color, alpha);
+
+}
+
+
+]]>
+
+		</program>
+
+		<program name="fp" type="fragment">
+<![CDATA[
+#version 330 core
+
+in jit_PerVertex {
+	vec4 color;
+
+
+} jit_in;
+out vec4 color;
+
+void main() {
+	color = jit_in.color;
+
+}
+
+]]>
+		</program>
+	</language>
+</jittershader>

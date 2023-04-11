@@ -24,12 +24,12 @@ function set_obj(o){
   obj_type = undefined;
   log = 0;
   patch.apply(check_obj)
-  if (aliases.contains(obj.maxclass)) obj_type = aliases.get(obj.maxclass);
+  obj_type = (obj.maxclass == "patcher") ? obj.getattr("name") : obj.maxclass;
+  if (aliases.contains(obj_type)) obj_type = aliases.get(obj_type);
   else {
-    obj_type = obj.maxclass;
     aliases.replace(obj_type,obj_type);
   }
-  apply_obj(obj.maxclass)
+  apply_obj(obj_type)
   changed_objs = [];
   update_log();
 }

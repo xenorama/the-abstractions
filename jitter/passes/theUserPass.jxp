@@ -1,0 +1,12 @@
+<jitterpass>
+	<pass name="sumtoprevframe">
+		<subpass gen="stpf">
+			<input source="COLOR" />
+			<input source="HISTORY" />
+		</subpass>
+		<subpass gen="useDepth" output="COLOR">
+			<input source="PREVIOUS" />
+			<input source="NORMALS" />
+		</subpass>
+	</pass>
+</jitterpass>

@@ -136,6 +136,12 @@ function onidle(x,y){
 	mgraphics.redraw();
 } onidle.local = 1;
 
+function onidleout(x,y){
+	isClick = 0;
+	mousePos = [-1,-1];
+	mgraphics.redraw();
+} onidle.local = 1;
+
 function onclick(x,y){
 	isClick = 1;
 	mgraphics.redraw();

@@ -1,0 +1,148 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 3,
+			"revision" : 1,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 681.0, 80.0, 1140.0, 841.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 1,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "Default Max 7",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
+					"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 973.0, 14.0, 28.0, 22.0 ],
+					"text" : "in 3",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
+					"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 50.0, 14.0, 358.0, 22.0 ],
+					"text" : "in 1 @comment multichannelsignal: carthesian coordinates (x\\,z\\,y)",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
+					"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 511.5, 14.0, 28.0, 22.0 ],
+					"text" : "in 2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "/*\r\ncalculate amplitudes for every speaker in a spatial, polydimensional audio system.\r\nto be embedded in an abstraction holding buffers for this audio signal's speaker allocation,\r\nwindowing and a duplicate of the actual speaker setup.\r\n*/\r\n\r\nset_amps(num_speakers,sp_pos,c1,c2,c3,dims,max_dist,levels,win,filt,gains){\r\n\thypot_sqrd = 0; // init return value\r\n\tfor (p=0;p<num_speakers;p+=1){ // iterate through speakers\r\n\t\tif (!filt || peek(gains,p) > 0.) {\n   \t\t\tpos_x = peek(sp_pos,p,0); // horizontal speaker position\n   \t\t\tpos_y = peek(sp_pos,p,1); // depth speaker position\n   \t\t\tdist_x = absdiff(pos_x,c1); // raw horizontal distance\n   \t\t\tdist_y = absdiff(pos_y,c2); // raw depth distance\n   \t\t\tdist_x *= dist_x; // squared\n   \t\t\tdist_y *= dist_y; // suqared\r\n\t\t\thypot_sqrd = dist_x + dist_y; // squared hypotenuse\r\n\t\t\tsp_dist = (max_dist != 0) ? max_dist : peek(sp_pos,p,8); // get speaker distance range\r\n\t\t\tif (dims == 3) { // 3d space\r\n\t\t\t\tpos_z = peek(sp_pos,p,2); // vertical speaker position\r\n\t\t\t\tdist_z = absdiff(pos_z,c3); // raw vertical distance\r\n\t\t\t\tdist_z *= dist_z; // squared\r\n\t\t\t\thypot_sqrd += dist_z; // square hypotenuses\r\n\t\t\t\t}\n   \t\t\thypot = sqrt(hypot_sqrd); // total hypotenuse (distance)\r\n\t\t\tlevel = clip((sp_dist-hypot)/sp_dist,0,1); // normalise and scale\r\n\t\t\tblend = wave(win,level*0.5,interp=\"linear\"); // interpolate window gain\n   \t\t\tpoke(levels,blend,p,0); // write to audio buffer\r\n\t\t\t}\r\n\t\t}\r\n\treturn hypot_sqrd;\r\n\t}\r\n\nBuffer sp_pos(\"speaker.setup\"); // holds speaker positions in 3 channels (x,z,y)\nBuffer levels(\"#0_speakers\"); // holds amplitude values for every speaker with current spatial coords\r\nBuffer win(\"#0_window\"); // window gain function\r\nBuffer gains(\"#0_amps\"); // amplification of speakers\nParam max_dist(0); // speaker range; 0 = speaker radius in setup\r\nParam dimensions(3), min(1), max(3); // 2d/3d space\r\nParam filter_speakers(0);\n\nnum_speakers = dim(sp_pos); // length of buffer == number of speakers\nx = in1; // x-coordinate\r\ny = in2; // z-coordinate\r\nz = in3; // y-coordinate\r\n\t\r\nset_amps(num_speakers,sp_pos,x,y,z,dimensions,max_dist,levels,win,filter_speakers,gains); // calculate distances\n\nout1 = dim(sp_pos); // use nubmer of speakers to update abstraction",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 3,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 50.0, 70.0, 942.0, 759.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
+					"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 50.0, 877.0, 255.0, 22.0 ],
+					"text" : "out 1 @comment number of speakers in setup",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 2 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+ ],
+		"autosave" : 0
+	}
+
+}

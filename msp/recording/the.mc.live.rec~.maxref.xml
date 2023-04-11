@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.live.rec~" module="msp" category="Audio">
+
+	<digest>
+		Continuously record and store a stream of audio of specific length
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2023, www.xenorama.com. <br/>
+		Records running audio of a specified length into a temporary buffer to be played back at any time.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Msp</metadata>
+		<metadata name="tag">Record</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+
+	<!--size samps sizeinsamps sr format filetype quantization dither loop -->
+
+	<attributelist>
+	<attribute name="dither" get="1" set="1" type="int" size="1">
+		<digest>
+			Dither PCM Output
+		</digest>
+		<description>
+			Enable triangular dithering when writing PCM (integer) files.
+		</description>
+		<attributelist>
+			<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
+			<attribute name="enumvals" get="1" set="1" type="atom" size="3">
+				<enumlist>
+					<enum name="Off">
+						<digest>
+							Apply no dithering when writing PCM files
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="Dither">
+						<digest>
+							Apply triangular dither (TPDF) when writing PCM files
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="Dither + Noise Shaping">
+						<digest>
+							Apply triangular dither with noise shaping (HP-TPDF) when writing PCM files
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+				</enumlist>
+			</attribute>
+			<attribute name="label" get="1" set="1" type="symbol" size="1" value="Dither PCM Output" />
+			<attribute name="style" get="1" set="1" type="symbol" size="1" value="enumindex" />
+		</attributelist>
+	</attribute>
+	<attribute name="filetype" get="1" set="1" type="symbol" size="1">
+		<digest>
+			File Type
+		</digest>
+		<description>
+			The audio file format used by the <o>buffer~</o> object. The default file type is AIFF.
+		</description>
+		<attributelist>
+			<attribute name="enumvals" get="1" set="1" type="atom" size="4">
+				<enumlist>
+					<enum name="aiff">
+						<digest>
+							Apple Interchange File Format (default)
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="wave">
+						<digest>
+							WAVE
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="raw">
+						<digest>
+							raw
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="au">
+						<digest>
+							NeXT/Sun
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+				</enumlist>
+			</attribute>
+			<attribute name="label" get="1" set="1" type="symbol" size="1" value="File Type" />
+			<attribute name="style" get="1" set="1" type="symbol" size="1" value="enum" />
+		</attributelist>
+	</attribute>
+	<attribute name="format" get="1" set="1" type="symbol" size="1">
+		<digest>
+			File Format
+		</digest>
+		<description>
+			The bit depth or sample type of the buffer on disk
+			<br />
+			<br />
+			For backward compatibility, the following numeric valus can be used to set <at>format</at>, in addition to the symbolic names below:
+			<br />
+			8 - 8-bit integer
+			<br />
+			16 - 16-bit integer
+			<br />
+			24 - 24-bit integer
+			<br />
+			32 - 32-bit integer
+		</description>
+		<attributelist>
+			<attribute name="enumvals" get="1" set="1" type="atom" size="8">
+				<enumlist>
+					<enum name="int8">
+						<digest>
+							8-bit integer
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="int16">
+						<digest>
+							16-bit integer (default)
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="int24">
+						<digest>
+							24-bit integer
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="int32">
+						<digest>
+							32-bit integer
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="float32">
+						<digest>
+							32-bit floating-point
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="float64">
+						<digest>
+							64-bit floating-point
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="mulaw">
+						<digest>
+							8-bit mu-law encoding
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="alaw">
+						<digest>
+							8-bit a-law encoding
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+				</enumlist>
+			</attribute>
+			<attribute name="label" get="1" set="1" type="symbol" size="1" value="File Format" />
+			<attribute name="style" get="1" set="1" type="symbol" size="1" value="enum" />
+		</attributelist>
+	</attribute>
+	<attribute name="loop" get="1" set="1" type="int" size="1">
+		<digest>
+			Toggle looped playback
+		</digest>
+		<description>
+			Toggle looped playback. The default is &quot;1&quot; (enable loop)
+		</description>
+	</attribute>
+	<attribute name="quantization" get="1" set="1" type="int" size="1">
+		<digest>
+			PCM Quantization Rule
+		</digest>
+		<description>
+			Select the quantization rule when writing PCM (integer) files.
+		</description>
+		<attributelist>
+			<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
+			<attribute name="enumvals" get="1" set="1" type="atom" size="2">
+				<enumlist>
+					<enum name="Round">
+						<digest>
+							Round when quantizing to integer values.
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+					<enum name="Floor">
+						<digest>
+							Floor when quantizing to integer values.
+						</digest>
+						<description>
+							TEXT_HERE
+						</description>
+					</enum>
+				</enumlist>
+			</attribute>
+			<attribute name="label" get="1" set="1" type="symbol" size="1" value="PCM Quantization Rule" />
+			<attribute name="style" get="1" set="1" type="symbol" size="1" value="enumindex" />
+		</attributelist>
+	</attribute>
+	<attribute name="samps" get="1" set="1" type="int" size="1">
+		<digest>
+			length of the buffer~ in samples
+		</digest>
+		<description>
+			The length of the buffer~ expressed in samples.
+		</description>
+		<attributelist>
+			<attribute name="label" get="1" set="1" type="symbol" size="1" value="Size in Samples" />
+		</attributelist>
+	</attribute>
+	<attribute name="size" get="1" set="1" type="float" size="1">
+		<digest>
+			length of the buffer~ in milliseconds
+		</digest>
+		<description>
+			The length of the buffer~ expressed in milliseconds. If succeeded by the word &quot;seconds&quot; or &quot;secs&quot; will interpret the given number by a multiple of seconds.
+		</description>
+		<attributelist>
+			<attribute name="label" get="1" set="1" type="symbol" size="1" value="Size in Milliseconds" />
+		</attributelist>
+	</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="clear">
+			<arglist>
+			</arglist>
+			<digest>
+				Clear recording and reset
+			</digest>
+			<description>
+				Clear recording and reset
+			</description>
+		</method>
+		<method name="multichannelsignal">
+			<arglist>
+			</arglist>
+			<digest>
+				Audio signal to record
+			</digest>
+			<description>
+				Audio signal to record. Channelcount of internal <o>buffer~</o> will be updated accordingly.
+			</description>
+		</method>
+		<method name="play">
+			<arglist>
+			</arglist>
+			<digest>
+				Playback any previously recorded audio
+			</digest>
+			<description>
+				Playback any previously recorded audio. Playback is stopped by the <m>stop</m> method.
+			</description>
+		</method>
+		<method name="record">
+			<arglist>
+			</arglist>
+			<digest>
+				Begin recording
+			</digest>
+			<description>
+				Begin recording. Recording is stopped by the <m>stop</m> method.
+			</description>
+		</method>
+		<method name="stop">
+			<arglist>
+			</arglist>
+			<digest>
+				Stop recording or playback
+			</digest>
+			<description>
+				Stop recording or playback. Stopping is necessary before recording or playing back.
+			</description>
+		</method>
+		<method name="write">
+			<arglist>
+				<arg name="filename" optional="0" type="symbol" />
+			</arglist>
+			<digest>
+				Write the contents of <o>buffer~</o> to an audio file
+			</digest>
+			<description>
+				Saves the contents of <o>buffer~</o> into an audio file. A standard file dialog is opened for naming the file unless the word <m>write</m> is followed by a symbol, in which case the file is saved in the current default folder, using the symbol as the filename. Unless you change the format with the Format pop-up menu in the standard Save As dialog box, the file will be saved in the format specified by the <at>filetype</at> attribute, or the file type of the most recently opened audio file. By default, <o>buffer~</o> saves in AIFF format.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

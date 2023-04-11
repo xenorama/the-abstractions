@@ -1,0 +1,19 @@
+// example for a schedule file supported by 'the.schedule'
+// using double slashes will print to the Max Window if @quiet is flagged (default)
+// use 'scenes', 'names' or 'map' as header or leading entry to a line
+
+scenes
+// 'scenes': requires colon-syntax > hh:mm:ss, hh:mm, hh (with or without number padding)
+11:45
+11:47
+11:50
+11:51
+11:53
+12:00
+
+names
+// 'names': put all multiple words in quotes for every name
+raack tetiana relief tetiana raack IDLE
+
+// 'map': mappings of '0' are reserved and will be set to '-1', symbols too
+map 1 2 3 1 2 4

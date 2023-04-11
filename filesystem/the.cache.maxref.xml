@@ -34,7 +34,8 @@
 				Name of standalone application
 			</digest>
 			<description>
-				Name of standalone application. By default, <o>the.cache</o> manages the cache folder of the Max application (default: <m>Max 8</m>). An additional symbol can be provided to manage the cache folder of the Max standalone by the same name instead.
+				Name of standalone application. By default, <o>the.cache</o> manages the cache folder of the Max application (default: <m>Max 8</m>). An additional symbol can be provided to manage the cache folder of the Max standalone by the same name instead.<br/>
+				When <at>preffilename</at> is flagged, the provided name must match that of the preference file name specified by the <o>standalone</o> object in the executable.
 			</description>
 		</objarg>
 	</objarglist>
@@ -57,6 +58,14 @@
 		</digest>
 		<description>
 			Post executed commands to Max Window (default: 1). When disabled, the user will not be notified about cleared files, however, the abstraction is based around <o>node.script</o> which posts its file handling steps to the console.
+		</description>
+	</attribute>
+		<attribute name="preffilename" get="1" set="1" type="bool" size="1">
+		<digest>
+			Specify if standalone uses a custom preference file directory
+		</digest>
+		<description>
+			Specify if standalone uses a custom preference file directory (by name provided as <m>standalone-name</m>) as set by the <o>standalone</o> object when building the executable.
 		</description>
 	</attribute>
 </attributelist>

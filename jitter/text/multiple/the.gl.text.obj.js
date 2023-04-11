@@ -176,7 +176,8 @@ function text_from_matrix(u){
       var chars = []
       var text = "";
       for(t=0;t<length;t++){
-        text = (lines !== 0) ? u.getcell(l,t) : u.getcell(t)
+        text = (lines !== 0) ? u.getcell(t,l) : u.getcell(l)
+        post(length,lines,min,text,l,t,'\n')
         chars.push(text)
       }
       text = chars.map(function (ch) { return String.fromCharCode(ch) })

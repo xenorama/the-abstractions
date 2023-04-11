@@ -9,7 +9,8 @@
 
 	<description>
 		Written by Tim Heinze © 2021, www.xenorama.com. <br/>
-		When sharing Jitter GL patches, including <o>the.gl.engine</o> can ensure a user is informed about the gl engine required and prompted to change it should it not match. This object can be used as a patcher or as <o>bpatcher</o> with simple GUI and user notifications.
+		When sharing Jitter GL patches, including <o>the.gl.engine</o> can ensure a user is informed about the gl engine required and prompted to change it should it not match. This object can be used as a patcher or as <o>bpatcher</o> with simple GUI and user notifications.<br/>
+		As of Max 8.5.0, <o>the.gfx.engine</o> is to be used instead to support &quot;glcore&quot;.
 	</description>
 
 	<discussion>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.spatial.mapper~" module="msp" category="Audio">
+
+	<digest>
+		Distribute a signal to individual speakers in a spatial setup hosted by <o>the.speaker.setup</o>
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2022, www.xenorama.com. <br/>
+		If a spatial speaker setup is present in the environment, a single-channel signal can be allocated to individual speakers using carthesian or polar coordinates. Multichannel input will be mixed down to a single-channel signal.
+		Along with the mixed multichannel signal, the speaker gains and an optional envelope-followed jit_matrix can be output from the outlets.
+	</description>
+	<discussion>
+		Polar support<br/>
+		Clean up<br/>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Msp</metadata>
+		<metadata name="tag">Audio</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="setup-ctx" optional="0" type="symbol" size="1">
+			<digest>
+				Name of spatial setup (named the.speaker.setup or previously saved preset)
+			</digest>
+			<description>
+				Name of spatial setup. If <o>the.speaker.setup</o> by the same name is present in the environment, it will be used. Otherwise, a previously saved preset by the given name will be searched for and assumed if successful.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="ctx" get="1" set="1" type="int" size="1">
+			<digest>
+				Name of spatial setup (named the.speaker.setup or previously saved preset)
+			</digest>
+			<description>
+				Name of spatial setup. If <o>the.speaker.setup</o> by the same name is present in the environment, it will be used. Otherwise, a previously saved preset by the given name will be searched for and assumed if successful.
+			</description>
+		</attribute>
+		<attribute name="dimensions" get="1" set="1" type="int" size="1">
+			<digest>
+				Number of carthesian dimensions to cover
+			</digest>
+			<description>
+				Number of carthesian dimensions to cover.<br/>
+				<m>1</m>: linear speaker setups (horizontal axis)<br/>
+				<m>2</m>: 2-dimensional speaker setups (horizontal and depth axes)<br/>
+				<m>3</m>: 3-dimensional speaker setups (horizontal and vertical axes)
+			</description>
+		</attribute>
+		<attribute name="ef_params" get="1" set="1" type="list" size="4">
+			<digest>
+				Parameters for envelope following (jit_matrix)
+			</digest>
+			<description>
+				Parameters for envelope following (jit_matrix). The parameters are <m>attack</m> (samples), <m>decay</m> (samples), <m>makeup-gain</m> (linear amplitude) and <m>clipping</m> (enable). This setting is only relevant when <at>eftomat</at> is enabled.
+			</description>
+		</attribute>
+		<attribute name="eftomat" get="1" set="1" type="int" size="1">
+			<digest>
+				Output jit_matrix with envelope follwer on speaker allocation
+			</digest>
+			<description>
+				Output jit_matrix with envelope follwer on speaker allocation. The resulting jit_matrix is single-plane and one-dimensional, with number of cells representing number of speakers, normalized values representing amplitude of speakers for incoming signal. The order of speakers is determined by the <at>matrix_map</at> setting of the loaded/referenced setup.
+			</description>
+		</attribute>
+		<attribute name="filter" get="1" set="1" type="float" size="1">
+			<digest>
+				Apply signal filtering for vertical positioning
+			</digest>
+			<description>
+				Apply signal filtering for vertical positioning. This setting is still somewhat experimental but mostly useful in two-dimensional setups without vertical range, where three-dimensional positioning can be designed with highpass and lowpass filtering, respectively. The floating-point value determines a &quot;scale&quot; curve coefficient, balancing the raw and filtered input as per vertical spatial offset. I.e., in a two-dimensional speaker array, vertical positioning abive the speakers will result in highpass filtering, lower positioning in lowpass filtering, repsectively. Values below zero yield harsher filtering as opposed to values above zero. A value of 0.25 is a good place to start, yet, filtering is deactivated by default (&quot;0&quot;)
+			</description>
+		</attribute>
+	<attribute name="gains" get="1" set="1" type="list" size="1">
+		<digest>
+			Amplify individual speakers
+		</digest>
+		<description>
+			Amplify individual speakers. A list of floating-point values will amplify the output gains of individual speakers accordingly. Muted speakers will not be calculated by the spatial code and can save CPU usage. Any unaddressed speakers will be amplified to &quot;1&quot;, hence, the message <m>gains</m> without any arguments will amplify all speakers to their maximum.
+		</description>
+	</attribute>
+	<attribute name="global" get="1" set="1" type="float" size="1">
+		<digest>
+			Mix signal to all speakers in setup
+		</digest>
+		<description>
+			Mix signal to all speakers in setup. A value between 0. and 1. determines how much of the signal is allocated to all speakers as opposed to input positioning only.
+		</description>
+	</attribute>
+	<attribute name="global_autogain" get="1" set="1" type="float" size="1">
+		<digest>
+			Amount of autogain for all speakers
+		</digest>
+		<description>
+			Amount of autogain for all speakers. This setting (0.-1.) is only relevant when the <at>global</at> setting is non-zero. Higher values will attenuate all signals according to number speakers for balancing, lower values maintain actual speaker levels.
+		</description>
+	</attribute>
+	<attribute name="max_dist" get="1" set="1" type="float" size="1">
+		<digest>
+			Maximum distance from speakers
+		</digest>
+		<description>
+			Maximum distance from speakers. By default, this setting is &quot;0&quot;, thus using the individual radiuses of all speakers in the setup to calculate their amplitude. When set to a positive value, the individual speakers' radii are ignored, larger values will allocate incoming signal to a wider range of spakers, lower values will reduce speaker allocation (galobally).
+		</description>
+	</attribute>
+	<attribute name="normalize" get="1" set="1" type="list" size="3">
+		<digest>
+			Use normalized input to cover entire cube area.
+		</digest>
+		<description>
+			Use normalized input to cover entire cube area. Expects a list of three integers represeting normalization for the horizontal, depth and vertical axes, respectively. Three modes are available per axis:<br/><br/>
+			<m>-1</m> (or negative): use signed input to cover cube area (-1. to 1.)<br/>
+			<m>0</m> (default): handle multichannel coordinatse lieterally (nor normalization)<br/>
+			<m>1</m> (or positive): use input betwen 0. and 1. to cover cube area<br/>
+			Any &quot;0&quot; will not apply normalization to the respective dimension.<br/><br/>
+			A list of <m>-1. 1. 0.</m> will scale horizontal input -1. and 1. between the cube dimensions for horizontal coordinates, 0. - 1. for depth coordinates and handles height literally. The vertical (z) axis is always considered to start at 0, as opposed to the bipolar axes x and y. For z, using signed normalization will reach beneath the cube area.<br/>
+			Note, that in <at>polar</at> mode, this setting is ignored.
+			The default is &quot;0. 0. 0.&quot; (no normalization).
+		</description>
+	</attribute>
+	<attribute name="polar" get="1" set="1" type="int" size="1">
+		<digest>
+			Provide polar data for sound positioning.
+		</digest>
+		<description>
+			Provide polar data for sound positioning. By default, carthesian coordinates are expected.<br/>
+			Expects a multichannel-signal with one to three channels hosting <m>radius</m>, and optionally <m>horizontal angle</m> and <m>vertical angle</m> depending on the <at>dimensions</at> setting.
+		</description>
+	</attribute>
+	<attribute name="rec_mode" get="1" set="1" type="bool" size="1">
+		<digest>
+			Record multichannel or multiple mono audiofiles
+		</digest>
+		<description>
+			Record multichannel or multiple mono audiofiles. When this flag is set to &quot;0&quot; (default), the spatially mapped audio can be recorded as a single multichannel audio file to disk. See the <m>arm</m> method for specifying the filename. A value of &quot;1&quot; will record as many audiofiles as there are speakers in setup to disk with padded indices at the end of the filename, starting at &quot;01&quot;. Note that currently, only <m>AIFF</m> is supported as output format and no further specifications can be made. The samplerate is the current samplerate of the audio driver. Saving mono files is done by providing a single filename in the pop-up window when arming the node.<br/><br/>
+			Recording is toggled by sending zero or non-zero values to the leftmost inlet.
+		</description>
+	</attribute>
+	<attribute name="render_port" get="1" set="1" type="bool" size="1">
+		<digest>
+			Specify a receive port for receiving render bangs
+		</digest>
+		<description>
+			Specify a receive port for receiving render bangs. By default, when linked to a named setup in the environment, this port is set automatically to render positioning to the latter's preview window. While previewing is only supported when linked to a parent environment, this port also outputs the <m>jit_matrix</m> when <at>eftomat</at> is enabled.
+		</description>
+	</attribute>
+	<attribute name="render_position" get="1" set="1" type="bool" size="1">
+		<digest>
+			Show current sound position in parent preview window
+		</digest>
+		<description>
+			Show current sound position in parent preview window.<br/>
+			If set to &quot;1&quot;, the current positioning of the incoming signal will be displayed in the preview window of the parent <o>the.speaker.setup~</o> at default size. If set to &quot;2&quot;, its size will be scaled according to the <at>max_dist</at> setting, determining and thus displaying the area and speakers covered. See the <m>sendmesh</m> method for further visual adjustments to the sound body.<br/>
+			Note that this setting is only relevant when a setup by <o>the.speaker.setup~</o> is currently in use and the latter is active in the environment with its <at>preview</at> setting enabled or GUI opened.
+		</description>
+	</attribute>
+	<attribute name="shroud" get="1" set="1" type="bool" size="1">
+		<digest>
+			Specify reverberation threshold
+		</digest>
+		<description>
+			Specify reverberation threshold. A floating-point number between 0. and 1. specifies the amplitude level at which the signal will be sent to the reverberation aux unit of a linked <o>the.speaker.setup~</o> <at>ctx</at>, increasing towards maximum as signal fades to zero.
+		</description>
+	</attribute>
+	<attribute name="setup" get="1" set="1" type="bool" size="1">
+		<digest>
+			Load a previously saved setup
+		</digest>
+		<description>
+			Load a previously saved setup. This will unlink any synchronized <at>ctx</at> and henceforth ignores any of its modifications.
+		</description>
+	</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="arm">
+			<arglist>
+			</arglist>
+			<digest>
+				Prepare for audio recording
+			</digest>
+			<description>
+				Prepare for audio recording. If no valid path or filename is provided, will prompt to save to a vlid directory and filename. A non-zero integer in leftmost inlet will toggle recording.<br/>
+				When <at>rec_mode</at> is set to &quot;1&quot;, the pop-up window will ask for a filename for all mono files which will be appended by the speaker index.
+			</description>
+		</method>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Render gridshape to preview window and output jit_matrix
+			</digest>
+			<description>
+				Render gridshape to parent preview window (if assigned by <m>#1</m>) and output jit_matrix (if <at>eftomat</at> is enabled)
+			</description>
+		</method>
+		<method name="int">
+			<arglist>
+			</arglist>
+			<digest>
+				Toggle recording
+			</digest>
+			<description>
+				Toggle recording: &quot;1&quot; starts recording, &quot;0&quot; stops recording. Note that the internal <o>sfrecord~</o> will throw an error, if no filename has previously been specified using the <m>arm</m> method.
+			</description>
+		</method>
+		<method name="sendmesh">
+			<arglist>
+			</arglist>
+			<digest>
+				Modify appearance of gridshape body in preview window
+			</digest>
+			<description>
+				Modify appearance of gridshape body in preview window. Supports any message <o>jit.gl.mesh</o> understands, however, the attributes <at>position</at>, <at>scale</at> and <at>enable</at> are overridden and will be ignored.
+			</description>
+		</method>
+	</methodlist>
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+	<!-- <mcwrapper>
+		<mcwrappermethod name="applyvalues" />
+		<mcwrappermethod name="deviate" />
+		<mcwrappermethod name="exponential" />
+		<mcwrappermethod name="harmonic" />
+		<mcwrappermethod name="increment" />
+		<mcwrappermethod name="replicatevalues" />
+		<mcwrappermethod name="scaledexponential" />
+		<mcwrappermethod name="setvalue" />
+		<mcwrappermethod name="setvaluerange" />
+		<mcwrappermethod name="spread" />
+		<mcwrappermethod name="spreadexclusive" />
+		<mcwrappermethod name="spreadincludefirst" />
+		<mcwrappermethod name="spreadincludesecond" />
+		<mcwrappermethod name="spreadinclusive" />
+		<mcwrappermethod name="subharmonic" />
+		<mcwrapperattr name="busymapname" />
+		<mcwrapperattr name="bz" />
+		<mcwrapperattr name="bzname" />
+		<mcwrapperattr name="chans" />
+		<mcwrapperattr name="initialvalues" />
+		<mcwrapperattr name="replicate" />
+		<mcwrapperattr name="target" />
+		<mcwrapperattr name="usebusymap" />
+		<mcwrapperattr name="values" />
+		<mcwrapperattr name="zero" />
+	</mcwrapper> -->
+
+</c74object>

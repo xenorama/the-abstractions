@@ -1,0 +1,113 @@
+<jittershader name="texture2DRect:1-fill-flat-triangles">
+	<description>
+		An auto-generated shader for simulating deprecated OpenGL features in OpenGL 3.2+
+	</description>
+	<param name="position" type="vec3" state="POSITION" />
+	<param name="texcoord" type="vec2" state="TEXCOORD" />
+	<param name="tex0" type="int" default="0" />
+	<param name="veloBuf" type="int" default="1" />
+	<param name="textureMatrix0" type="mat4" state="TEXTURE0_MATRIX" />
+	<param name="modelViewProjectionMatrix" type="mat4" state="MODELVIEW_PROJECTION_MATRIX" />
+	<param name="color" type="vec4" state="COLOR" />
+	<language name="glsl" version="1.5">
+		<bind param="position" program="vp" />
+		<bind param="texcoord" program="vp" />
+		<bind param="tex0" program="vp" />
+		<bind param="veloBuf" program="vp" />
+		<bind param="textureMatrix0" program="vp" />
+		<bind param="modelViewProjectionMatrix" program="vp" />
+		<bind param="color" program="vp" />
+		<program name="vp" type="vertex">
+			<![CDATA[
+// Preprocessor
+#version 330 core
+
+// Definitions
+
+
+// Uniforms
+
+
+
+uniform mat4 modelViewProjectionMatrix;
+
+
+uniform mat4 textureMatrix0;
+
+
+
+
+// Attributes
+in vec3 position;
+in vec4 color;
+in vec2 texcoord;
+
+uniform sampler2DRect tex0;
+uniform samplerBuffer veloBuf;
+
+
+// Output
+out jit_PerVertex {
+	flat vec4 color;
+
+} jit_out;
+
+out vec3 velocity;
+// Library functions
+
+
+
+
+void main() {
+
+
+
+
+
+	vec2 tc = vec2(textureMatrix0*vec4(texcoord, 0., 1.));
+	vec2 pos = vec2(texture(tex0, vec2(0,0)).r,texture(tex0, vec2(7,7)).b);
+	// jit_out.color = vec4(pos,1,1);
+	// jit_out.color = vec4(position,1);
+	jit_out.color = color;
+			// vec2 delta = pos - texelFetch(veloBuf,0).xy;
+			// float diff = delta.x + delta.y;
+			// diff += 0.00001;
+			// diff /= 2;
+			// diff *= 2;
+	pos *= vec2(4.);
+	pos -= vec2(2.);
+	gl_Position = modelViewProjectionMatrix * vec4(position, 1.) + vec4(pos, 0., 0.);
+	// gl_Position = modelViewProjectionMatrix * vec4(position, 1.) * vec4(vec2(diff),1,1) + vec4(pos, 0., 0.);
+	// gl_Position = modelViewProjectionMatrix * vec4(position, 1.) * vec4(scale,scale,scale,1) + vec4(pos * vec2(scale), 0., 0.);
+	// velocity = vec3(delta,0.);
+
+}
+
+
+]]>
+		</program>
+		<program name="fp" type="fragment">
+			<![CDATA[
+#version 330 core
+
+in jit_PerVertex {
+	flat vec4 color;
+
+} jit_in;
+out vec4 color;
+
+
+
+
+void main() {
+	color = jit_in.color;
+
+
+
+
+}
+
+]]>
+		</program>
+	</language>
+</jittershader>

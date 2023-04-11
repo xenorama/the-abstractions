@@ -29,7 +29,15 @@
 
 	<!--ARGUMENTS-->
 	<objarglist>
-		<objarg name="autoquery" optional="1" type="anything" size="1">
+		<objarg name="appname" optional="0" type="symbol" size="1">
+			<digest>
+				Provide filename of standalone application
+			</digest>
+			<description>
+				Necessary for formatting paths to internal files or directories in standdalone operation
+			</description>
+		</objarg>
+		<objarg name="autoquery" optional="1" type="bool" size="1">
 			<digest>
 				Query and send runtime information on load
 			</digest>

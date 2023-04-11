@@ -1,0 +1,23 @@
+# the.router
+
+* (define bpatcher substitution?)
+* based on **jsui**
+* adapts to incoming *mc_channelcount* if *inputs/outputs* are not defined as *arguments*
+
+# handling
+
+* snapshots for routings -> *dictionary* --> **pattr**
+* input/output labels as *numbers* (default) or *svg* images
+* **ctrl+click** to toggle enabled state of in/out
+* **click** to route to target/source
+* **option+click** to route to multiple targets/sources
+
+# modes
+
+0. direct
+1. mixdown
+
+
+## functionality
+
+* 

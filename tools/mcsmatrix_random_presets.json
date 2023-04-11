@@ -1,0 +1,1880 @@
+{
+	"pattrstorage" : 	{
+		"name" : "mcsmatrix_random_presets",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 10,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0.101438990223905, 0.033075683168698, 0.082236501706092 ]
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0.158456754449871, 0.147510845573762, 0, 0 ]
+								}
+,
+								"3" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"4" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"5" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.157252544686449, 0, 0.073783915536429, 0.154324278087325, 0.071912720463327 ]
+								}
+,
+								"7" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0.103161792510312, 0 ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.075394871490929, 0.159784329435272, 0.067649645858528, 0.052486296582689, 0.01737582671221 ]
+								}
+,
+								"10" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+,
+							"num_outs" : 6,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.101438990223905, 0.033075683168698, 0.082236501706092, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.158456754449871, 0.147510845573762, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.012520515781895, 0.040895837591118, 0.118810712807481, 0.097903786017483, 0.016215291580454, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.131715914922985, 0, 0, 0.047708402558628, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"10" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"2" : 			{
+				"id" : 2,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 10,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.055803548810542, 0.033243206983227, 0.05454908296532, 0, 0.139394974202706, 0.076452963845209 ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.062952616453434, 0, 0, 0.04866333889904, 0.098635158976376 ]
+								}
+,
+								"2" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"3" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.105018269449659, 0.132513076591839, 0.09890687605682, 0, 0.14575896606221, 0.136687066360199 ]
+								}
+,
+								"5" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"6" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.073516456581221, 0.019965154114645, 0, 0, 0.029926310282918 ]
+								}
+,
+								"8" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"9" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"10" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+,
+							"num_outs" : 6,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.055803548810542, 0.033243206983227, 0.05454908296532, 0.0, 0.139394974202706, 0.076452963845209, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.062952616453434, 0.0, 0.0, 0.04866333889904, 0.098635158976376, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.105018269449659, 0.132513076591839, 0.09890687605682, 0.0, 0.14575896606221, 0.136687066360199, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.012520515781895, 0.040895837591118, 0.118810712807481, 0.097903786017483, 0.016215291580454, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.131715914922985, 0, 0, 0.047708402558628, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"10" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"3" : 			{
+				"id" : 3,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 10,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"1" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"2" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"3" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.117699241734156, 0, 0.048604132346718, 0.166515865678955, 0.090300949783468, 0 ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.079486419200296, 0, 0.156938272037497, 0, 0 ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.102553707329187, 0.03485720639598, 0, 0.031022196843256, 0, 0.099060264941751 ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.043889436574875, 0.078723152583259, 0.166358334374033, 0, 0 ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.132441224030154, 0, 0.101712233890097, 0, 0.019220099919039, 0 ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.055912424437416, 0.045729723040272, 0.083653414984563, 0.152774042330384, 0.047695811053072, 0 ]
+								}
+,
+								"10" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+,
+							"num_outs" : 6,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.117699241734156, 0.0, 0.048604132346718, 0.166515865678955, 0.090300949783468, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.079486419200296, 0.0, 0.156938272037497, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.012520515781895, 0.040895837591118, 0.118810712807481, 0.097903786017483, 0.016215291580454, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.131715914922985, 0, 0, 0.047708402558628, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"10" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"4" : 			{
+				"id" : 4,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 8,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 0,
+									"maps" : [ 0.039508471886317, 0.069064269463221, 0.009357174237569, 0.078669508298238, 0.060421695311864, 0.070321500301361, 0.046750207742055, 0.076514591773351, 0.060377577940623, 0.064884692430496, 0.03278049826622, 0.08211158712705 ]
+								}
+,
+								"1" : 								{
+									"enabled" : 0,
+									"maps" : [ 0.07806674639384, 0.025361776351929, 0.072681297858556, 0.018866966168086, 0.077955822149913, 0.050855964422226, 0.045108685890834, 0.023105045159658, 0.060155123472214, 0.014901379744212, 0.031110088030497, 0.028462827205658 ]
+								}
+,
+								"2" : 								{
+									"enabled" : 0,
+									"maps" : [ 0.039941380421321, 0.049682368834813, 0.07621818780899, 0.025761107603709, 0.070430924495061, 0.01308008035024, 0.024282614390055, 0.080861220757167, 0.029131094614665, 0.041352242231369, 0.008179138104121, 0.076354672511419 ]
+								}
+,
+								"3" : 								{
+									"enabled" : 0,
+									"maps" : [ 0.081812640031179, 0.033884942531586, 0.067962934573491, 0.079867571592331, 0.023495316505432, 0.026311824719111, 0.007617781559626, 0.012380997339884, 0.007496982812881, 0.07990034421285, 0.035419603188833, 0.000162243843079 ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.006881405909856, 0.072867562373479, 0.075904448827108, 0.058504899342855, 0.030606379111608, 0.012274086475372, 0.060084044933319, 0.051830679178238, 0.070883452892303, 0.026017735401789, 0.053898066282272, 0.047833075126012 ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.011072278022766, 0.034826556841532, 0.008250782887141, 0.023145506779353, 0.072090923786163, 0.012690593798955, 0.05045947432518, 0.033492664496104, 0.01832573612531, 0.076586504777273, 0.001012007395426, 0.004940966765086 ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.07247601946195, 0.080093493064245, 0.039952059586843, 0.013572076956431, 0.050482004880905, 0.049543380737305, 0.045401295026143, 0.03293721874555, 0.051490823427836, 0.057431230942408, 0.00051004687945, 0.018271495898565 ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.051861743132273, 0.027109603087107, 0.024217297633489, 0.050296078125636, 0.04807456334432, 0.018055270115534, 0.079503566026688, 0.06293261051178, 0.001766393582026, 0.04191792011261, 0.058015525341034, 0.017277399698893 ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.132441224030154, 0, 0.101712233890097, 0, 0.019220099919039, 0 ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.055912424437416, 0.045729723040272, 0.083653414984563, 0.152774042330384, 0.047695811053072, 0 ]
+								}
+,
+								"10" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+,
+							"num_outs" : 12,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.117699241734156, 0.0, 0.048604132346718, 0.166515865678955, 0.090300949783468, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.079486419200296, 0.0, 0.156938272037497, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.012520515781895, 0.040895837591118, 0.118810712807481, 0.097903786017483, 0.016215291580454, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.131715914922985, 0, 0, 0.047708402558628, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"10" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"5" : 			{
+				"id" : 5,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 5,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 1, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 1, 0 ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 1 ],
+									"gain" : 1
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.695238095238095, 0.4, 1 ],
+									"gain" : 0.801136363636364
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 3,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 1, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 1, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 1, 0, 0 ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"6" : 			{
+				"id" : 6,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 7,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ]
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ]
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.101452512118986, 0, 0, 0, 0.154635448134485, 0.158526147321434 ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"9" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"10" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+,
+							"num_outs" : 4,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.071423068821699, 0.0, 0.0, 0.14064402007394, 0.151017104791346, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0.137658089080261, 0.040701508972407, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.030276968112879, 0, 0.092298205374969, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"10" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"11" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ]
+								}
+,
+								"12" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ]
+								}
+,
+								"13" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ]
+								}
+,
+								"14" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ]
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"13" : 			{
+				"id" : 13,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 6,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.114002388924743, 0.148629763232311, 0.184243754592412, 0.132688888517803 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.228408988529005, 0, 0 ],
+									"gain" : 0.801136363636364
+								}
+,
+								"4" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.182401722142314, 0.247958037785399, 0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 4,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.114002388924743, 0.148629763232311, 0.184243754592412, 0.132688888517803, "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.228408988529005, 0.0, 0.0, "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 1, 0 ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 1 ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"16" : 			{
+				"id" : 16,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 7,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.62, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.06299899960572, 0, 0, 0 ],
+									"gain" : 0.372134205765774
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.064151938046325, 0.123463798167858, 0.194199849555991, 0 ],
+									"gain" : 0.73512280488682
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 1, 0 ],
+									"gain" : 1
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.157624684485456, 0, 0, 0 ],
+									"gain" : 0.39617628399263
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0.244541081099137, 0.244817209105215 ],
+									"gain" : 0.271069701180169
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0.121643006603258, 0 ],
+									"gain" : 0.121749778101218
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, 0.016489583936003, 0.08425677782473, 0.0, 0.0, 0.0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 4,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 0.227772579599068
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.06299899960572, 0.0, 0.0, 0.0, "<undefined>" ],
+									"gain" : 0.135487888651675
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.064151938046325, 0.123463798167858, 0.194199849555991, 0.0, "<undefined>" ],
+									"gain" : 0.060474373250749
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 0.619622657053807
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.018558927848806, 0.109611626999022, 0.04841221311318, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.043948257956285, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+
+							}
+,
+							"mix" : 0
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"17" : 			{
+				"id" : 17,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 10,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.344465846066172, 0, 0, 0.25879062482909, 0, 0.886287132184304, 0, 0, 0.735655084478017 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.845980851247752, 0.145596190511239, 0, 0.302409606065922, 0.997785986627814, 0, 0.386581956514464, 0, 0.288555010244141, 0.869929295602309 ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.803491246509693, 0, 0.8071006869923, 0.728691700629775, 0.289836219165085, 0, 0.625635054965781, 0, 0, 0.611262845541115 ],
+									"gain" : 1
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.641396143091662, 0.799039504489215, 0.520398290301557, 0, 0, 0.857914871146316, 0.891831285396319, 0.226924561535869, 0.592181252211437 ],
+									"gain" : 1
+								}
+,
+								"4" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.297112954644056, 0.655324601327125, 0.128511567966442, 0, 0, 0, 0, 0.126070447243097, 0 ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.988443528519984, 0, 0, 0, 0, 0.479595641913449, 0.428150819910825, 0.277935179578642, 0.613775377083376, 0.921011515774301 ],
+									"gain" : 1
+								}
+,
+								"8" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 0.365530303030303
+								}
+,
+								"9" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 10,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.344465846066172, 0, 0, 0.25879062482909 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.845980851247752, 0.145596190511239, 0, 0.302409606065922, 0.997785986627814 ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.803491246509693, 0, 0.8071006869923, 0.728691700629775, 0.289836219165085 ],
+									"gain" : 0.780969434972293
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.641396143091662, 0.799039504489215, 0.520398290301557, 0, 0, 0.857914871146316, 0.891831285396319 ],
+									"gain" : 0.753415343489889
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.297112954644056, 0.655324601327125, 0.128511567966442, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.988443528519984, 0, 0, 0, 0, 0.479595641913449, 0.428150819910825, 0.277935179578642 ],
+									"gain" : 1
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"18" : 			{
+				"id" : 18,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 6,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.775565401972764, 0, 0.164287845124336, 0, 0, 0.556286446268453, 0.825075913021717, 0.497693895035582 ],
+									"gain" : 0.589458940500762
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 1, 0, 0, 0, 0, 0 ],
+									"gain" : 0.763257575757576
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.443653704656099, 0.998298109376503, 0, 0.530409038862274, 0, 0, 0 ],
+									"gain" : 0.554579561185024
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 1, 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 1, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 1, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ],
+									"gain" : 0.849946856495484
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ],
+									"gain" : 0.303560606060606
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ],
+									"gain" : 0.365530303030303
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 8,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.775565401972764, 0, 0.164287845124336, "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, "<undefined>", "<undefined>" ],
+									"gain" : 0.744458690353982
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.443653704656099, 0.998298109376503, "<undefined>", "<undefined>" ],
+									"gain" : 0.473718430117084
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 0.753415343489889
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 0.523404140342054
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"8" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 1 ],
+									"gain" : 1
+								}
+,
+								"9" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"21" : 			{
+				"id" : 21,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 7,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.031986931020615, 0, 0.028858995945361, 0.109483242350077 ],
+									"gain" : 0.323872659354095
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0.116837431299064, 0 ],
+									"gain" : 0.459094355536726
+								}
+,
+								"3" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.210937851183925, 0.093376075292795, 0.21230034286667, 0 ],
+									"gain" : 0.002197360641771
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.137129088616157, 0.205145451904979, 0, 0.08834458976163 ],
+									"gain" : 0.120728373354774
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.113171495735112, 0, 0.128864043759105, 0.069201283417827 ],
+									"gain" : 0.214403206154676
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, 0.016489583936003, 0.08425677782473, 0.0, 0.0, 0.0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 4,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 0.085408238450223
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.031986931020615, 0.0, 0.028858995945361, 0.109483242350077, "<undefined>" ],
+									"gain" : 0.67959857705531
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.116837431299064, 0.0, "<undefined>" ],
+									"gain" : 0.273006445733423
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 0.794103734548472
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.018558927848806, 0.109611626999022, 0.04841221311318, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.043948257956285, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"22" : 			{
+				"id" : 22,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 7,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 0.507115655774411
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.245123533954709, 0, 0, 0.196158959630523 ],
+									"gain" : 0.629880126348961
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.208810858109592, 0, 0 ],
+									"gain" : 0.045629800099022
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0.065940368595225, 0.076732336166935 ],
+									"gain" : 0.258787675289892
+								}
+,
+								"4" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.046733153421835, 0, 0.146654985879533, 0.22020803639503 ],
+									"gain" : 0.780707409934357
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, 0.016489583936003, 0.08425677782473, 0.0, 0.0, 0.0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 4,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, "<undefined>" ],
+									"gain" : 0.911104463938668
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.245123533954709, 0.0, 0.0, 0.196158959630523, "<undefined>" ],
+									"gain" : 0.251460328520336
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.208810858109592, 0.0, 0.0, "<undefined>" ],
+									"gain" : 0.4844921087677
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.065940368595225, 0.076732336166935, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 0.640889481948734
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.018558927848806, 0.109611626999022, 0.04841221311318, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.043948257956285, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"23" : 			{
+				"id" : 23,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 7,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.116049550864165, 0, 0, 0.063168630779532 ],
+									"gain" : 0.289077129363774
+								}
+,
+								"3" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 0.198509675990644
+								}
+,
+								"5" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, 0.016489583936003, 0.08425677782473, 0.0, 0.0, 0.0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 4,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 0.480929580584848
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 0.399602626235205
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.116049550864165, 0.0, 0.0, 0.063168630779532, "<undefined>" ],
+									"gain" : 0.266001695133306
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 0.352340506756896
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.018558927848806, 0.109611626999022, 0.04841221311318, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.043948257956285, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+,
+			"24" : 			{
+				"id" : 24,
+				"data" : 				{
+					"u479001935" : [ 						{
+							"num_ins" : 7,
+							"inputs" : 							{
+								"0" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"1" : 								{
+									"enabled" : 0,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 1
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.053191758299094, 0, 0.195565688048568, 0 ],
+									"gain" : 0.589131215445881
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.097964490399331, 0, 0.233180574441692 ],
+									"gain" : 0.532605789668359
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0 ],
+									"gain" : 0.020681262744253
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.072796834067544, 0, 0.086871729938751, 0.201517182834659 ],
+									"gain" : 0.525078577537216
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0.032381575077868, 0.149661703491023, 0 ],
+									"gain" : 0.282037952832582
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, 0.016489583936003, 0.08425677782473, 0.0, 0.0, 0.0 ],
+									"gain" : 1
+								}
+
+							}
+,
+							"num_outs" : 4,
+							"outputs" : 							{
+								"0" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 0.434630655360782
+								}
+,
+								"1" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>" ],
+									"gain" : 0.60987702899582
+								}
+,
+								"2" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.053191758299094, 0.0, 0.195565688048568, 0.0, "<undefined>" ],
+									"gain" : 0.70000081419554
+								}
+,
+								"3" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.097964490399331, 0.0, 0.233180574441692, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 0.519751932139851
+								}
+,
+								"4" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.018558927848806, 0.109611626999022, 0.04841221311318, "<undefined>", "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"5" : 								{
+									"enabled" : 1,
+									"maps" : [ 0, 0, 0, 0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"6" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.043948257956285, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+,
+								"7" : 								{
+									"enabled" : 1,
+									"maps" : [ 0.0, 0.0, 0.0, 0.0, "<undefined>", "<undefined>", "<undefined>", "<undefined>" ],
+									"gain" : 1
+								}
+
+							}
+
+						}
+ ],
+					"the.mcs.yafr~::Params" : [ 0.807107, 0.893401, 0.604061, 1.0, 0.654822 ],
+					"the.mcs.yafr~::Wet" : [ 0.5 ]
+				}
+
+			}
+
+		}
+
+	}
+
+}

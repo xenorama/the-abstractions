@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.jit.sonogram~" module="msp" category="MC, soundfiles">
+
+	<digest>
+		Audio Sonogram as Jitter Matrix
+	</digest>
+
+	<description>
+		Written by Tim Heinze ©2023, www.xenorama.com. <br/>
+		Translate an incoming mono or stereo multichannel-signal into a sonogram as Jitter Matrix. Two channels of audio can be rendered as mixdown, stereo visualization or parallel (2-plane).
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Jitter</metadata>
+		<metadata name="tag">MSP</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="fft-framecount" optional="0" type="int" size="1">
+			<digest>
+				Resolution of the internal FFT
+			</digest>
+			<description>
+				Resolution of the internal FFT. The default is 2048 frames.
+			</description>
+		</objarg>
+		<objarg name="scopesize" optional="1" type="int" size="1">
+			<digest>
+				Resolution of the Scope
+			</digest>
+			<description>
+				Resolution of the Scope. Essentially the number of audio captures contained in the resulting jit_matrix, i.e. dim[0]. The default is 512.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="active" get="1" set="1" type="bool" size="1">
+			<digest>
+				Operation flag
+			</digest>
+			<description>
+				Operation flag. When set to &quot;0&quot;, no jit_matrix is output
+			</description>
+		</attribute>
+		<attribute name="amp" get="1" set="1" type="float" size="1">
+			<digest>
+				Gain of the input signal
+			</digest>
+			<description>
+				Gain of the input signal. The default is 1.
+			</description>
+		</attribute>
+		<attribute name="bg" get="1" set="1" type="float" size="3">
+			<digest>
+				Set the background color
+			</digest>
+			<description>
+				Set the background color. The default is &quot;0. 0. 0.&quot; (black)
+			</description>
+		</attribute>
+		<attribute name="clip" get="1" set="1" type="bool" size="1">
+			<digest>
+				Clip bin values to 1
+			</digest>
+			<description>
+				Clip bin values to 1. When set to &quot;0&quot;, bin values higher than 1 will light up the sonogram accordingly and will thus often oerride the user colors
+			</description>
+		</attribute>
+		<attribute name="direction" get="1" set="1" type="int" size="1">
+			<digest>
+				Direction of the running sonogram
+			</digest>
+			<description>
+				Direction of the running sonogram. The default is 1 (from right to left)
+			</description>
+		</attribute>
+		<attribute name="hi" get="1" set="1" type="float" size="3">
+			<digest>
+				Set the high color
+			</digest>
+			<description>
+				Set the high color. The default is &quot;1. 0.2 0.6&quot; (magenta)
+			</description>
+		</attribute>
+		<attribute name="lo" get="1" set="1" type="float" size="3">
+			<digest>
+				Set the low color
+			</digest>
+			<description>
+				Set the low color. The default is &quot;0.2 1. 0.3&quot; (green)
+			</description>
+		</attribute>
+		<attribute name="mode" get="1" set="1" type="int" size="3">
+			<digest>
+				Set the visualization mode
+			</digest>
+			<description>
+				Set the visualization mode. Three different modes are available:<br/><br/>
+				0 (mixdown): stereo channels are mixed to single, colors are applied as per lo and hi values<br/>
+				1 (stereo): stereo channels are split and mirrored with regular color application<br/>
+				2 (parallel): stereo channels are rendered to 2 parallel planes in the jit_matrix, ignoring color selection (magenta = left, green = right, white = center)<br/>
+				<br/>
+				the default is 1 (stereo).
+			</description>
+		</attribute>
+		<attribute name="orientation" get="1" set="1" type="int" size="3">
+			<digest>
+				Set the sonogram orientation
+			</digest>
+			<description>
+				Set the sonogram orientation. The default is 0 (horizontal)
+			</description>
+		</attribute>
+		<attribute name="out_name" get="1" set="1" type="symbol" size="3">
+			<digest>
+				Name of the resulting Jitter Matrix
+			</digest>
+			<description>
+				Name of the resulting Jitter Matrix
+			</description>
+		</attribute>
+		<attribute name="scopesize" get="1" set="1" type="int" size="3">
+			<digest>
+				Resolution of the scope
+			</digest>
+			<description>
+				Resolution of the scope, determining the perceived speed in an unaltered <o>jit.pwindow</o>. The default is 512.
+			</description>
+		</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Re-Apply previous command
+			</digest>
+			<description>
+				Re-apply the previous command on the previously provided sound file or path.
+			</description>
+		</method>
+		<method name="multichannelsignal">
+			<arglist>
+			</arglist>
+			<digest>
+				Audio signal to analyze
+			</digest>
+			<description>
+				Audio signal to analyze. Note, that any incoming multichannel signal will be reduced to stereo.
+			</description>
+		</method>
+		<method name="signal">
+			<arglist>
+			</arglist>
+			<digest>
+				Audio signal to analyze
+			</digest>
+			<description>
+				Audio signal to analyze. Note, that any incoming signelchannel signal will be duplicated to stereo.
+			</description>
+		</method>
+
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

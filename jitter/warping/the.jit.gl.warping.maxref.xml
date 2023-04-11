@@ -57,6 +57,18 @@
 				Blend mode. All natively available blend-modes for JitterGL-objects are supported.
 			</description>
 		</attribute>
+		<attribute name="capture" get="1" set="1" type="int" size="1">
+			<digest>
+				Capture to internal texture
+			</digest>
+			<description>
+				Capture to the internal texture (default = 1). When enabled, all rendering is captured to texture and the texture name is output out the left outlet. Synonym for <at>output_texture</at>. When disabled, the warped scene is directly drawn to the main context, see the <m>sendnode</m> method in this case.
+			</description>
+			<attributelist>
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="Capture" />
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="onoff" />
+			</attributelist>
+		</attribute>
 		<attribute name="draw" get="1" set="1" type="bool" size="1">
 			<digest>
 				Draw grid/points
@@ -115,6 +127,18 @@
 			<description>
 				Thickness of grid lines. The default is <m>3</m>
 			</description>
+		</attribute>
+		<attribute name="output_texture" get="1" set="1" type="int" size="1">
+			<digest>
+				Capture to internal texture
+			</digest>
+			<description>
+				Capture to the internal texture (default = 1). When enabled, all rendering is captured to texture and the texture name is output out the left outlet. Synonym for <at>capture</at>. When disabled, the warped scene is directly drawn to the main context, see the <m>sendnode</m> method in this case.
+			</description>
+			<attributelist>
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="Output Texture" />
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="onoff" />
+			</attributelist>
 		</attribute>
 		<attribute name="point_size" get="1" set="1" type="float" size="1">
 			<digest>
@@ -237,6 +261,18 @@
 			</digest>
 			<description>
 				Resized the grid to new dimensions. Any previously set warping points will be maintained and interpolated when downsampled from previous resolution. Incraesing and decreasing this listing can apply nurbs-like interpolation on sharp warping edges.
+			</description>
+		</method>
+		<method name="sendnode">
+			<arglist>
+				<arg name="message" optional="0" type="symbol" />
+				<arg name="values" optional="1" type="list" />
+			</arglist>
+			<digest>
+				Send messages to the internal <o>jit.gl.node</o>
+			</digest>
+			<description>
+				Sends messages to the internal <o>jit.gl.node</o> object. When <at>output_texture</at> is disabled, the internal <o>jit.gl.node</o> draws directly to the main context, in which case blending and layering may want to be applied.
 			</description>
 		</method>
 		<method name="ui_key">

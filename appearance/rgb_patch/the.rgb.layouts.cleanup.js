@@ -11,7 +11,7 @@ function rebuild(){
     var p_objs = objc.get(p).getkeys();
     if (p_objs instanceof Array)
       p_objs.forEach(function (obj,i) {
-        if (!isNaN(obj) || obj == "prepend" || obj == "append") objc.remove(p+"::"+obj)
+        if (!isNaN(obj) || obj == "prepend" || obj == "append" || obj == "patcher") objc.remove(p+"::"+obj)
         else if (obj !== "patcher_style"){
           var po_vals = objc.get(p+"::"+obj).getkeys();
           if (po_vals instanceof Array)

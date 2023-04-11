@@ -1,0 +1,87 @@
+<c74object class="jit.gl.model">
+	<attribute name="anchor" value="0. 0. 0." />
+	<attribute name="anim" value="u082001053" />
+	<attribute name="animblendmode" value="0" />
+	<attribute name="animmode" value="parent" />
+	<attribute name="antialias" value="0" />
+	<attribute name="auto_material" value="1" />
+	<attribute name="automatic" value="1" />
+	<attribute name="aux_color" value="1. 1. 1. 1." />
+	<attribute name="axes" value="0" />
+	<attribute name="blend" value="alphablend" />
+	<attribute name="blend_enable" value="0" />
+	<attribute name="blend_mode" value="6 7" />
+	<attribute name="boundcalc" value="1" />
+	<attribute name="bounds" value="-1. -0.851186 -0.043191 1. 0.851186 0.043191" />
+	<attribute name="capture" />
+	<attribute name="color" value="0.5 0.5 0.5 1." />
+	<attribute name="cull_face" value="0" />
+	<attribute name="depth_clear" value="0" />
+	<attribute name="depth_enable" value="1" />
+	<attribute name="depth_write" value="1" />
+	<attribute name="dest_dim" value="640 480" />
+	<attribute name="drawbounds" value="0" />
+	<attribute name="drawgroup" value="7" />
+	<attribute name="drawskeleton" value="0" />
+	<attribute name="drawto" value="mod-ctx" />
+	<attribute name="enable" value="1" />
+	<attribute name="file" value="" />
+	<attribute name="filterclass" value="default" />
+	<attribute name="find_instances" value="1" />
+	<attribute name="fix_normals" value="0" />
+	<attribute name="fog" value="0" />
+	<attribute name="fog_color" value="0.5 0.5 0.5 0." />
+	<attribute name="fog_density" value="1." />
+	<attribute name="fog_params" value="0.5 0.5 0.5 0. 1. 1. 100." />
+	<attribute name="fog_range" value="1. 100." />
+	<attribute name="gen_normals" value="1" />
+	<attribute name="gen_tangents" value="1" />
+	<attribute name="gl_color" value="0.5 0.5 0.5 1." />
+	<attribute name="inherit_all" value="0" />
+	<attribute name="inherit_color" value="0" />
+	<attribute name="inherit_depth" value="0" />
+	<attribute name="inherit_fog" value="0" />
+	<attribute name="inherit_material" value="0" />
+	<attribute name="inherit_poly" value="0" />
+	<attribute name="inherit_texture" value="0" />
+	<attribute name="inherit_transform" value="0" />
+	<attribute name="layer" value="0" />
+	<attribute name="lighting_enable" value="1" />
+	<attribute name="line_width" value="1." />
+	<attribute name="mat_ambient" value="0.5 0.5 0.5 1." />
+	<attribute name="mat_diffuse" value="0.5 0.5 0.5 1." />
+	<attribute name="mat_emission" value="0. 0. 0. 1." />
+	<attribute name="mat_specular" value="0.5 0.5 0.5 1." />
+	<attribute name="material" value="" />
+	<attribute name="material_mode" value="1" />
+	<attribute name="matfile" value="" />
+	<attribute name="matrixoutput" value="0" />
+	<attribute name="name" value="u699001054" />
+	<attribute name="nodeaxes" value="0" />
+	<attribute name="normalize" value="1" />
+	<attribute name="optimize" value="1" />
+	<attribute name="point_mode" value="circle" />
+	<attribute name="point_size" value="1." />
+	<attribute name="poly_mode" value="0 0" />
+	<attribute name="position" value="-0.044 0. 1.56" />
+	<attribute name="quat" value="0. 0.707107 0.707107 -0." />
+	<attribute name="rotate" value="180. 0. 0.707107 0.707107" />
+	<attribute name="rotatexyz" value="-90. 180. 0." />
+	<attribute name="scale" value="1. 1. 1." />
+	<attribute name="shader" value="" />
+	<attribute name="shadow_caster" value="1" />
+	<attribute name="shininess" value="10." />
+	<attribute name="smooth_shading" value="1" />
+	<attribute name="smoothing_angle" value="89." />
+	<attribute name="tex_map" value="0" />
+	<attribute name="tex_plane_s" value="1. 0. 0. 0." />
+	<attribute name="tex_plane_t" value="0. 1. 0. 0." />
+	<attribute name="texanchor" value="0. 0." />
+	<attribute name="texrotate" value="0." />
+	<attribute name="texture" />
+	<attribute name="texzoom" value="0.5 0.5" />
+	<attribute name="transform_reset" value="0" />
+	<attribute name="two_sided" value="1" />
+	<attribute name="verbose" value="0" />
+	<attribute name="viewalign" value="0" />
+</c74object>

@@ -1,4 +1,5 @@
 autowatch = 1;
+outlets = 2;
 
 var adapt = 1;
 declareattribute("adapt",null,"set_adapt")
@@ -15,6 +16,7 @@ function set_adapt(a){
   if (world) {
     observer = new MaxobjListener(world,"dim",get_dim)
     if (adapt) outlet(0,world.getattr("dim"))
+    if (drawto == "" || drawto == 0 || (/^@.+/).test(drawto)) outlet(1,"drawto",world.getattr("name"))
   }
 } set_adapt.local = 1;
 
@@ -31,5 +33,5 @@ function get_world(w){
 }
 
 function get_dim(d){
-  if (adapt) outlet(0,d.value)
+  if (adapt) outlet(0,d.value);
 }

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.max.quit" module="max" category="System">
+
+	<digest>
+		Shutdown or Reboot the current Max application.
+	</digest>
+
+	<description>
+		Automatise quitting and/or rebooting of the current max application with optional settings for crash recovery. A crash of the application can further be immitated.
+	</description>
+
+	<!--METADATA -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Installation</metadata>
+		<metadata name="tag">System</metadata>
+	</metadatalist>
+
+
+					<!--INLETS -->
+			<inletlist>
+				<inlet id="0" type="INLET_TYPE">
+					<digest>set object attributes or perform shutdown commands.</digest>
+					<description>see available <m>attributes</m> and <m>messages</m>.</description>
+				</inlet>
+			</inletlist>
+
+
+				<!--OUTLETS -->
+				<outletlist>
+					<outlet id="0" type="OUTLET_TYPE">
+						<digest>will output the <m>clean</m> message, if the respective attribute is set.</digest>
+							</outlet>
+				</outletlist>
+
+		<!--ARGUMENTS -->
+
+		<!--MESSAGES-->
+		<methodlist>
+			<method name="bang">
+				<digest>
+					quit Max application.
+				</digest>
+				<description>
+					the user will be asked whether to save changes if the <m>clean</m> attribute is not set. Unsaved changes will otherwise be ignored and no further user interaction is demanded (useful for unattended installations).
+				</description>
+			</method>
+			<method name="crash">
+				<digest>
+					crash the Max application.
+				</digest>
+				<description>
+					immitates a crash of the current Max application. <br/> While this is useful to test crash and recovery behaviour of unattended patches or standalones, one shall be warned that any unsaved changes may lost. <br/>
+					See the <m>crashrecovery</m> attribute for details on Max's recovery behaviour.
+				</description>
+			</method>
+			<method name="relaunch">
+				<arglist>
+				<arg name="path" optional="1" type="symbol" />
+			</arglist>
+				<digest>
+					quit and relaunch Max application.
+				</digest>
+				<description>
+					the user will be asked whether to save changes if the <m>clean</m> attribute is not set. Unsaved changes will otherwise be ignored and no further user interaction is demanded (useful for unattended installations). <br/> <br/>
+					if an additional symbol is provided which represents a valid path to a compatible file or patcher, the <m>relaunch</m> message will quit Max and open the respective file. <br />
+					As for Max 8.1.6 this method requires the <m>restorewindows</m> attribute to be set to '1' in the preferences. This can be achieved by adding the respctive attribute to the <o>the.max.quit</o> object.
+				</description>
+			</method>
+		</methodlist>
+
+
+					<!--ATTRIBUTES -->
+					<attributelist>
+						<attribute name="clean" get="1" set="1" type="int" size="1">
+							<digest>
+								set the saving behaviour of parent patch.
+							</digest>
+							<description>
+								a value of 1 will send the <m>clean</m> message out the leftmost outlet prior to shutdown or relaunch. Connect the leftmost outlet to a <o>thispatcher</o> object to clean the parent patch before shutdown. A value of 0 will not send anything out the leftmost outlet. <br />
+								the default behaviour is 1 (clean parent patch).
+							</description>
+						</attribute>
+						<attribute name="crashrecovery" get="1" set="1" type="symbol" size="1">
+							<digest>
+								specify Max' crash recovery behaviour.
+							</digest>
+							<description>
+								After a crash of Max, the <m>crashrecovery</m> specifies how Max will try to restore potentially lost data. <br/>
+								The following settings are available and are required as the following symbols: <br/> <br/>
+								Ask = prompt the user to decide whether to recover previously unsaved data and patches <br/>
+								Always = always try to recover previously unsaved data and patches <br/>
+								Never = open a clean Max application <br/><br/>
+								There is no native default setting as this attribute will override a user's setting in the preferences permanently.
+							</description>
+						</attribute>
+						<attribute name="restorewindows" get="1" set="1" type="int" size="1">
+							<digest>
+								reopen all windows upon starting the Max application.
+							</digest>
+							<description>
+								will set Max' behaviour upon starting or relaunching with regard to previously open windows. A value of '1' will reopen all windows on launch and a value of '0' will start Max without opening any file. <br/><br/>
+								A value of '1' (reopen all windows) is especially advised when scheduling a quitting/relaunching of max with the <m>bang</m> or <m>relaunch</m> message, respectively. <br/><br/>
+								There is no native default setting as this attribute will override a user's setting in the preferences permanently.
+							</description>
+						</attribute>
+					</attributelist>
+
+
+	<!--SEEALSO -->
+	<seealsolist>
+		<seealso name="xen.app.switch"/>
+		<seealso name="xen.dsp.fade~"/>
+		<seealso name="xen.jit.fade"/>
+	</seealsolist>
+
+
+</c74object>

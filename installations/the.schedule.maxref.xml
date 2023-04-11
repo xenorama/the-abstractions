@@ -92,6 +92,14 @@
 		Same as <at>int</at>.
 	</description>
 </attribute>
+	<attribute name="initial_idle" get="1" set="1" type="bool" size="1">
+	<digest>
+		Ignore scene index output on load if outside of schedule range
+	</digest>
+	<description>
+		Ignore scene index output on load if outside of schedule range. If the parent patch is loaded after the final scene or before the first scene, enabling this setting will cause an output of <m>-1</m> from the first (scene index) outlet instead of the last scene which otherwise would be triggered. This setting is <m>off</m> by default.
+	</description>
+</attribute>
 	<attribute name="int" get="1" set="1" type="int" size="1">
 	<digest>
 		Set the active flag of the schedule
@@ -107,6 +115,14 @@
 	</digest>
 	<description>
 		Don't print info to the Max console
+	</description>
+</attribute>
+	<attribute name="ramp" get="1" set="1" type="bool" size="1">
+	<digest>
+		Output linear ramps from fourth outlet
+	</digest>
+	<description>
+		Output linear ramps from fourth outlet. Prepended by the scene name, if applied, will output linear normalized ramps from 0. to 1. from the fourth outlet when flagged. The default is <m>0</m> (do not output ramps).
 	</description>
 </attribute>
 </attributelist>

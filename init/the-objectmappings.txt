@@ -1,0 +1,33 @@
+max objectfile the.mc.spacial.mapper~ the.mc.spatial.mapper~;
+max objectfile the.mc.spacial.listener~ the.mc.spatial.listener~;
+
+max objectfile the.jit.fpsgui the.jit.fpsgui;
+max definesubstitution the.jit.fpsgui bpatcher @name the.jit.fpsgui.maxpat @presentation_size 412. 117.;
+
+max objectfile the.svgbutton the.svgbutton;
+max definesubstitution the.svgbutton jsui @filename the.svgbutton.js @jsarguments audiopower2.svg;
+
+max objectfile the.slider the.slider;
+max definesubstitution the.slider jsui @filename the.slider.js;
+
+max objectfile the.toggle the.toggle;
+max definesubstitution the.toggle jsui @filename the.toggle.js;
+
+max objectfile the.svgtab the.svgtab;
+max definesubstitution the.svgtab jsui @filename the.svgtab.js @jsarguments transport.play.svg transport.stop.svg;
+
+max objectfile the.mcs.matrixctrl the.mcs.matrixctrl;
+max definesubstitution the.mcs.matrixctrl jsui @filename the.mcs.matrixctrl.js;
+
+max objectfile the.led.array.selector the.led.array.selector;
+max definesubstitution the.led.array.selector jsui @filename the.led.array.selector.js;
+
+max objectfile livid.device.gui livid.device.gui;
+max definesubstitution livid.device.gui jsui @filename livid.device.gui.js cntrlr;
+
+max objectfile slider2 slider2;
+max definesubstitution slider2 slider @size 1 @floatoutput 1 @jspainterfile slider.paint.js;
+
+max objectfile dial.chrome dial.chrome;
+max definesubstitution dial.chrome dial @size 1 @floatoutput 1 @jspainterfile dial.chrome.js;
+

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.speaker.setup~" module="msp" category="Audio">
+
+	<digest>
+		Design spatial audio setups for use with <o>the.mc.spatial.mapper~</o>
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2022, www.xenorama.com. <br/>
+		Set up and manage spatial audio setups for any number of speakers in a three-dimensional environment. Setups can be saved as named presets in a JSON-file which can be loaded by <o>the.mc.spatial.mapepr~</o> to distribute audio signals across the designed speakers.
+	</description>
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Msp</metadata>
+		<metadata name="tag">Audio</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--
+	* preview
+	* layout
+	* sweetspot
+	* focus
+	* map
+	* active
+	* cube
+	-->
+
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="setup-ctx" optional="0" type="symbol" size="1">
+			<digest>
+				Name of spatial setup
+			</digest>
+			<description>
+				Name of spatial setup. If a preset under the given name already exists, it will be loaded for editing, otherwise defaults to a circular quadrophonic array under the name provided (if <ar>number-of-speakers</ar> is not explicitldy defined).
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="auto_rotate" get="1" set="1" type="bool" size="1">
+			<digest>
+				Continuously rotate the spatial preview
+			</digest>
+			<description>
+				Continuously rotate the spatial preview.
+			</description>
+		</attribute>
+		<attribute name="axes" get="1" set="1" type="bool" size="1">
+			<digest>
+				Display carthesian axes in preview window
+			</digest>
+			<description>
+				Display carthesian axes in preview window.
+			</description>
+		</attribute>
+		<attribute name="cube" get="1" set="1" type="float" size="1">
+			<digest>
+				Define the spatial environment size
+			</digest>
+			<description>
+				Define the spatial environment size in absolute three-dimensional carthesian coordinates.<br/>
+				The default is <m>2.5 2.5 2</m> scaling the spatial environemnt 1.25 units in width and depth in both directions, as well as 2 in height from zero.
+			</description>
+		</attribute>
+		<attribute name="info_type" get="1" set="1" type="int" size="1">
+			<digest>
+				Provide speaker information in preview
+			</digest>
+			<description>
+				Provide speaker information in preview. <br/>
+				<m>0</m>: no information (disabled)<br/>
+				<m>1</m>: indices as per multichannel mapping<br/>
+				<m>2</m>: carthesian coordinates<br/>
+				<m>3</m>: index + carthesian coordinates of current selection<br/>
+			</description>
+		</attribute>
+		<attribute name="listener" get="1" set="1" type="int" size="1">
+			<digest>
+				Specify multichannel outputmode
+			</digest>
+			<description>
+				Specify multichannel outputmode.<br/>
+				Three modes are available:<br/>
+				<m>0</m>: regular multichannel output representing all speakers (default)<br/>
+				<m>1</m>: focus a stereo pair of speakers, see the <at>stereo_listen</at> listing for specification of stereo speakers<br/>
+				<m>2</m>: mixdown all speakers to mono<br/>
+				<m>3</m>: output speakers mix from the sweetspot, maximizing the amplitude measured by the distance of the furthest speaker in the setup (an approximation)<br/>
+			</description>
+		</attribute>
+		<attribute name="model" get="1" set="1" type="symbol" size="1">
+			<digest>
+				Load a modefile into preview renderer
+			</digest>
+			<description>
+				Load a modefile into preview renderer.<br/>
+				If a valid modelfile in supported format is referenced, it will be visualized in the rendering window to align speakers accordingly. Any display adjustments can be set using the method <m>sendmodel</m>, followed by any message <o>jit.gl.model</o> understands.
+			</description>
+		</attribute>
+		<attribute name="preview" get="1" set="1" type="bool" size="1">
+			<digest>
+				Output a preview jit_gl_texture
+			</digest>
+			<description>
+				Output a preview jit_gl_texture from the fourth outlet. Note that while the GUI is frontmost, preview is always toggled on.
+			</description>
+		</attribute>
+		<attribute name="preview_window" get="1" set="1" type="bool" size="1">
+			<digest>
+				Open a floating <o>jit.window</o> with the view of the environment
+			</digest>
+			<description>
+				Open a floating <o>jit.window</o> with the view of the environment, if <at>preview</at> is enabled or the GUI is frontmost.<br/>
+				Send further commands to the internal renderer by use of the <m>sendpreview</m> method.
+			</description>
+		</attribute>
+	<attribute name="reverb_params" get="1" set="1" type="list" size="5">
+		<digest>
+			Set reverberation params
+		</digest>
+		<description>
+			Set reverberation params (0.-1):<br/>
+			<m>dry/wet</m> <br/>
+			<m>size</m> <br/>
+			<m>decay</m> <br/>
+			<m>damping</m> <br/>
+			<m>diffusion</m> <br/>
+			<m>early reflections</m> <br/>
+		</description>
+	</attribute>
+	<attribute name="shroud" get="1" set="1" type="float" size="1">
+		<digest>
+			Set amplitude threshold for reverberation
+		</digest>
+		<description>
+			Set amplitude threshold for reverberation. When set to non-zero values, amplitudes of speakers in children nodes with their <at>shroud</at> attribute set to &quot;global&quot; will be sent as auxiliary input to the internal reverb unit when beneath given threshold.
+		</description>
+	</attribute>
+	<attribute name="speaker_size" get="1" set="1" type="float" size="1">
+		<digest>
+			Size of speakers in spatial area
+		</digest>
+		<description>
+			Size of speakers in spatial area
+		</description>
+	</attribute>
+	<attribute name="stereo_listen" get="1" set="1" type="float" size="1">
+		<digest>
+			Listen to a specified pair of speakers
+		</digest>
+		<description>
+			Listen to a specified pair of speakers. Expects a list of two speakers which will populate the first two channels of the output multichannelsignal, muting the remaining channels. This setting is only relevant when <at>listener</at> is set to &quot;1&quot;.
+		</description>
+	</attribute>
+	<attribute name="sweetspot" get="1" set="1" type="list" size="3">
+		<digest>
+			Define a specific listening position
+		</digest>
+		<description>
+			Define a specific listening position in three-dimensional  carthesian coordinates.<br/>
+			If a single &quot;0&quot; is provided, no sweetspot will be assumed for the <at>focus</at> setting, likewise when the word <m>sweetspot</m> is not followed by any arguments. When specified, the sweetspot will be displayed in the preview renderer as a small sphere.
+		</description>
+	</attribute>
+	<attribute name="view_pos" get="1" set="1" type="list" size="3">
+		<digest>
+			Position from which to preview spatial area
+		</digest>
+		<description>
+			Position from which to preview spatial area. This setting is somewhat idle when <at>auto_rotate</at> is flagged.
+		</description>
+	</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="coords">
+			<arglist>
+			</arglist>
+			<digest>
+				Set speaker positions
+			</digest>
+			<description>
+				Set speaker positions using carthesian coordinates. Expects a list of three-dimensional coordinates (horizontal, depth and vertical), every block of coords will produce a speaker in the setup.
+			</description>
+		</method>
+		<method name="init">
+			<arglist>
+			</arglist>
+			<digest>
+				Load dfeault setup
+			</digest>
+			<description>
+				Load dfeault setup.
+			</description>
+		</method>
+		<method name="jit_matrix">
+			<arglist>
+			</arglist>
+			<digest>
+				Set speaker positions
+			</digest>
+			<description>
+				Set speaker positions using matrices. Expects a 3-plane jit_matrix representing horizontal, depth and vertical coordinates (x, z, y). The number of cells in the matrix determines the number of speakers, any blank planes will be replaced with &quot;ß&quot;
+			</description>
+		</method>
+		<method name="read">
+			<arglist>
+			</arglist>
+			<digest>
+				Load a named setup
+			</digest>
+			<description>
+				Load a named setup.
+			</description>
+		</method>
+		<method name="readagain">
+			<arglist>
+			</arglist>
+			<digest>
+				Reload the previously loaded setup
+			</digest>
+			<description>
+				Reload the previously loaded setup.
+			</description>
+		</method>
+		<method name="redo">
+			<arglist>
+			</arglist>
+			<digest>
+				Increment within the undo history
+			</digest>
+			<description>
+				Increment within the undo history.
+			</description>
+		</method>
+		<method name="remove">
+			<arglist>
+			</arglist>
+			<digest>
+				Remove a preset fro the list
+			</digest>
+			<description>
+				Remove a preset fro the list.
+			</description>
+		</method>
+		<method name="rename">
+			<arglist>
+			</arglist>
+			<digest>
+				Rename a preset
+			</digest>
+			<description>
+				Rename a preset. Expects two symbol arguments, the preset to be renamed and its new name.
+			</description>
+		</method>
+		<method name="sendmodel">
+			<arglist>
+			</arglist>
+			<digest>
+				Send messages to a loaded obj environment
+			</digest>
+			<description>
+				Send messages to a loaded obj environment. If a valid obj is loaded into the setup (see the <m>model</m> listing), the word &quot;sendmode&quot; followed by any message <o>jit.gl.model</o> understands will apply the given command to the loaded model.
+			</description>
+		</method>
+		<method name="sendpreview">
+			<arglist>
+			</arglist>
+			<digest>
+				Send messages to the internal <o>jit.world</o>
+			</digest>
+			<description>
+				Send messages to the internal <o>jit.world</o>. The word &quot;sendpreview&quot; followed by any message <o>jit.world</o> understands will apply the given command to the wrapped renderer.<br/>
+				Note that the settings <at>enable</at>, <at>visible</at>, <at>rotatexyz</at> and <at>position</at> share the attributes <at>preview</at>, <at>preview_window</at>, <at>auto_rotate</at> and <at>view_pos</at>, respectively.
+			</description>
+		</method>
+		<method name="submit">
+			<arglist>
+			</arglist>
+			<digest>
+				Send current setup to children instances
+			</digest>
+			<description>
+				Send current setup to children instances of <o>the-mc.spatial.mapper~</o> which are linked to this setup by name.
+			</description>
+		</method>
+		<method name="undo">
+			<arglist>
+			</arglist>
+			<digest>
+				Decrement within the undo history
+			</digest>
+			<description>
+				Decrement within the undo history.
+			</description>
+		</method>
+		<method name="write">
+			<arglist>
+			</arglist>
+			<digest>
+				Export setup to disk
+			</digest>
+			<description>
+				Export setup to disk.
+			</description>
+		</method>
+		<method name="writeagain">
+			<arglist>
+			</arglist>
+			<digest>
+				Export previously exported setup to disk
+			</digest>
+			<description>
+				Export previously exported setup to disk.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+	<!-- <mcwrapper>
+		<mcwrappermethod name="applyvalues" />
+		<mcwrappermethod name="deviate" />
+		<mcwrappermethod name="exponential" />
+		<mcwrappermethod name="harmonic" />
+		<mcwrappermethod name="increment" />
+		<mcwrappermethod name="replicatevalues" />
+		<mcwrappermethod name="scaledexponential" />
+		<mcwrappermethod name="setvalue" />
+		<mcwrappermethod name="setvaluerange" />
+		<mcwrappermethod name="spread" />
+		<mcwrappermethod name="spreadexclusive" />
+		<mcwrappermethod name="spreadincludefirst" />
+		<mcwrappermethod name="spreadincludesecond" />
+		<mcwrappermethod name="spreadinclusive" />
+		<mcwrappermethod name="subharmonic" />
+		<mcwrapperattr name="busymapname" />
+		<mcwrapperattr name="bz" />
+		<mcwrapperattr name="bzname" />
+		<mcwrapperattr name="chans" />
+		<mcwrapperattr name="initialvalues" />
+		<mcwrapperattr name="replicate" />
+		<mcwrapperattr name="target" />
+		<mcwrapperattr name="usebusymap" />
+		<mcwrapperattr name="values" />
+		<mcwrapperattr name="zero" />
+	</mcwrapper> -->
+
+</c74object>

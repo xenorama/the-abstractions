@@ -350,15 +350,18 @@ function obj_apply(e){
     e.setboxattr("textcolor",thisobjc.get("patcher_style::bgcolor"))
     e.setboxattr("bgcolor",thisobjc.get("patcher_style::textcolor_inverse"))
   }
-  if (e.maxclass == "patcher" && descend == 1 && thispatch == 1) {
+  if ((e.maxclass == "patcher" || e.maxclass == "pfft~") && descend == 1 && thispatch == 1) {
+    // post(e.getattr("name"),'\n')
+    // post(e.maxclass,'\n')
     var patcher_attributes = thisobjc.get("patcher_style").getkeys();
     for (var v in patcher_attributes){
       if ((/.*color.*/).test(patcher_attributes[v]))
       {
+        var d = (e.maxclass == "pfft~") ? e.patcher : e;
         var complex_color = thisobjc.get("patcher_style::"+patcher_attributes[v]).name; // dictionary ?
         if (complex_color == undefined)
-        e.setattr(patcher_attributes[v],thisobjc.get("patcher_style::"+patcher_attributes[v]))
-        else e.setattr(patcher_attributes[v],"dictionary",complex_color);
+        d.setattr(patcher_attributes[v],thisobjc.get("patcher_style::"+patcher_attributes[v]))
+        else d.setattr(patcher_attributes[v],"dictionary",complex_color);
       }
     }
   }

@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.sftranslate~" module="msp" category="MC, soundfiles">
+
+	<digest>
+		Translate between multichannel and mono singlechannel sound files
+	</digest>
+
+	<description>
+		Written by Tim Heinze ©2022, www.xenorama.com. <br/>
+		Create multipe singlechannel sound files from a multichannel soundfile on disk, or compile multiple mono soundfiles into a multichannel soundfile. Useful for preparing media check files for various speakers or for compiling multichannel files for tidy playback in Max.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">MC-transalte</metadata>
+		<metadata name="tag">MSP</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<!-- <objarglist>
+		<objarg name="number-of-channels" optional="0" type="int" size="1">
+			<digest>
+				Specify a maximum number of voices
+			</digest>
+			<description>
+				Specify a maximum number of voices. These can be muted or toggled into busy state for mc-objects using the <at>bzname</at> attribute with this named busymap. Their initial number of channels defines how many of the busymap channels these objects can use.
+			</description>
+		</objarg>
+		<objarg name="busymapname" optional="0" type="symbol" size="1">
+			<digest>
+				Provide the name for this global busymap
+			</digest>
+			<description>
+				Provide the name for this global busymap. This name is also used for the buffer which it reads its busymap from. This buffer's values can be modified externally to manage busymaps dynamically.
+			</description>
+		</objarg>
+	</objarglist> -->
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="dither" get="1" set="1" type="int" size="1">
+			<digest>
+				Dither PCM Output
+			</digest>
+			<description>
+				Enable triangular dithering when writing PCM (integer) files.
+			</description>
+			<attributelist>
+				<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
+				<attribute name="enumvals" get="1" set="1" type="atom" size="3">
+					<enumlist>
+						<enum name="Off">
+							<digest>
+								Apply no dithering when writing PCM files
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="Dither">
+							<digest>
+								Apply triangular dither (TPDF) when writing PCM files
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="Dither + Noise Shaping">
+							<digest>
+								Apply triangular dither with noise shaping (HP-TPDF) when writing PCM files
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+					</enumlist>
+				</attribute>
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="Dither PCM Output" />
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enumindex" />
+			</attributelist>
+		</attribute>
+		<attribute name="filetype" get="1" set="1" type="symbol" size="1">
+			<digest>
+				File Type
+			</digest>
+			<description>
+				The audio file format used by the <o>buffer~</o> object. The default file type is WAVE.
+			</description>
+			<attributelist>
+				<attribute name="enumvals" get="1" set="1" type="atom" size="4">
+					<enumlist>
+						<enum name="aiff">
+							<digest>
+								Apple Interchange File Format (default)
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="wave">
+							<digest>
+								WAVE
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="raw">
+							<digest>
+								raw
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="au">
+							<digest>
+								NeXT/Sun
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+					</enumlist>
+				</attribute>
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="File Type" />
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enum" />
+			</attributelist>
+		</attribute>
+		<attribute name="format" get="1" set="1" type="symbol" size="1">
+			<digest>
+				File Format
+			</digest>
+			<description>
+				The bit depth or sample type of the buffer on disk
+				<br />
+				<br />
+				For backward compatibility, the following numeric valus can be used to set <at>format</at>, in addition to the symbolic names below:
+				<br />
+				8 - 8-bit integer
+				<br />
+				16 - 16-bit integer
+				<br />
+				24 - 24-bit integer
+				<br />
+				32 - 32-bit integer
+			</description>
+			<attributelist>
+				<attribute name="enumvals" get="1" set="1" type="atom" size="8">
+					<enumlist>
+						<enum name="int8">
+							<digest>
+								8-bit integer
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="int16">
+							<digest>
+								16-bit integer (default)
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="int24">
+							<digest>
+								24-bit integer
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="int32">
+							<digest>
+								32-bit integer
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="float32">
+							<digest>
+								32-bit floating-point
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="float64">
+							<digest>
+								64-bit floating-point
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="mulaw">
+							<digest>
+								8-bit mu-law encoding
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="alaw">
+							<digest>
+								8-bit a-law encoding
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+					</enumlist>
+				</attribute>
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="File Format" />
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enum" />
+			</attributelist>
+		</attribute>
+		<attribute name="labels" get="1" set="1" type="list" size="1">
+			<digest>
+				Label Mono Files
+			</digest>
+			<description>
+				When creating multiple mono sound files from a multichannel sound file, the <at>label</at> setting can provide a list of names which the resulting sound files will assume after the numerical index corresponding to their channel index. Lists of names longer than the number of channels will be truncated, shorter lists will be wrapped around.<br/>
+				For example the specification <m>@labels left center right</m> will append those labels to the filenames of the mono files in channels 1, 2 and 3, respectievly.<br/>Without any arguments, this setting is ignored.
+			</description>
+		</attribute>
+		<attribute name="normalize" get="1" set="1" type="int" size="1">
+			<digest>
+				Normalize Amplitudes
+			</digest>
+			<description>
+				When set to non-zero, will normalize multichannel sound files to the specified amplitude. When compiling sound files to multichannel, this will be performed after compilation on the final file, when splitting sound files, this is performed on the original multichannel file before splitting. The default is &quot;0&quot; (inherit original amplitude).
+			</description>
+		</attribute>
+		<attribute name="quantization" get="1" set="1" type="int" size="1">
+			<digest>
+				PCM Quantization Rule
+			</digest>
+			<description>
+				Select the quantization rule when writing PCM (integer) files.
+			</description>
+			<attributelist>
+				<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
+				<attribute name="enumvals" get="1" set="1" type="atom" size="2">
+					<enumlist>
+						<enum name="Round">
+							<digest>
+								Round when quantizing to integer values.
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="Floor">
+							<digest>
+								Floor when quantizing to integer values.
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+					</enumlist>
+				</attribute>
+				<attribute name="label" get="1" set="1" type="symbol" size="1" value="PCM Quantization Rule" />
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enumindex" />
+			</attributelist>
+		</attribute>
+		<attribute name="resize" get="1" set="1" type="int" size="1">
+			<digest>
+				Resulting Number of Channels
+			</digest>
+			<description>
+				Specify how many channels to compile or split into. When set to &quot;0&quot; (default), the resulting number of channels will match the original channelcount. See also the <at>select</at> listing for mapping desired channels.
+			</description>
+		</attribute>
+		<attribute name="select" get="1" set="1" type="list" size="1">
+			<digest>
+				Remap Channels
+			</digest>
+			<description>
+				Specify which channels to compile or split into. As per mc-wrapper, mappings start at &quot;1&quot;. Note that this setting does not override the <at>resize</at> listing, which, if set to non-zero, will specify how many channels are being compiled/split.<br/>
+				When set to &quot;0&quot;, the original channelmap is maintained.
+			</description>
+		</attribute>
+		<attribute name="sr" get="1" set="1" type="int" size="1">
+			<digest>
+				Sampling Rate
+			</digest>
+			<description>
+				Set sampling rate of files to be written. The default is 48000 (48kHz).
+			</description>
+			<!-- <attributelist>
+				<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
+				<attribute name="enumvals" get="1" set="1" type="atom" size="2">
+					<enumlist>
+						<enum name="Round">
+							<digest>
+								Round when quantizing to integer values.
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+						<enum name="Floor">
+							<digest>
+								Floor when quantizing to integer values.
+							</digest>
+							<description>
+								TEXT_HERE
+							</description>
+						</enum>
+					</enumlist>
+				</attribute> -->
+				<!-- <attribute name="label" get="1" set="1" type="symbol" size="1" value="PCM Quantization Rule" />
+				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enumindex" />
+			</attributelist> -->
+		</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Re-Apply previous command
+			</digest>
+			<description>
+				Re-apply the previous command on the previously provided sound file or path.
+			</description>
+		</method>
+		<method name="readfolder">
+			<arglist>
+			</arglist>
+			<digest>
+				Read Folder of Mono Files
+			</digest>
+			<description>
+				Read a folder and compile all found sound files into a single multichannel sound file on disk. The user will be prompted to specify a path and filename for the resulting file.
+			</description>
+		</method>
+		<method name="split">
+			<arglist>
+			</arglist>
+			<digest>
+				Split Multichannel to Mono Files
+			</digest>
+			<description>
+				Provide a valid path to a multichannel or stereo file. To the same directory, a specified number of mono files will be written from this file.
+			</description>
+		</method>
+		<!-- <method name="mute">
+			<arglist>
+			</arglist>
+			<digest>
+				Toggle the mute flag for entire busymap
+			</digest>
+			<description>
+				Toggle the mute flag for entire busymap
+			</description>
+		</method>
+		<method name="threshold">
+			<arglist>
+			</arglist>
+			<digest>
+				Specify an activation threshold
+			</digest>
+			<description>
+				Specify an activation threshold
+			</description>
+		</method>
+		<method name="manual">
+			<arglist>
+			</arglist>
+			<digest>
+				Set voice activation mode
+			</digest>
+			<description>
+				Set voice activation mode
+			</description>
+		</method>
+<method name="cpumonitor">
+	<arglist>
+	</arglist>
+	<digest>
+		Set CPU-Monitoring interval (ms)
+	</digest>
+	<description>
+		Set CPU-Monitoring interval (ms)
+	</description>
+</method>
+<method name="multichannelsignal">
+	<arglist>
+	</arglist>
+	<digest>
+		Set busymap manually
+	</digest>
+	<description>
+		Set busymap manually when the <at>manual</at> flag is set to '1', otherwise the internal buffer handles the busymap.
+	</description>
+</method> -->
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

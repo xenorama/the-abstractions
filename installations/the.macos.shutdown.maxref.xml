@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.macos.shutdown" module="max" category="System">
+
+	<digest>
+		Shutdown, Reboot or put the Mac to sleep
+	</digest>
+
+	<description>
+		Using the <o>shell</o> external with required superuser access, allows for shutting down, rebooting or putting the Macintosh to sleep from within Max.
+	</description>
+
+	<!--METADATA -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Installation</metadata>
+		<metadata name="tag">System</metadata>
+	</metadatalist>
+
+
+					<!--INLETS -->
+
+
+				<!--OUTLETS -->
+
+		<!--ARGUMENTS -->
+
+		<!--MESSAGES-->
+		<methodlist>
+			<method name="cancel">
+				<digest>
+					Cancel the current operation
+				</digest>
+				<description>
+					Cancel the current operation. This method is only relevant while a current shutdown process is pending. See the <at>confirm</at> listing for the internal timer.
+				</description>
+			</method>
+			<method name="restart">
+				<digest>
+					Restart the Mac
+				</digest>
+				<description>
+					Restart the Mac immediately. Depending on the <at>confirm</at> listing, a confirmational message may be required in the second inlet within the specified time.
+				</description>
+			</method>
+			<method name="shutdown">
+				<digest>
+					Shutdown the Mac
+				</digest>
+				<description>
+					Shutdown the Mac immediately. Depending on the <at>confirm</at> listing, a confirmational message may be required in the second inlet within the specified time.
+				</description>
+			</method>
+			<method name="sleep">
+				<digest>
+					Activate Sleep mode for the Mac
+				</digest>
+				<description>
+					Activate Sleep mode for the Mac immediately. Depending on the <at>confirm</at> listing, a confirmational message may be required in the second inlet within the specified time.
+				</description>
+			</method>
+		</methodlist>
+
+
+					<!--ATTRIBUTES -->
+					<attributelist>
+						<attribute name="confirm" get="1" set="1" type="int" size="1">
+							<digest>
+								Set a timer to confirm shutdown commands
+							</digest>
+							<description>
+								Set a timer to confirm shutdown commands (in ms). If set to non-zero (default: 5000), will allow the user to confirm the given command using any message in the second inlet. If the user fails to confirm within the specified range, the operation is cancelled.<br/>
+								When set to 0, the operation is automatically confirmed after 2 seconds. A floating point linear ramp value is output from the second outlet, indicating the progress in both cases.
+							</description>
+						</attribute>
+						<attribute name="crashrecovery" get="1" set="1" type="symbol" size="1">
+							<digest>
+								specify Max' crash recovery behaviour.
+							</digest>
+							<description>
+								After a crash of Max, the <m>crashrecovery</m> specifies how Max will try to restore potentially lost data. <br/>
+								The following settings are available and are required as the following symbols: <br/> <br/>
+								Ask = prompt the user to decide whether to recover previously unsaved data and patches <br/>
+								Always = always try to recover previously unsaved data and patches <br/>
+								Never = open a clean Max application <br/><br/>
+								There is no native default setting as this attribute will immediately override a user's setting in the preferences permanently once set via attributes or commands. This setting is useful to determine, how Max behaves after a forced shutdown or restart.
+							</description>
+						</attribute>
+						<attribute name="pw" get="1" set="1" type="symbol" size="1">
+							<digest>
+								Set the superuser password (required)
+							</digest>
+							<description>
+								Set the superuser password (required). The admin password is required to confirm the operation, regardless of the <at>confirm</at> setting. The password is internally confirmed automatically.<br/>
+								If no <at>pw</at> is provided, the object is idle and the user will be notified in the Max Console.
+							</description>
+						</attribute>
+						<attribute name="restorewindows" get="1" set="1" type="int" size="1">
+							<digest>
+								reopen all windows upon starting the Max application.
+							</digest>
+							<description>
+								will set Max' behaviour upon starting or relaunching with regard to previously open windows. A value of '1' will reopen all windows on launch and a value of '0' will start Max without opening any file. <br/><br/>
+								A value of '1' (reopen all windows) is especially advised when scheduling a quitting/relaunching of max with the <m>bang</m> or <m>relaunch</m> message, respectively. <br/><br/>
+								There is no native default setting as this attribute will immediately override a user's setting in the preferences permanently once set via attributes or commands.  This setting is useful to determine, how Max behaves after a forced shutdown or restart.
+							</description>
+						</attribute>
+					</attributelist>
+
+
+	<!--SEEALSO -->
+	<seealsolist>
+		<seealso name="the.max.quit"/>
+		<seealso name="the.schedule"/>
+		<seealso name="xen.dsp.fade~"/>
+		<seealso name="xen.jit.fade"/>
+	</seealsolist>
+
+
+</c74object>

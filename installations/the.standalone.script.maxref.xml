@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.standalone.script" module="max" category="Standalones">
+
+	<digest>
+		Script an exported Max standalone application
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2022, www.xenorama.com. <br/>
+		Copy dedicated individual files or folders into an exported standalone application's directories which are not included during export. A rubyfile is created or referenced holding all information and can be executed in the background or separately from the app
+	</description>
+
+	<discussion>
+		<o>the.standalone.script</o> can be opened as a Max patch, as an abstraction/bpatcher or executed in the background once set up correctly from within the patch after it got exported. The latter method can be implemented by means of the <o>pcontrol</o> object, and sending it the messages <m>shroud the.standalone.script</m> <i>rubyfile-name</i> <m>1</m>. The second argument, when flagged, applies the copying of all listed files/folders upon launch and closes the abstraction upon completion. The <m>open</m> command can too be used and allows for more control should a path be set up incorrectly.
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Max</metadata>
+		<metadata name="tag">Standalones</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="name-of-rubyfile" optional="0" type="symbol" size="1">
+			<digest>
+				Ruby file to be executed
+			</digest>
+			<description>
+				Ruby file to be executed. The Ruby file must be set up before execution, containing at least one pair of source file or directory and target directory inside the application's folder structure.
+			</description>
+		</objarg>
+		<objarg name="auto-execution-flag" optional="1" type="bool" size="1">
+			<digest>
+				Execute Ruby file upon launch
+			</digest>
+			<description>
+				Execute Ruby file upon launch and quit upon completion. This can be performed in the background usind the <m>shroud</m> method to <o>pcontrol</o>, including both args
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<!-- <attributelist>
+</attributelist> -->
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Execute Ruby file
+			</digest>
+			<description>
+				Execute Ruby file, copying all files or folders to the target directories specified for each block
+			</description>
+		</method>
+		<method name="open">
+			<arglist>
+			</arglist>
+		<digest>
+		  Open the setup panel
+		</digest>
+		<description>
+		  Open the setup panel. Here, individual files or folders can be drag-and-dropped on the GUI once the target directory was specified. To find and specify valid directories within the standalone application, you will need to navigate to them to drop them on the GUI.
+		</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+</c74object>

@@ -19,11 +19,14 @@ var name = jsarguments[1];
 var dict;
 var shortDesc = "";
 var longDesc = null;
-var digest = "by Tim Heinze, www.xenorama.com, © 2021 MIT License";
+var digest = "by Tim Heinze, www.xenorama.com, © 2023 MIT License";
 var desc = this.patcher.getattr("description") || "<description (change in patcher inspector)>";
 var tags = [];
 var textcolor = this.patcher.getattr("textcolor");
 var accentcolor = this.patcher.getattr("accentcolor");
+var detailstextcolor = this.patcher.getattr("accentcolor");
+// var idle_color = [0.7,0.5,0.,1.];
+var idle_color = this.patcher.getattr("locked_bgcolor").map(function (x,i) { return x*0.5 } );
 var logo_color = textcolor;
 var titlecolor = textcolor;
 var mousePos = [-1.,-1.];
@@ -35,6 +38,7 @@ var tags_registered = ["data","jitter","msp","gen","code","glsl","timing"]
 tag_colors.replace("data",[1.,0.98,0.87,1]);
 tag_colors.replace("jitter",[0.,0.7,0.3,1]);
 tag_colors.replace("msp",[0.8,0.7,0.,1]);
+tag_colors.replace("midi",[0.4,0,0.8,1]);
 tag_colors.replace("gen",[0.2,0.4,0.9,1]);
 tag_colors.replace("code",[0.2,0.2,0.2,1]);
 tag_colors.replace("glsl",[0.9,0.6,0.,1]);
@@ -50,8 +54,10 @@ var tags_pos = this.box.rect[3]-this.box.rect[1]; // bottm left
 var tag_layout = 1;
 var font = (defaultfont == 0) ? this.patcher.getattr("fontname") : "Lato"
 var fontsize = (defaultfont == 0) ? this.patcher.getattr("fontsize") : "13"
+var title_width = 360;
 // var wrap_width = this.box.rect[2]-this.box.rect[0];
 // var tags_pos = this.box.rect[2]-this.box.rect[0];
+
 
 
 var f = "";
@@ -76,6 +82,7 @@ function init()
 
 var xenlogo = new MGraphicsSVG("xen_500.svg");
 var xenlogo2 = new MGraphicsSVG("xenorama_500.svg");
+// var shogunlogo = new MGraphicsSVG("shogun_500.svg");
 
 init();
 
@@ -83,11 +90,15 @@ function paint() {
 	var patchfont = this.patcher.getattr("fontname");
 	font = (defaultfont == 0 && patchfont != "Arial") ? patchfont : "Lato";
 	fontsize = (defaultfont == 0 && patchfont != "Arial") ? this.patcher.getattr("fontsize") : "13";
-	name = (jsarguments[1]) ? name : ((this.patcher.getattr("filename")) ? this.patcher.getattr("filename").replace(/\.[^/.]+$/, "") : "<unnamed>");
+	name = (jsarguments[1]) ? name : ((this.patcher.getattr("filename")) ? this.patcher.getattr("filename").replace(/\.[^/.]+$/, "") : "</>");
 	textcolor = this.patcher.getattr("textcolor");
-	titlecolor = (this.patcher.getattr("filename") || jsarguments[1] || linkIdle == 1) ? textcolor : [0.7,0.5,0.,1.];
+	titlecolor = (this.patcher.getattr("filename") || jsarguments[1] || linkIdle == 1) ? textcolor : idle_color;
 	// logo_color = (linkIdle == 1) ? this.patcher.getattr("accentcolor") : textcolor;
-	logo = (linkIdle == 1) ? xenlogo2 : xenlogo;
+
+
+				logo = (linkIdle == 1) ? xenlogo2 : xenlogo;
+	// logo = shogunlogo;
+
 	// if (linkIdle == 1) {
 	// 	logo_color = this.patcher.getattr("accentcolor");
 	// 	logo = xenlogo;
@@ -120,6 +131,10 @@ function paint() {
 		set_source_rgba(titlecolor);
      		set_font_size(48);
       	(linkIdle == 0) ? show_text(name) : show_text(output);
+		title_width = (linkIdle == 0) ? Math.floor(text_measure(name)[0])+59 : Math.floor(text_measure(output)[0])+59;
+		title_width = Math.max(360,title_width);
+		// title_width = Math.max(Math.max(title_width,(this.box.rect[2]-this.box.rect[0])),360);
+		// post(title_width,'\n')
 		move_to(4, 70);
 		set_source_rgba(textcolor);
 		set_font_size(fontsize);
@@ -130,7 +145,7 @@ function paint() {
 		}
 		(linkIdle == 0) ? show_text(digest) : show_text("Studio for audio-visual media: Website");
 		move_to(4, 90);
-		var detailstextcolor = this.patcher.getattr("accentcolor");
+		// var detailstextcolor = this.patcher.getattr("accentcolor");
 		set_source_rgba(detailstextcolor);
 		if(longDesc!=null)
 		{
@@ -147,7 +162,8 @@ function paint() {
 		}
 
 		// add tags to bottom left area
-		tagBoxes();
+		if (tags.length !== undefined || mgraphics.size[1] >= 70) tagBoxes();
+		// post(tags.length,mgraphics.size[1])
 
 		// render xenorama logo
 		identity_matrix();
@@ -155,6 +171,9 @@ function paint() {
 		scale(0.09,0.09);
 		svg_render(logo);
 		fill();
+		// box.size(title_width,this.box.rect[3]-this.box.rect[1])
+		box.size(Math.max(title_width,(this.box.rect[2]-this.box.rect[0])),this.box.rect[3]-this.box.rect[1])
+
   }
 }
 
@@ -208,8 +227,11 @@ function tagBoxes(){
 
 
 function onresize(){
-	tags = this.patcher.getattr("tags").split(' ');
+
+	tags = (this.patcher.getattr("tags").length) ? this.patcher.getattr("tags").split(' ') : 0;
 	tags_pos = this.box.rect[3]-this.box.rect[1]; // bottm left
+	box.size(Math.max(title_width,(this.box.rect[2]-this.box.rect[0])),this.box.rect[3]-this.box.rect[1])
+	// post("textwrap",text_wrap,"box_width",this.box.rect[2]-this.box.rect[0],'\n');
 	// wrap_width = this.box.rect[2]-this.box.rect[0];
 	mgraphics.redraw();
 }
@@ -238,15 +260,21 @@ function wordwrap(str, width, brk, cut)
 {
  	if(jsarguments[2]==null){jsarguments[2]=95;} // wrap_width/10}; // 95
     brk = brk || '\\cr';
+    // width = title_width/4;
     width = width || jsarguments[2];
+    // width = Math.floor(((this.box.rect[2]-this.box.rect[0])/8));
+		// post(width,'\n')
+    // width = text_wrap;
+		// post(width,'\n')
     cut = cut || false;
     if (!str) { return str; }
     var regex = '.{1,' +width+ '}(\\s|$)' + (cut ? '|.{' +width+ '}|.+$' : '|\\S+?(\\s|$)');
+		// post(regex,'\n')
     var v=str.match( RegExp(regex, 'g') );
 	for(i=0;i<=v.length;i++)
 		{
 			mgraphics.show_text(v[i], 1);
-			mgraphics.move_to(4, 105+15*i);
+			mgraphics.move_to(4, 105+15*i); // offset = 115
 		}
 	return;
 }
