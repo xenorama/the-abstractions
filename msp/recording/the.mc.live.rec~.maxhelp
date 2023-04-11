@@ -258,6 +258,86 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"border" : 0,
+									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.xen.svg", "live.rec.xen.svg" ], [ "hover_color", "accentcolor" ], [ "text", "xenorama" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"filename" : "the.svgbutton.js",
+									"id" : "obj-47",
+									"jsarguments" : [ "audiopower2.svg" ],
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 648.0, 64.5, 104.0, 32.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 26.523824896131373, 189.5, 116.0, 32.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"border" : 0,
+									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.github.svg", "live.rec.github.svg" ], [ "hover_color", "accentcolor" ], [ "text", "github" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"filename" : "the.svgbutton.js",
+									"id" : "obj-13",
+									"jsarguments" : [ "audiopower2.svg" ],
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 648.0, 22.0, 104.0, 32.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 26.523824896131373, 146.5, 116.0, 32.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"hidden" : 1,
+									"id" : "obj-16",
+									"linecount" : 2,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 648.0, 109.5, 251.0, 38.0 ],
+									"presentation_linecount" : 2,
+									"text" : ";\rmax launchbrowser https://xenorama.com"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"hidden" : 1,
+									"id" : "obj-4",
+									"linecount" : 2,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 648.0, 109.5, 529.0, 38.0 ],
+									"presentation_linecount" : 2,
+									"text" : ";\rmax launchbrowser https://github.com/xenorama/the-abstractions/tree/main/msp/recording"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bubble" : 1,
+									"id" : "obj-12",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 442.0, 390.0, 176.0, 25.0 ],
+									"presentation_linecount" : 2,
+									"text" : "double click to open panel",
+									"textcolor" : [ 0.129412, 0.129412, 0.129412, 1.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-7",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -265,32 +345,6 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 634.0, 236.0, 72.0, 23.0 ],
 									"text" : "mousefilter"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-1",
-									"linecount" : 2,
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 178.75, 175.999991178512573, 251.0, 38.0 ],
-									"text" : ";\rmax launchbrowser https://xenorama.com"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-4",
-									"linecount" : 2,
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 178.75, 135.999991178512573, 529.0, 38.0 ],
-									"text" : ";\rmax launchbrowser https://github.com/xenorama/the-abstractions/tree/main/msp/recording"
 								}
 
 							}
@@ -420,7 +474,7 @@
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "1007_rec",
+									"buffername" : "1023_rec",
 									"id" : "obj-3",
 									"maxclass" : "waveform~",
 									"numinlets" : 5,
@@ -689,6 +743,15 @@
 							}
 , 							{
 								"patchline" : 								{
+									"color" : [ 0.701961, 0.701961, 0.701961, 0.0 ],
+									"destination" : [ "obj-4", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-13", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-24", 0 ],
 									"midpoints" : [ 204.5, 481.75, 320.5, 481.75 ],
 									"source" : [ "obj-17", 1 ]
@@ -752,6 +815,15 @@
 									"destination" : [ "obj-9", 0 ],
 									"midpoints" : [ 725.5, 360.5, 43.5, 360.5 ],
 									"source" : [ "obj-37", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"color" : [ 0.701961, 0.701961, 0.701961, 0.0 ],
+									"destination" : [ "obj-16", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-47", 0 ]
 								}
 
 							}
@@ -926,6 +998,13 @@
 				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/msp/recording",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "the.svgbutton.js",
+				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/install_dependencies/ui_tools",
+				"patcherrelativepath" : "../../install_dependencies/ui_tools",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],
