@@ -40,6 +40,32 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-5",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 642.0, 47.999991178512573, 231.0, 35.0 ],
+					"text" : ";\rmax launchbrowser https://xenorama.com"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 642.0, 7.999991178512573, 489.0, 35.0 ],
+					"text" : ";\rmax launchbrowser https://github.com/xenorama/the-abstractions/tree/main/msp/recording"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"bgcolor" : [ 1.0, 0.772549019607843, 0.454901960784314, 1.0 ],
 					"id" : "obj-26",
 					"maxclass" : "newobj",
@@ -834,13 +860,13 @@
 													"box" : 													{
 														"maxclass" : "newobj",
 														"text" : "out 4 @comment status",
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-8",
+														"patching_rect" : [ 971.333333333333371, 1265.0, 135.0, 22.0 ],
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
 														"numinlets" : 1,
 														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
-														"numoutlets" : 0,
-														"patching_rect" : [ 971.333333333333371, 1265.0, 135.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-8",
+														"numoutlets" : 0
 													}
 
 												}
@@ -849,13 +875,13 @@
 														"maxclass" : "newobj",
 														"text" : "in 5 @comment reset",
 														"outlettype" : [ "" ],
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-7",
+														"patching_rect" : [ 971.333333333333371, 14.0, 123.0, 22.0 ],
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
 														"numinlets" : 0,
 														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
-														"numoutlets" : 1,
-														"patching_rect" : [ 971.333333333333371, 14.0, 123.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-7",
+														"numoutlets" : 1
 													}
 
 												}
@@ -863,13 +889,13 @@
 													"box" : 													{
 														"maxclass" : "newobj",
 														"text" : "out 3 @comment ms",
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-10",
+														"patching_rect" : [ 664.222222222222285, 1265.0, 119.0, 22.0 ],
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
 														"numinlets" : 1,
 														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
-														"numoutlets" : 0,
-														"patching_rect" : [ 664.222222222222285, 1265.0, 119.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-10",
+														"numoutlets" : 0
 													}
 
 												}
@@ -877,13 +903,13 @@
 													"box" : 													{
 														"maxclass" : "newobj",
 														"text" : "out 2 @comment phase",
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-9",
+														"patching_rect" : [ 357.111111111111143, 1265.0, 136.0, 22.0 ],
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
 														"numinlets" : 1,
 														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
-														"numoutlets" : 0,
-														"patching_rect" : [ 357.111111111111143, 1265.0, 136.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-9",
+														"numoutlets" : 0
 													}
 
 												}
@@ -892,13 +918,13 @@
 														"maxclass" : "newobj",
 														"text" : "in 4 @comment stop",
 														"outlettype" : [ "" ],
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-6",
+														"patching_rect" : [ 741.0, 14.0, 123.0, 22.0 ],
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
 														"numinlets" : 0,
 														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
-														"numoutlets" : 1,
-														"patching_rect" : [ 741.0, 14.0, 123.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-6",
+														"numoutlets" : 1
 													}
 
 												}
@@ -907,13 +933,13 @@
 														"maxclass" : "newobj",
 														"text" : "in 3 @comment play",
 														"outlettype" : [ "" ],
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-5",
+														"patching_rect" : [ 510.666666666666686, 14.0, 118.0, 22.0 ],
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
 														"numinlets" : 0,
 														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
-														"numoutlets" : 1,
-														"patching_rect" : [ 510.666666666666686, 14.0, 118.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-5",
+														"numoutlets" : 1
 													}
 
 												}
@@ -922,13 +948,13 @@
 														"maxclass" : "newobj",
 														"text" : "in 1 @comment audio material",
 														"outlettype" : [ "" ],
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-1",
+														"patching_rect" : [ 50.0, 14.0, 171.0, 22.0 ],
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
 														"numinlets" : 0,
 														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
-														"numoutlets" : 1,
-														"patching_rect" : [ 50.0, 14.0, 171.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-1",
+														"numoutlets" : 1
 													}
 
 												}
@@ -937,13 +963,13 @@
 														"maxclass" : "newobj",
 														"text" : "in 2 @comment record",
 														"outlettype" : [ "" ],
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-2",
+														"patching_rect" : [ 280.333333333333371, 14.0, 130.0, 22.0 ],
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
 														"numinlets" : 0,
 														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
-														"numoutlets" : 1,
-														"patching_rect" : [ 280.333333333333371, 14.0, 130.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-2",
+														"numoutlets" : 1
 													}
 
 												}
@@ -951,13 +977,13 @@
 													"box" : 													{
 														"maxclass" : "codebox",
 														"outlettype" : [ "", "", "", "" ],
-														"fontface" : 0,
-														"id" : "obj-3",
-														"fontsize" : 12.0,
-														"numinlets" : 5,
-														"numoutlets" : 4,
 														"fontname" : "<Monospaced>",
 														"patching_rect" : [ 50.0, 70.0, 940.333333333333371, 1162.0 ],
+														"fontface" : 0,
+														"numinlets" : 5,
+														"id" : "obj-3",
+														"fontsize" : 12.0,
+														"numoutlets" : 4,
 														"code" : "/* ————————————————————— INITIAL SETUP —————————————————— */\r\n\r\nBuffer rec(\"#0_rec\"); // buffer~ name\r\n\r\nHistory rec_position(0); // recording position within buffer~ if recording\r\nHistory play_position(0); // playing position if playing\r\nHistory rec_length(0); // recorded length\r\nHistory full(0); // full buffer population flag\r\nHistory replay(1); // looping flag during playback\r\nHistory playback_time(0); // total playback time\r\nHistory pass(1); // command listen flag\r\n\r\nParam loop(1); // looped playback\r\n\r\n/* ————————————————————— VARIABLES —————————————————— */\r\n\r\nlength = dim(rec); // maximum recording time in samples\r\nmaterial = in1; // multichannelsignal to record\r\nplaying = latch(in3,pass); // playing flag when pass is on (default)\r\nrecording = latch(in2,pass); // recording flag when pass is on (default)\r\nstop = in4;\r\nreset = in5; // reset command (delta)\r\nch = mc_channel-1; // channel in audio to process\r\nrec_toggle = delta(recording); // change in recording mode\r\nplay_toggle = delta(playing); // change in playing mode\r\n\r\n/* ————————————————————— PROCESSING —————————————————— */\r\n\r\nif (stop) pass = 1; // stop all processing\r\nelse if (reset) { // apply when resetting\r\n\trec_length = 0;\r\n\tplay_position = 1;\r\n\tfull = 0;\r\n\tplayback_time = 0;\r\n\tpass = 1;\r\n\t}\r\nelse if (rec_toggle != 0) { // recording mode changes\r\n\tif (rec_toggle < 0) { // when recording stops\r\n\t\tif (!full) rec_length = rec_position;\r\n\t\telse rec_length = length;\r\n\t\tplay_position = rec_position + 1; // initialize to position behind start\r\n\t\t}\r\n\telse { // when recording begins\r\n\t\trec_length = 0;\r\n\t\trec_position = 0;\r\n\t\tplay_position = 1;\r\n\t\tfull = 0;\r\n\t\tplayback_time = 0;\r\n\t\tpass = 0;\r\n\t\t}\r\n\t}\r\nelse if (play_toggle > 0) { // when playing begins\r\n\treplay = 1;\r\n\tplayback_time = 0;\r\n\tplay_position = (rec_position+1) % rec_length;\r\n\tpass = 0;\r\n\t}\r\nif (recording) { // while recording\r\n\tpoke(rec,material,rec_position,ch); // write sample to buffer\r\n\trec_position += 1; // inc position\r\n\tif (rec_position >= length) { // if full buffer size has been reached\r\n\t\tfull = 1; // flag accordingly\r\n\t\trec_length = length; // set recorde length to maximum\r\n\t\t}\r\n\trec_position %= length; // wrap position around\r\n\tout2 = rec_position / length; // normalized recording position\r\n\tif (playback_time < length) time += 1; // inc playing time if within length\r\n\tout3 = sampstoms(rec_position); // ms preview\r\n\tout4 = 1;\r\n\t}\r\nelse if (playing && replay) { // while playing / looping\r\n\tplayback_time += 1; // inc time\r\n\tplayback = peek(rec,play_position,ch,boundmode=\"wrap\"); // read from buffer\r\n\tplay_position += 1; // inc position\r\n\t// if time exceeds length, check for looping flag\r\n\tif (full && playback_time >= length || (!full && playback_time >= rec_length)){\r\n\t\tif (loop) play_position %= rec_length; // wrap playback\r\n\t\telse { \r\n\t\t\treplay = 0; // disallow playback\r\n\t\t\tpass = 1; // re-enable playback on command\r\n\t\t\t}\r\n\t\t}\r\n\tout1 = playback; // multichannelsignal audio\r\n\tout2 = (play_position / length) % 1; // normalized phase as per position\r\n\tout3 = sampstoms(rec_length); // ms preview of recorded length\r\n\tout4 = 2;\r\n\t}\r\nelse {\r\n\tout2 = ((rec_position+1) / length) % 1;\r\n\tout3 = sampstoms(rec_length); // ms preview of recorded length\r\n\tout4 = rec_length ? 0 : 3;\r\n\t}\r\n"
 													}
 
@@ -966,13 +992,13 @@
 													"box" : 													{
 														"maxclass" : "newobj",
 														"text" : "out 1 @comment recorded_material",
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-4",
+														"patching_rect" : [ 50.0, 1265.0, 200.0, 22.0 ],
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
 														"numinlets" : 1,
 														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
-														"numoutlets" : 0,
-														"patching_rect" : [ 50.0, 1265.0, 200.0, 22.0 ]
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+														"id" : "obj-4",
+														"numoutlets" : 0
 													}
 
 												}
@@ -1053,7 +1079,7 @@
 									"patching_rect" : [ 72.0, 296.5, 566.0, 22.0 ],
 									"text" : "mc.gen~ @rec #0_rec",
 									"textcolor" : [ 0.932326316833496, 0.86507248878479, 0.03703885897994, 1.0 ],
-									"wrapper_uniquekey" : "u795008917"
+									"wrapper_uniquekey" : "u491003466"
 								}
 
 							}
@@ -2291,6 +2317,42 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-21",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 1143.40002400000003, 205.0, 165.0, 20.0 ],
+									"text" : "attributes"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-18",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 637.40002400000003, 100.0, 165.0, 20.0 ],
+									"text" : "commands (methods)"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bgcolor" : [ 0.713726, 0.87451, 0.831373, 1.0 ],
+									"color" : [ 0.768627, 0.521569, 0.392157, 1.0 ],
+									"id" : "obj-16",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 619.40002400000003, 533.0, 133.0, 22.0 ],
+									"text" : "s #0_gen.commands",
+									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-15",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -2340,7 +2402,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "bang", "" ],
-									"patching_rect" : [ 752.0, 302.0, 42.0, 22.0 ],
+									"patching_rect" : [ 765.200023999999985, 301.0, 42.0, 22.0 ],
 									"text" : "sel -1",
 									"textcolor" : [ 0.862745, 0.870588, 0.878431, 1.0 ]
 								}
@@ -2354,7 +2416,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 775.0, 473.0, 126.0, 49.0 ],
+									"patching_rect" : [ 788.200023999999985, 472.0, 126.0, 49.0 ],
 									"text" : "set the sampling rate in the audio settings for correct reording…"
 								}
 
@@ -2367,7 +2429,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 775.0, 533.0, 120.0, 22.0 ],
+									"patching_rect" : [ 788.200023999999985, 532.0, 120.0, 22.0 ],
 									"text" : "print the.mc.live.rec~",
 									"textcolor" : [ 1.0, 0.984314, 0.870588, 1.0 ]
 								}
@@ -2381,7 +2443,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1061.218205818181787, 620.0, 91.0, 22.0 ],
+									"patching_rect" : [ 1056.800024000000121, 620.0, 91.0, 22.0 ],
 									"text" : "s #0_getattrs",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
@@ -2797,7 +2859,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1265.343205818181787, 539.0, 95.0, 22.0 ],
+									"patching_rect" : [ 1260.925024000000121, 539.0, 95.0, 22.0 ],
 									"text" : "s #0_to.buffer",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
@@ -2811,7 +2873,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 619.40002400000003, 500.0, 95.0, 22.0 ],
+									"patching_rect" : [ 646.90002400000003, 496.0, 95.0, 22.0 ],
 									"text" : "s #0_to.buffer",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
@@ -2825,7 +2887,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1164.218205818181787, 539.0, 91.0, 22.0 ],
+									"patching_rect" : [ 1159.800024000000121, 539.0, 91.0, 22.0 ],
 									"text" : "s #0_to.meta",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
@@ -2854,7 +2916,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1061.218205818181787, 483.0, 36.0, 22.0 ],
+									"patching_rect" : [ 1056.800024000000121, 483.0, 36.0, 22.0 ],
 									"text" : "defer",
 									"textcolor" : [ 0.77999, 0.753768, 0.620778, 1.0 ]
 								}
@@ -2867,10 +2929,10 @@
 									"id" : "obj-17",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
+									"numoutlets" : 3,
+									"outlettype" : [ "stop", "", "" ],
 									"patching_rect" : [ 619.40002400000003, 400.0, 74.0, 22.0 ],
-									"text" : "t l l",
+									"text" : "t stop l l",
 									"textcolor" : [ 0.921569, 0.917647, 0.933333, 1.0 ]
 								}
 
@@ -2884,7 +2946,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
-									"patching_rect" : [ 1061.218205818181787, 400.0, 74.0, 22.0 ],
+									"patching_rect" : [ 1056.800024000000121, 400.0, 74.0, 22.0 ],
 									"text" : "t getattrlist b",
 									"textcolor" : [ 0.921569, 0.917647, 0.933333, 1.0 ]
 								}
@@ -2899,7 +2961,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "int" ],
-									"patching_rect" : [ 1116.218205818181787, 438.0, 67.0, 22.0 ],
+									"patching_rect" : [ 1111.800024000000121, 438.0, 67.0, 22.0 ],
 									"text" : "adstatus sr",
 									"textcolor" : [ 0.960784, 0.827451, 0.156863, 1.0 ]
 								}
@@ -2912,7 +2974,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1164.218205818181787, 483.0, 66.0, 22.0 ],
+									"patching_rect" : [ 1159.800024000000121, 483.0, 66.0, 22.0 ],
 									"text" : "prepend sr"
 								}
 
@@ -2923,11 +2985,11 @@
 									"color" : [ 0.45522, 0.188215, 0.381035, 1.0 ],
 									"id" : "obj-5",
 									"maxclass" : "newobj",
-									"numinlets" : 12,
-									"numoutlets" : 12,
-									"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "" ],
+									"numinlets" : 11,
+									"numoutlets" : 11,
+									"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "" ],
 									"patching_rect" : [ 619.40002400000003, 205.0, 505.0, 22.0 ],
-									"text" : "routepass size samps sizeinsamps sr format filetype quantization dither continuous loop done",
+									"text" : "routepass size samps sizeinsamps sr format filetype quantization dither loop done",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 								}
 
@@ -2940,7 +3002,7 @@
 									"maxclass" : "inlet",
 									"numinlets" : 0,
 									"numoutlets" : 1,
-									"outlettype" : [ "multichannelsignal" ],
+									"outlettype" : [ "" ],
 									"patching_rect" : [ 50.0, 40.0, 30.0, 30.0 ]
 								}
 
@@ -2995,15 +3057,22 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-16", 0 ],
+									"source" : [ "obj-17", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-54", 0 ],
-									"source" : [ "obj-17", 1 ]
+									"source" : [ "obj-17", 2 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-64", 0 ],
-									"source" : [ "obj-17", 0 ]
+									"source" : [ "obj-17", 1 ]
 								}
 
 							}
@@ -3018,7 +3087,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-65", 0 ],
-									"midpoints" : [ 1173.718205818181787, 521.5, 1274.843205818181787, 521.5 ],
+									"midpoints" : [ 1169.300024000000121, 521.5, 1270.425024000000121, 521.5 ],
 									"order" : 0,
 									"source" : [ "obj-20", 0 ]
 								}
@@ -3027,7 +3096,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-11", 1 ],
-									"midpoints" : [ 1173.718205818181787, 470.0, 1210.85910290909078, 470.0, 1210.85910290909078, 287.0, 784.5, 287.0 ],
+									"midpoints" : [ 1169.300024000000121, 470.0, 1210.85910290909078, 470.0, 1210.85910290909078, 287.0, 797.700023999999985, 287.0 ],
 									"order" : 1,
 									"source" : [ "obj-23", 1 ]
 								}
@@ -3111,7 +3180,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"midpoints" : [ 938.172751272727282, 252.5, 628.90002400000003, 252.5 ],
+									"midpoints" : [ 969.100024000000076, 252.5, 628.90002400000003, 252.5 ],
 									"source" : [ "obj-5", 7 ]
 								}
 
@@ -3119,7 +3188,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"midpoints" : [ 893.990933090909039, 252.5, 628.90002400000003, 252.5 ],
+									"midpoints" : [ 920.500024000000053, 252.5, 628.90002400000003, 252.5 ],
 									"source" : [ "obj-5", 6 ]
 								}
 
@@ -3127,7 +3196,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"midpoints" : [ 849.809114909090908, 252.5, 628.90002400000003, 252.5 ],
+									"midpoints" : [ 871.90002400000003, 252.5, 628.90002400000003, 252.5 ],
 									"source" : [ "obj-5", 5 ]
 								}
 
@@ -3135,7 +3204,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"midpoints" : [ 805.627296727272778, 252.5, 628.90002400000003, 252.5 ],
+									"midpoints" : [ 823.300024000000008, 252.5, 628.90002400000003, 252.5 ],
 									"source" : [ "obj-5", 4 ]
 								}
 
@@ -3143,7 +3212,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"midpoints" : [ 717.263660363636404, 253.0, 628.90002400000003, 253.0 ],
+									"midpoints" : [ 726.100024000000076, 253.0, 628.90002400000003, 253.0 ],
 									"source" : [ "obj-5", 2 ]
 								}
 
@@ -3151,7 +3220,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-17", 0 ],
-									"midpoints" : [ 673.08184218181816, 253.0, 628.90002400000003, 253.0 ],
+									"midpoints" : [ 677.500024000000053, 253.0, 628.90002400000003, 253.0 ],
 									"source" : [ "obj-5", 1 ]
 								}
 
@@ -3159,14 +3228,6 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-24", 0 ],
-									"source" : [ "obj-5", 10 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-25", 0 ],
-									"midpoints" : [ 1026.536387636363543, 266.5, 905.318205818181696, 266.5 ],
 									"source" : [ "obj-5", 9 ]
 								}
 
@@ -3174,7 +3235,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-25", 0 ],
-									"midpoints" : [ 982.354569454545526, 266.5, 905.318205818181696, 266.5 ],
+									"midpoints" : [ 1017.700023999999985, 266.5, 905.318205818181696, 266.5 ],
 									"source" : [ "obj-5", 8 ]
 								}
 
@@ -3191,7 +3252,7 @@
 								"patchline" : 								{
 									"destination" : [ "obj-9", 0 ],
 									"midpoints" : [ 1114.90002400000003, 248.0, 1246.90002400000003, 248.0 ],
-									"source" : [ "obj-5", 11 ]
+									"source" : [ "obj-5", 10 ]
 								}
 
 							}
@@ -3359,7 +3420,7 @@
 				"box" : 				{
 					"comment" : "the.mc.live.rec~ (dictionary) meta information",
 					"id" : "obj-3",
-					"index" : 5,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -3386,7 +3447,7 @@
 				"box" : 				{
 					"comment" : "the.mc.live.rec~ connect to waveform~ for content display",
 					"id" : "obj-38",
-					"index" : 4,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -3398,7 +3459,7 @@
 				"box" : 				{
 					"comment" : "the.mc.live.rec~ (multichannelesignal) recorded time in ms",
 					"id" : "obj-37",
-					"index" : 3,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -3410,7 +3471,7 @@
 				"box" : 				{
 					"comment" : "the.mc.live.rec~ (multichannelesignal) normalized phase of recording or playback",
 					"id" : "obj-35",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -3422,7 +3483,7 @@
 				"box" : 				{
 					"comment" : "the.mc.live.rec~ (multichannelesignal) recorded audio when played back",
 					"id" : "obj-14",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -3446,11 +3507,11 @@
 				"box" : 				{
 					"comment" : "the.mc.live.rec~ (multichannelesignal) audio to record, (anything) commands",
 					"id" : "obj-8",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 73.0, 181.0, 30.0, 30.0 ]
 				}
 
@@ -3483,18 +3544,17 @@
 			}
 , 			{
 				"box" : 				{
-					"background" : 1,
 					"border" : 0,
-					"embedstate" : [ [ "defaultfont", 0 ] ],
-					"filename" : "the.patcher.js",
+					"filename" : "helpdetails.js",
 					"id" : "obj-32",
+					"ignoreclick" : 1,
 					"jsarguments" : [ "the.mc.live.rec~" ],
 					"maxclass" : "jsui",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 5.523824896131373, 7.999991178512573, 457.0, 116.0 ]
+					"patching_rect" : [ 5.523824896131373, 7.999991178512573, 630.0, 137.0 ]
 				}
 
 			}
@@ -3596,6 +3656,14 @@
 
 			}
  ],
+		"dependency_cache" : [ 			{
+				"name" : "helpdetails.js",
+				"bootpath" : "C74:/help/resources",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+ ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "AudioStatus_Menu",
 				"default" : 				{

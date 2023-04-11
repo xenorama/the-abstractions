@@ -258,6 +258,44 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 634.0, 236.0, 72.0, 23.0 ],
+									"text" : "mousefilter"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-1",
+									"linecount" : 2,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 178.75, 175.999991178512573, 251.0, 38.0 ],
+									"text" : ";\rmax launchbrowser https://xenorama.com"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-4",
+									"linecount" : 2,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 178.75, 135.999991178512573, 529.0, 38.0 ],
+									"text" : ";\rmax launchbrowser https://github.com/xenorama/the-abstractions/tree/main/msp/recording"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-20",
 									"maxclass" : "tab",
 									"numinlets" : 1,
@@ -276,7 +314,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 689.5, 225.0, 148.0, 25.0 ],
+									"patching_rect" : [ 689.5, 200.0, 148.0, 25.0 ],
 									"text" : "set length in seconds",
 									"textcolor" : [ 0.129412, 0.129412, 0.129412, 1.0 ]
 								}
@@ -290,7 +328,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 480.0, 308.0, 37.0, 23.0 ],
-									"presentation_linecount" : 2,
 									"text" : "clear"
 								}
 
@@ -383,7 +420,7 @@
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "1082_rec",
+									"buffername" : "1007_rec",
 									"id" : "obj-3",
 									"maxclass" : "waveform~",
 									"numinlets" : 5,
@@ -403,22 +440,19 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 634.0, 225.0, 50.0, 23.0 ]
+									"patching_rect" : [ 634.0, 200.0, 50.0, 23.0 ]
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"bgcolor" : [ 0.2, 0.2, 0.2, 1.0 ],
-									"color" : [ 0.501961, 0.501961, 0.501961, 1.0 ],
 									"id" : "obj-28",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "float" ],
 									"patching_rect" : [ 634.0, 272.0, 50.0, 23.0 ],
-									"text" : "* 1000.",
-									"textcolor" : [ 0.968627, 0.968627, 0.968627, 1.0 ]
+									"text" : "* 1000."
 								}
 
 							}
@@ -564,7 +598,7 @@
 									"numoutlets" : 5,
 									"outlettype" : [ "multichannelsignal", "multichannelsignal", "multichannelsignal", "", "dictionary" ],
 									"patching_rect" : [ 34.0, 391.0, 393.0, 23.0 ],
-									"text" : "the.mc.live.rec~ @size 10 secs @loop 0",
+									"text" : "the.mc.live.rec~ @size 5 secs @loop 0",
 									"varname" : "cntrlr_in[1]"
 								}
 
@@ -595,16 +629,16 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "defaultfont", 0 ] ],
-									"filename" : "the.patcher.js",
+									"filename" : "helpdetails.js",
 									"id" : "obj-8",
+									"ignoreclick" : 1,
 									"jsarguments" : [ "the.mc.live.rec~" ],
 									"maxclass" : "jsui",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 10.0, 10.0, 565.0, 140.0 ]
+									"patching_rect" : [ 10.0, 10.0, 630.0, 137.0 ]
 								}
 
 							}
@@ -708,7 +742,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-28", 0 ],
+									"destination" : [ "obj-7", 0 ],
 									"source" : [ "obj-31", 0 ]
 								}
 
@@ -725,6 +759,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
 									"source" : [ "obj-67", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-28", 0 ],
+									"source" : [ "obj-7", 0 ]
 								}
 
 							}
@@ -785,16 +826,7 @@
 
 							}
  ],
-						"default_bgcolor" : [ 0.2, 0.2, 0.2, 1.0 ],
-						"color" : [ 0.807843, 0.898039, 0.909804, 1.0 ],
-						"elementcolor" : [ 0.34902, 0.34902, 0.34902, 1.0 ],
-						"accentcolor" : [ 0.501961, 0.501961, 0.501961, 1.0 ],
-						"selectioncolor" : [ 0.929412, 0.929412, 0.352941, 1.0 ],
 						"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-						"textcolor_inverse" : [ 0.968627, 0.968627, 0.968627, 1.0 ],
-						"patchlinecolor" : [ 0.701961, 0.701961, 0.701961, 1.0 ],
-						"bgcolor" : [ 0.898039, 0.898039, 0.898039, 1.0 ],
-						"editing_bgcolor" : [ 0.898039, 0.898039, 0.898039, 1.0 ],
 						"bgfillcolor_type" : "gradient",
 						"bgfillcolor_color1" : [ 0.301961, 0.301961, 0.301961, 1 ],
 						"bgfillcolor_color2" : [ 0.2, 0.2, 0.2, 1 ],
@@ -803,21 +835,12 @@
 ,
 					"patching_rect" : [ 10.0, 85.0, 50.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"accentcolor" : [ 0.501961, 0.501961, 0.501961, 1.0 ],
-						"bgcolor" : [ 0.2, 0.2, 0.2, 1.0 ],
-						"color" : [ 0.807843, 0.898039, 0.909804, 1.0 ],
 						"description" : "",
 						"digest" : "",
-						"editing_bgcolor" : [ 0.898039, 0.898039, 0.898039, 1.0 ],
-						"elementcolor" : [ 0.34902, 0.34902, 0.34902, 1.0 ],
 						"fontsize" : 13.0,
 						"globalpatchername" : "",
-						"locked_bgcolor" : [ 0.898039, 0.898039, 0.898039, 1.0 ],
-						"patchlinecolor" : [ 0.701961, 0.701961, 0.701961, 1.0 ],
-						"selectioncolor" : [ 0.929412, 0.929412, 0.352941, 1.0 ],
 						"tags" : "",
-						"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
-						"textcolor_inverse" : [ 0.968627, 0.968627, 0.968627, 1.0 ]
+						"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 					}
 ,
 					"text" : "p basic",
@@ -881,6 +904,12 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "helpdetails.js",
+				"bootpath" : "C74:/help/resources",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "helpname.js",
 				"bootpath" : "C74:/help/resources",
 				"type" : "TEXT",
@@ -897,13 +926,6 @@
 				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/msp/recording",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "the.patcher.js",
-				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/install_dependencies",
-				"patcherrelativepath" : "../../install_dependencies",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],
