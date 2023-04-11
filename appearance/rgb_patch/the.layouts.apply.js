@@ -50,10 +50,10 @@ setoutletassist(3,"connect to dict.view");
       function set_default_layout(dfl) { default_layout = dfl; dict_view()}; set_default_layout.local = 1;
       function get_default_layout() { return default_layout };
       function default(dl){
-        (typeof(dl) == "number") ? default_layout = dl : outlet(0,"'default' flag requires a boolean value")
+        (typeof dl === "number") ? default_layout = dl : outlet(0,"'default' flag requires a boolean value")
       }
 
-      var preset = "xenorama";
+      var preset = "tx";
       declareattribute("preset","get_preset","set_preset",0);
       function set_preset(prst) {
         if (prst == "default") set_default_layout(1);

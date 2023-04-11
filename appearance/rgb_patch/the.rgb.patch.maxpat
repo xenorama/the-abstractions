@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
-			"revision" : 1,
+			"minor" : 5,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 79.0, 1245.0, 913.0 ],
+		"rect" : [ 34.0, 79.0, 1245.0, 911.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,18 @@
 		"showontab" : 0,
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-44",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1029.599999999999909, 197.0, 77.0, 22.0 ],
+					"text" : "absolutepath"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"bgcolor" : [ 0.144559, 0.235989, 0.253663, 1.0 ],
 					"color" : [ 0.717647, 0.141176, 0.239216, 1.0 ],
@@ -77,7 +89,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1029.599999999999909, 202.0, 129.0, 22.0 ],
+					"patching_rect" : [ 1029.599999999999909, 230.0, 129.0, 22.0 ],
 					"text" : "sprintf symout file://%s",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
@@ -120,7 +132,7 @@
 				"box" : 				{
 					"comment" : "the.rgb.patch: (dictionary) all current settings",
 					"id" : "obj-43",
-					"index" : 3,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -156,8 +168,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
-							"revision" : 1,
+							"minor" : 5,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -294,7 +306,7 @@
 				"box" : 				{
 					"comment" : "the.rgb.patch: (jit_matrix) color palette of current patcher preset",
 					"id" : "obj-23",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -355,7 +367,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1029.599999999999909, 235.374984741210938, 129.0, 35.0 ],
+					"patching_rect" : [ 1029.599999999999909, 263.374984741210938, 129.0, 35.0 ],
 					"text" : ";\rmax launchbrowser $1"
 				}
 
@@ -422,7 +434,7 @@
 				"box" : 				{
 					"comment" : "the.rgb.patch: connect to umenu or chooser for list of presets currently stored. Send a 'preset' message with a valid name to change presets",
 					"id" : "obj-5",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -885,7 +897,7 @@
 				"box" : 				{
 					"comment" : "the.rgb.patch: (anything) commands",
 					"id" : "obj-25",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -1348,6 +1360,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-64", 0 ],
+					"source" : [ "obj-44", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-29", 0 ],
 					"midpoints" : [ 74.3333740234375, 459.0, 33.3333740234375, 459.0 ],
 					"source" : [ "obj-45", 0 ]
@@ -1402,7 +1421,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-64", 0 ],
+					"destination" : [ "obj-44", 0 ],
 					"source" : [ "obj-51", 1 ]
 				}
 
@@ -1523,6 +1542,28 @@
 
 			}
  ],
+		"dependency_cache" : [ 			{
+				"name" : "helpdetails.js",
+				"bootpath" : "C74:/help/resources",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "the.helpattrs.js",
+				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/appearance/rgb_patch",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "the.layouts.apply.js",
+				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/appearance/rgb_patch",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+ ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "AudioStatus_Menu",
 				"default" : 				{
@@ -7367,7 +7408,6 @@
 		"lightcolor" : [ 0.258823529411765, 0.235294117647059, 0.223529411764706, 1.0 ],
 		"patchlinecolor" : [ 0.298039215686275, 0.254901960784314, 0.196078431372549, 0.61 ],
 		"bgcolor" : [ 0.560784, 0.662745, 0.662745, 0.97 ],
-		"stripecolor" : [ 0.243137, 0.243137, 0.243137, 1.0 ],
 		"editing_bgcolor" : [ 0.560784, 0.662745, 0.662745, 1.0 ],
 		"bgfillcolor_type" : "gradient",
 		"bgfillcolor_color1" : [ 0.301961, 0.301961, 0.301961, 1 ],

@@ -23,15 +23,9 @@
 		<metadata name="tag">Record</metadata>
 	</metadatalist>
 
-	<!--INLETS (REMOVE FOR SIMPLICITY) -->
-
-	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
-
 	<!--ARGUMENTS-->
 
-	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
-
-	<!--size samps sizeinsamps sr format filetype quantization dither loop -->
+	<!--ATTRIBUTES-->
 
 	<attributelist>
 	<attribute name="dither" get="1" set="1" type="int" size="1">

@@ -1,0 +1,145 @@
+{
+	"pattrstorage" : 	{
+		"name" : "params",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 75 ],
+					"dial[1]" : [ 87 ],
+					"jsui" : [  ],
+					"number" : [ 12 ],
+					"number[1]" : [ 29 ],
+					"slider" : [ 9 ],
+					"slider[1]" : [ 106 ],
+					"slider[2]" : [ 53 ],
+					"slider[3]" : [ 4 ]
+				}
+
+			}
+,
+			"2" : 			{
+				"id" : 2,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 109 ],
+					"dial[1]" : [ 69 ],
+					"jsui" : [  ],
+					"number" : [ 60 ],
+					"number[1]" : [ 81 ],
+					"slider" : [ 73 ],
+					"slider[1]" : [ 5 ],
+					"slider[2]" : [ 91 ],
+					"slider[3]" : [ 32 ]
+				}
+
+			}
+,
+			"3" : 			{
+				"id" : 3,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 92 ],
+					"dial[1]" : [ 115 ],
+					"jsui" : [  ],
+					"number" : [ 122 ],
+					"number[1]" : [ 104 ],
+					"slider" : [ 66 ],
+					"slider[1]" : [ 66 ],
+					"slider[2]" : [ 30 ],
+					"slider[3]" : [ 54 ]
+				}
+
+			}
+,
+			"4" : 			{
+				"id" : 4,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 68 ],
+					"dial[1]" : [ 110 ],
+					"jsui" : [  ],
+					"number" : [ 81 ],
+					"number[1]" : [ 64 ],
+					"slider" : [ 21 ],
+					"slider[1]" : [ 18 ],
+					"slider[2]" : [ 23 ],
+					"slider[3]" : [ 86 ]
+				}
+
+			}
+,
+			"5" : 			{
+				"id" : 5,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 102 ],
+					"dial[1]" : [ 44 ],
+					"jsui" : [  ],
+					"number" : [ 104 ],
+					"number[1]" : [ 35 ],
+					"slider" : [ 126 ],
+					"slider[1]" : [ 83 ],
+					"slider[2]" : [ 38 ],
+					"slider[3]" : [ 96 ]
+				}
+
+			}
+,
+			"6" : 			{
+				"id" : 6,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 110 ],
+					"dial[1]" : [ 61 ],
+					"jsui" : [  ],
+					"number" : [ 55 ],
+					"number[1]" : [ 106 ],
+					"slider" : [ 37 ],
+					"slider[1]" : [ 22 ],
+					"slider[2]" : [ 40 ],
+					"slider[3]" : [ 31 ]
+				}
+
+			}
+,
+			"7" : 			{
+				"id" : 7,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 8 ],
+					"dial[1]" : [ 2 ],
+					"jsui" : [  ],
+					"number" : [ 11 ],
+					"number[1]" : [ 101 ],
+					"slider" : [ 112 ],
+					"slider[1]" : [ 114 ],
+					"slider[2]" : [ 80 ],
+					"slider[3]" : [ 74 ]
+				}
+
+			}
+,
+			"8" : 			{
+				"id" : 8,
+				"data" : 				{
+					"button" : [ 0.0 ],
+					"dial" : [ 29 ],
+					"dial[1]" : [ 59 ],
+					"jsui" : [  ],
+					"number" : [ 93 ],
+					"number[1]" : [ 75 ],
+					"slider" : [ 32 ],
+					"slider[1]" : [ 80 ],
+					"slider[2]" : [ 102 ],
+					"slider[3]" : [ 55 ]
+				}
+
+			}
+
+		}
+
+	}
+
+}

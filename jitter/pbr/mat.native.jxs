@@ -1,0 +1,173 @@
+<jittershader name="jit.gl.material.jxs">
+	<description>
+		materials system code generated JXS file
+	</description>
+	<param name="diffuse" type="int" default="0" />
+	<param name="textureMatrix0" type="mat4" state="TEXTURE0_MATRIX" />
+	<param name="modelViewProjectionMatrix" type="mat4" state="MODELVIEW_PROJECTION_MATRIX" />
+	<param name="modelViewMatrix" type="mat4" state="MODELVIEW_MATRIX" />
+	<param name="jit_position" type="vec3" state="POSITION" />
+	<param name="jit_normal" type="vec3" state="NORMAL" />
+	<param name="jit_texcoord" type="vec2" state="TEXCOORD" />
+	<param name="LightingParameters" state="LIGHT" />
+	<param name="FrontMaterialParameters" state="FRONT_MATERIAL" />
+	<param name="FogParameters" state="FOG" />
+	<language name="glsl" version="1.5">
+		<include source="c74.diffuse.glsl" program="fs" />
+		<include source="c74.specular.glsl" program="fs" />
+		<include source="c74.mtlfx.glsl" program="fs" />
+		<bind param="diffuse" program="fs" />
+		<bind param="textureMatrix0" program="vs" />
+		<bind param="modelViewProjectionMatrix" program="vs" />
+		<bind param="modelViewMatrix" program="vs" />
+		<bind param="jit_position" program="vs" />
+		<bind param="jit_normal" program="vs" />
+		<bind param="jit_texcoord" program="vs" />
+		<bind param="LightingParameters" program="fs" />
+		<bind param="FrontMaterialParameters" program="fs" />
+		<bind param="FogParameters" program="fs" />
+		<program name="vs" type="vertex">
+			<![CDATA[
+			#version 330 core
+
+			in vec3 jit_position;
+			in vec3 jit_normal;
+			in vec2 jit_texcoord;
+			out jit_PerVertex {
+				vec4 jit_Surface_position;
+				vec2 jit_Surface_texcoord0;
+				vec3 jit_Surface_normal;
+			} jit_out;
+			uniform mat4 textureMatrix0;
+			uniform mat4 modelViewProjectionMatrix;
+			uniform mat4 modelViewMatrix;
+
+			vec3 filter_normal(vec2 uv , float texelsize , sampler2D tex ) {
+				float h0 = texture(tex, uv + texelsize * vec2(0, -1)).r;
+				float h1 = texture(tex, uv + texelsize * vec2(-1, 0)).r;
+				float h2 = texture(tex, uv + texelsize * vec2(1, 0)).r;
+				float h3 = texture(tex, uv + texelsize * vec2(0, 1)).r;
+				vec2 step = vec2(1.0, 0.0);
+				vec3 va = normalize(vec3(step.xy, h1 - h0));
+				vec3 vb = normalize(vec3(step.yx, h3 - h2));
+				return cross(va, vb);
+			}
+			vec4 sample_vertex(vec2 uv , sampler2D tex , vec3 normal ) {
+				float height = texture(tex, uv).r;
+				vec4 vert = modelViewMatrix * vec4(jit_position, 1.);
+				return vert + normalize(vec4(normal, 1.0)) * height;
+			}
+			void main() {
+				jit_out.jit_Surface_normal = transpose(inverse(mat3x3(modelViewMatrix))) * jit_normal;
+				jit_out.jit_Surface_texcoord0 = vec2(textureMatrix0 * vec4(jit_texcoord, 0., 1.));
+				jit_out.jit_Surface_position = modelViewMatrix * vec4(jit_position, 1.);
+				gl_Position = modelViewProjectionMatrix*vec4(jit_position, 1.);
+			}
+		]]>
+		</program>
+		<program name="fs" type="fragment">
+			<![CDATA[
+			#version 330 core
+			struct MaterialParameters {
+				vec4 emission;
+				vec4 ambient;
+				vec4 diffuse;
+				vec4 specular;
+				float shininess;
+			};
+			struct LightModelParameters {
+				vec4 ambient;
+			};
+			struct LightSourceParameters {
+				vec4 ambient;
+				vec4 diffuse;
+				vec4 specular;
+				vec4 position;
+				vec3 spotDirection;
+				float spotExponent;
+				float spotCutoff;
+				float spotCosCutoff;
+				float constantAttenuation;
+				float linearAttenuation;
+				float quadraticAttenuation;
+			};
+			in jit_PerVertex {
+				vec4 jit_Surface_position;
+				vec2 jit_Surface_texcoord0;
+				vec3 jit_Surface_normal;
+			} jit_in;
+			layout (location = 0) out vec4 outColor;
+			layout (std140) uniform LightingParameters {
+				LightModelParameters lightModel;
+				LightSourceParameters light[1];
+			};
+
+			layout (std140) uniform FrontMaterialParameters {
+				MaterialParameters frontMaterial;
+			};
+			layout (std140) uniform FogParameters {
+				vec4 color;
+				float density;
+				float start;
+				float end;
+				float scale;
+			} fog;
+			#define PI (3.1415926535898)
+
+			#define jit_LightModel lightModel
+
+			struct Material {
+				vec4 color;
+			} ;
+			struct Light {
+				vec4 ambient;
+				vec4 diffuse;
+				vec4 specular;
+				vec3 toEyePosition;
+			} ;
+			vec4 fog_linear(vec4 color , float dist ) {
+				float fogfactor = (fog.end - dist) * fog.scale;
+				fogfactor = clamp(fogfactor, 0., 1.);
+				return mix(fog.color, color, fogfactor);
+			}
+			vec4 fog_exp(vec4 color , float dist ) {
+				float fogfactor = exp(-fog.density * dist);
+				fogfactor = clamp(fogfactor, 0., 1.);
+				return mix(fog.color, color, fogfactor);
+			}
+			vec4 fog_exp2(vec4 color , float dist ) {
+				float fogfactor = exp(-fog.density * fog.density * dist * dist);
+				fogfactor = clamp(fogfactor, 0., 1.);
+				return mix(fog.color, color, fogfactor);
+			}
+			Material jit_Material;
+			Light jit_Light [8];
+			uniform samplerJit0 diffuse;
+			void main() {
+				jit_Material.color = vec4(0., 0., 0., 0.);
+				vec3 jit_Surface_view = -vec3(jit_in.jit_Surface_position);
+				vec3 Vn = normalize(jit_Surface_view);
+				vec3 Nn = normalize(jit_in.jit_Surface_normal);
+				vec4 diffuse_tex = texture(diffuse, jit_in.jit_Surface_texcoord0);
+				jit_Light[0].toEyePosition = normalize(jit_in.jit_Surface_position.xyz - light[0].position.xyz);
+				float d6 = length(jit_in.jit_Surface_position.xyz - light[0].position.xyz);
+				float atten7 = light[0].constantAttenuation + light[0].linearAttenuation * d6 + light[0].quadraticAttenuation * d6 * d6;
+				atten7 = 1.0 / atten7;
+				jit_Light[0].ambient = light[0].ambient * atten7;
+				jit_Light[0].diffuse = light[0].diffuse * atten7;
+				jit_Light[0].specular = light[0].specular * atten7;
+				vec3 jit_Surface_toLight1 = -jit_Light[0].toEyePosition;
+				vec3 L2 = normalize(jit_Surface_toLight1);
+				float shininess3 = frontMaterial.shininess;
+				float mat_diffuse4 = lambertian(Nn, L2);
+				float mat_specular5 = blinn(Vn, Nn, L2, shininess3);
+				jit_Material.color += frontMaterial.emission;
+				jit_Material.color += frontMaterial.ambient * (jit_Light[0].ambient + jit_LightModel.ambient) * diffuse_tex;
+				jit_Material.color += frontMaterial.diffuse * jit_Light[0].diffuse * mat_diffuse4 * diffuse_tex;
+				jit_Material.color += frontMaterial.specular * jit_Light[0].specular * mat_specular5;
+				outColor = vec4(jit_Material.color.rgb,1);
+			}
+		]]>
+		</program>
+	</language>
+</jittershader>
