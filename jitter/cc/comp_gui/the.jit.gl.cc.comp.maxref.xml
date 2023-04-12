@@ -162,28 +162,19 @@
 	</jitterattributelist> -->
 
 	<!--MESSAGES-->
-	<!-- <methodlist>
-		<method name="float">
+	<methodlist>
+		<method name="sendslab">
 			<arglist>
-				<arg name="control-value" optional="0" type="float" />
+				<arg name="message" optional="0" type="float" />
 			</arglist>
 			<digest>
-				Set control value for all pixels
+				Send messages to the internal <o>jit.gl.slab</o> objects
 			</digest>
 			<description>
-				In right inlet: Set control value for all pixels overriding any previous <m>jit_gl_texture</m>
+				Send messages to the internal <o>jit.gl.slab</o> objects. The message &quot;sendslab&quot;, followed by any message <o>jit.gl.slab</o> understands, will send that message to the internal slab.
 			</description>
 		</method>
-		<method name="bang">
-			<arglist />
-			<digest>
-				Reset held texture
-			</digest>
-			<description>
-				Reset any held texture and start sampling anew.
-			</description>
-		</method>
-	</methodlist> -->
+	</methodlist>
 
 	<!--MOP-->
 
