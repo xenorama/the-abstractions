@@ -259,8 +259,8 @@
 						"boxes" : [ 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.xen.svg", "live.rec.xen.svg" ], [ "hover_color", "accentcolor" ], [ "text", "xenorama" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 0 ], [ "help_grid", 0 ], [ "hover_color", "accentcolor" ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.xen.svg", "live.rec.xen.svg" ], [ "text", "xenorama" ], [ "on_color", "color" ] ],
+									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-47",
 									"jsarguments" : [ "audiopower2.svg" ],
 									"maxclass" : "jsui",
@@ -277,8 +277,8 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.github.svg", "live.rec.github.svg" ], [ "hover_color", "accentcolor" ], [ "text", "github" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 0 ], [ "help_grid", 0 ], [ "hover_color", 0.4, 0, 0.7, 1 ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.github.svg", "live.rec.github.svg" ], [ "text", "github" ], [ "on_color", "color" ] ],
+									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-13",
 									"jsarguments" : [ "audiopower2.svg" ],
 									"maxclass" : "jsui",
@@ -302,7 +302,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 648.0, 109.5, 251.0, 38.0 ],
-									"presentation_linecount" : 2,
 									"text" : ";\rmax launchbrowser https://xenorama.com"
 								}
 
@@ -317,7 +316,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 648.0, 109.5, 529.0, 38.0 ],
-									"presentation_linecount" : 2,
 									"text" : ";\rmax launchbrowser https://github.com/xenorama/the-abstractions/tree/main/msp/recording"
 								}
 
@@ -330,7 +328,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 442.0, 390.0, 176.0, 25.0 ],
-									"presentation_linecount" : 2,
 									"text" : "double click to open panel",
 									"textcolor" : [ 0.129412, 0.129412, 0.129412, 1.0 ]
 								}
@@ -474,7 +471,7 @@
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "1023_rec",
+									"buffername" : "1027_rec",
 									"id" : "obj-3",
 									"maxclass" : "waveform~",
 									"numinlets" : 5,
@@ -994,17 +991,17 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "live.rec.svgbutton.js",
+				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/msp/recording",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "the.mc.live.rec~.maxpat",
 				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/msp/recording",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "the.svgbutton.js",
-				"bootpath" : "~/Documents/Max 8/Packages/the-abstractions/install_dependencies/ui_tools",
-				"patcherrelativepath" : "../../install_dependencies/ui_tools",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],

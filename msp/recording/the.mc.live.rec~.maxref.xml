@@ -316,6 +316,16 @@
 				Begin recording. Recording is stopped by the <m>stop</m> method.
 			</description>
 		</method>
+		<method name="sendbuffer">
+			<arglist>
+			</arglist>
+			<digest>
+				Send any valid message to internal <o>buffer~</o>
+			</digest>
+			<description>
+				Send any valid message to internal <o>buffer~</o>. The message &quot;sendbuffer&quot; followed by a valid messagename and respective arguments that the <o>buffer~</o> object understands, will send that message to the internal buffer.
+			</description>
+		</method>
 		<method name="stop">
 			<arglist>
 			</arglist>

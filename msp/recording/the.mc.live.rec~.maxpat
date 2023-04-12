@@ -10,8 +10,8 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 601.0, 79.0, 598.0, 493.0 ],
-		"bglocked" : 0,
+		"rect" : [ 601.0, 79.0, 592.0, 517.0 ],
+		"bglocked" : 1,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
@@ -105,7 +105,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.xen.svg", "live.rec.xen.svg" ], [ "hover_color", "accentcolor" ], [ "text", "xenorama" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+					"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 0 ], [ "help_grid", 0 ], [ "hover_color", 1, 0.98, 0.87, 1 ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.xen.svg", "live.rec.xen.svg" ], [ "text", "xenorama" ], [ "on_color", "color" ] ],
 					"filename" : "live.rec.svgbutton.js",
 					"id" : "obj-47",
 					"jsarguments" : [ "audiopower2.svg" ],
@@ -114,7 +114,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 649.0, 95.499991178512573, 104.0, 32.0 ],
+					"patching_rect" : [ 635.0, 95.499991178512573, 104.0, 32.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 11.523824896131373, 174.5, 116.0, 32.0 ]
 				}
@@ -123,7 +123,7 @@
 , 			{
 				"box" : 				{
 					"border" : 0,
-					"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.github.svg", "live.rec.github.svg" ], [ "hover_color", "accentcolor" ], [ "text", "github" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+					"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 0 ], [ "help_grid", 0 ], [ "hover_color", 0.4, 0, 0.7, 1 ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.github.svg", "live.rec.github.svg" ], [ "text", "github" ], [ "on_color", "color" ] ],
 					"filename" : "live.rec.svgbutton.js",
 					"id" : "obj-7",
 					"jsarguments" : [ "audiopower2.svg" ],
@@ -132,7 +132,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 649.0, 7.999991178512573, 104.0, 32.0 ],
+					"patching_rect" : [ 635.0, 7.999991178512573, 104.0, 32.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 11.523824896131373, 131.5, 116.0, 32.0 ]
 				}
@@ -146,7 +146,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 649.0, 138.999991178512573, 231.0, 35.0 ],
+					"patching_rect" : [ 635.0, 138.999991178512573, 231.0, 35.0 ],
 					"text" : ";\rmax launchbrowser https://xenorama.com"
 				}
 
@@ -159,7 +159,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 649.0, 53.999991178512573, 489.0, 35.0 ],
+					"patching_rect" : [ 635.0, 53.999991178512573, 489.0, 35.0 ],
 					"text" : ";\rmax launchbrowser https://github.com/xenorama/the-abstractions/tree/main/msp/recording"
 				}
 
@@ -1127,11 +1127,11 @@
 														"maxclass" : "newobj",
 														"text" : "out 4 @comment status",
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
-														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"numoutlets" : 0,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-8",
+														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"patching_rect" : [ 971.333333333333371, 1265.0, 135.0, 22.0 ],
+														"id" : "obj-8",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 1
 													}
 
@@ -1141,12 +1141,12 @@
 														"maxclass" : "newobj",
 														"text" : "in 5 @comment reset",
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
-														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"numoutlets" : 1,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-7",
-														"outlettype" : [ "" ],
+														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"patching_rect" : [ 971.333333333333371, 14.0, 123.0, 22.0 ],
+														"outlettype" : [ "" ],
+														"id" : "obj-7",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 0
 													}
 
@@ -1156,11 +1156,11 @@
 														"maxclass" : "newobj",
 														"text" : "out 3 @comment ms",
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
-														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"numoutlets" : 0,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-10",
+														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"patching_rect" : [ 664.222222222222285, 1265.0, 119.0, 22.0 ],
+														"id" : "obj-10",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 1
 													}
 
@@ -1170,11 +1170,11 @@
 														"maxclass" : "newobj",
 														"text" : "out 2 @comment phase",
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
-														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"numoutlets" : 0,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-9",
+														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"patching_rect" : [ 357.111111111111143, 1265.0, 136.0, 22.0 ],
+														"id" : "obj-9",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 1
 													}
 
@@ -1184,12 +1184,12 @@
 														"maxclass" : "newobj",
 														"text" : "in 4 @comment stop",
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
-														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"numoutlets" : 1,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-6",
-														"outlettype" : [ "" ],
+														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"patching_rect" : [ 741.0, 14.0, 123.0, 22.0 ],
+														"outlettype" : [ "" ],
+														"id" : "obj-6",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 0
 													}
 
@@ -1199,12 +1199,12 @@
 														"maxclass" : "newobj",
 														"text" : "in 3 @comment play",
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
-														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"numoutlets" : 1,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-5",
-														"outlettype" : [ "" ],
+														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"patching_rect" : [ 510.666666666666686, 14.0, 118.0, 22.0 ],
+														"outlettype" : [ "" ],
+														"id" : "obj-5",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 0
 													}
 
@@ -1214,12 +1214,12 @@
 														"maxclass" : "newobj",
 														"text" : "in 1 @comment audio material",
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
-														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"numoutlets" : 1,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-1",
-														"outlettype" : [ "" ],
+														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"patching_rect" : [ 50.0, 14.0, 171.0, 22.0 ],
+														"outlettype" : [ "" ],
+														"id" : "obj-1",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 0
 													}
 
@@ -1229,12 +1229,12 @@
 														"maxclass" : "newobj",
 														"text" : "in 2 @comment record",
 														"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
-														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"numoutlets" : 1,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-2",
-														"outlettype" : [ "" ],
+														"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
 														"patching_rect" : [ 280.333333333333371, 14.0, 130.0, 22.0 ],
+														"outlettype" : [ "" ],
+														"id" : "obj-2",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 0
 													}
 
@@ -1242,13 +1242,13 @@
 , 												{
 													"box" : 													{
 														"maxclass" : "codebox",
-														"fontface" : 0,
-														"numoutlets" : 4,
-														"id" : "obj-3",
-														"outlettype" : [ "", "", "", "" ],
-														"fontsize" : 12.0,
 														"fontname" : "<Monospaced>",
+														"numoutlets" : 4,
 														"patching_rect" : [ 50.0, 70.0, 940.333333333333371, 1162.0 ],
+														"fontface" : 0,
+														"outlettype" : [ "", "", "", "" ],
+														"id" : "obj-3",
+														"fontsize" : 12.0,
 														"numinlets" : 5,
 														"code" : "/* ————————————————————— INITIAL SETUP —————————————————— */\r\n\r\nBuffer rec(\"#0_rec\"); // buffer~ name\r\n\r\nHistory rec_position(0); // recording position within buffer~ if recording\r\nHistory play_position(0); // playing position if playing\r\nHistory rec_length(0); // recorded length\r\nHistory full(0); // full buffer population flag\r\nHistory replay(1); // looping flag during playback\r\nHistory playback_time(0); // total playback time\r\nHistory pass(1); // command listen flag\r\n\r\nParam loop(1); // looped playback\r\n\r\n/* ————————————————————— VARIABLES —————————————————— */\r\n\r\nlength = dim(rec); // maximum recording time in samples\r\nmaterial = in1; // multichannelsignal to record\r\nplaying = latch(in3,pass); // playing flag when pass is on (default)\r\nrecording = latch(in2,pass); // recording flag when pass is on (default)\r\nstop = in4;\r\nreset = in5; // reset command (delta)\r\nch = mc_channel-1; // channel in audio to process\r\nrec_toggle = delta(recording); // change in recording mode\r\nplay_toggle = delta(playing); // change in playing mode\r\n\r\n/* ————————————————————— PROCESSING —————————————————— */\r\n\r\nif (stop) pass = 1; // stop all processing\r\nelse if (reset) { // apply when resetting\r\n\trec_length = 0;\r\n\tplay_position = 1;\r\n\tfull = 0;\r\n\tplayback_time = 0;\r\n\tpass = 1;\r\n\t}\r\nelse if (rec_toggle != 0) { // recording mode changes\r\n\tif (rec_toggle < 0) { // when recording stops\r\n\t\tif (!full) rec_length = rec_position;\r\n\t\telse rec_length = length;\r\n\t\tplay_position = rec_position + 1; // initialize to position behind start\r\n\t\t}\r\n\telse { // when recording begins\r\n\t\trec_length = 0;\r\n\t\trec_position = 0;\r\n\t\tplay_position = 1;\r\n\t\tfull = 0;\r\n\t\tplayback_time = 0;\r\n\t\tpass = 0;\r\n\t\t}\r\n\t}\r\nelse if (play_toggle > 0) { // when playing begins\r\n\treplay = 1;\r\n\tplayback_time = 0;\r\n\tplay_position = (rec_position+1) % rec_length;\r\n\tpass = 0;\r\n\t}\r\nif (recording) { // while recording\r\n\tpoke(rec,material,rec_position,ch); // write sample to buffer\r\n\trec_position += 1; // inc position\r\n\tif (rec_position >= length) { // if full buffer size has been reached\r\n\t\tfull = 1; // flag accordingly\r\n\t\trec_length = length; // set recorde length to maximum\r\n\t\t}\r\n\trec_position %= length; // wrap position around\r\n\tout2 = rec_position / length; // normalized recording position\r\n\tif (playback_time < length) time += 1; // inc playing time if within length\r\n\tout3 = sampstoms(rec_position); // ms preview\r\n\tout4 = 1;\r\n\t}\r\nelse if (playing && replay) { // while playing / looping\r\n\tplayback_time += 1; // inc time\r\n\tplayback = peek(rec,play_position,ch,boundmode=\"wrap\"); // read from buffer\r\n\tplay_position += 1; // inc position\r\n\t// if time exceeds length, check for looping flag\r\n\tif (full && playback_time >= length || (!full && playback_time >= rec_length)){\r\n\t\tif (loop) play_position %= rec_length; // wrap playback\r\n\t\telse { \r\n\t\t\treplay = 0; // disallow playback\r\n\t\t\tpass = 1; // re-enable playback on command\r\n\t\t\t}\r\n\t\t}\r\n\tout1 = playback; // multichannelsignal audio\r\n\tout2 = (play_position / length) % 1; // normalized phase as per position\r\n\tout3 = sampstoms(rec_length); // ms preview of recorded length\r\n\tout4 = 2;\r\n\t}\r\nelse {\r\n\tout2 = ((rec_position+1) / length) % 1;\r\n\tout3 = sampstoms(rec_length); // ms preview of recorded length\r\n\tout4 = rec_length ? 0 : 3;\r\n\t}\r\n"
 													}
@@ -1259,11 +1259,11 @@
 														"maxclass" : "newobj",
 														"text" : "out 1 @comment recorded_material",
 														"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
-														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"numoutlets" : 0,
-														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-														"id" : "obj-4",
+														"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
 														"patching_rect" : [ 50.0, 1265.0, 200.0, 22.0 ],
+														"id" : "obj-4",
+														"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 														"numinlets" : 1
 													}
 
@@ -1345,7 +1345,7 @@
 									"patching_rect" : [ 72.0, 296.5, 566.0, 22.0 ],
 									"text" : "mc.gen~ @rec #0_rec",
 									"textcolor" : [ 0.932326316833496, 0.86507248878479, 0.03703885897994, 1.0 ],
-									"wrapper_uniquekey" : "u506005231"
+									"wrapper_uniquekey" : "u413003489"
 								}
 
 							}
@@ -1592,7 +1592,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "dictionary", "write" ],
+					"outlettype" : [ "dictionary", "clear" ],
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
@@ -1650,7 +1650,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 0.8, 0.8 ], [ "svg", "store.svg", "store.svg" ], [ "hover_color", "accentcolor" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 0 ], [ "help_grid", 0 ], [ "hover_color", "accentcolor" ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 0.8, 0.8 ], [ "svg", "store.svg", "store.svg" ], [ "on_color", "color" ] ],
 									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-27",
 									"jsarguments" : [ "audiopower2.svg" ],
@@ -2010,7 +2010,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.loop.svg", "live.rec.loop.svg" ], [ "hover_color", "accentcolor" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 1 ], [ "help_grid", 0 ], [ "hover_color", "accentcolor" ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.loop.svg", "live.rec.loop.svg" ], [ "on_color", "color" ] ],
 									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-7",
 									"jsarguments" : [ "audiopower2.svg" ],
@@ -2028,7 +2028,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.clear.svg", "live.rec.clear.svg" ], [ "hover_color", 0.7, 0.3, 0.1, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 0 ], [ "help_grid", 0 ], [ "hover_color", 0.7, 0.3, 0.1, 1 ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.clear.svg", "live.rec.clear.svg" ], [ "on_color", "color" ] ],
 									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-6",
 									"jsarguments" : [ "audiopower2.svg" ],
@@ -2046,7 +2046,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.play.svg", "live.rec.play.svg" ], [ "hover_color", 0.1, 0.7, 0.2, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 1 ], [ "help_grid", 0 ], [ "hover_color", 0.1, 0.7, 0.2, 1 ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.play.svg", "live.rec.play.svg" ], [ "on_color", "color" ] ],
 									"filename" : "live.rec.svgbutton.js",
 									"hidden" : 1,
 									"id" : "obj-5",
@@ -2066,7 +2066,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.rec.svg", "live.rec.rec.svg" ], [ "hover_color", 0.7, 0.1, 0.1, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 1 ], [ "help_grid", 0 ], [ "hover_color", 0.7, 0.1, 0.1, 1 ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.rec.svg", "live.rec.rec.svg" ], [ "on_color", "color" ] ],
 									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-4",
 									"jsarguments" : [ "audiopower2.svg" ],
@@ -2084,7 +2084,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.stop.svg", "live.rec.stop.svg" ], [ "hover_color", 0.1, 0.2, 0.7, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 1 ], [ "help_grid", 0 ], [ "hover_color", 0.1, 0.2, 0.7, 1 ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.stop.svg", "live.rec.stop.svg" ], [ "on_color", "color" ] ],
 									"filename" : "live.rec.svgbutton.js",
 									"hidden" : 1,
 									"id" : "obj-3",
@@ -2104,7 +2104,7 @@
 , 							{
 								"box" : 								{
 									"border" : 0,
-									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 0.9, 0.9 ], [ "svg", "live.rec.empty.svg", "live.rec.empty.svg" ], [ "hover_color", "accentcolor" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
+									"embedstate" : [ [ "panel", 0 ], [ "outline_size", 0.7 ], [ "panel_color", "bgcolor" ], [ "font_name", "Lato" ], [ "rounded", 0.3 ], [ "text_offset", 0 ], [ "align", 1 ], [ "outline", 0 ], [ "active", 1 ], [ "outline_color", "bgcolor" ], [ "font_size", 13 ], [ "mode", 1 ], [ "help_grid", 0 ], [ "hover_color", "accentcolor" ], [ "svg_off_color", "locked_bgcolor" ], [ "circle", 0 ], [ "text_color", "bgcolor" ], [ "offset", 0, 0 ], [ "scale", 0.9, 0.9 ], [ "svg", "live.rec.empty.svg", "live.rec.empty.svg" ], [ "on_color", "color" ] ],
 									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-2",
 									"ignoreclick" : 1,
@@ -2591,6 +2591,42 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-3",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 327.25, 259.5, 19.0, 22.0 ],
+									"text" : "t l"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 327.25, 219.5, 64.0, 22.0 ],
+									"text" : "t getattrlist"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 327.25, 184.5, 85.0, 22.0 ],
+									"text" : "route modified"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"bgcolor" : [ 0.768627, 0.658824, 0.580392, 1.0 ],
 									"color" : [ 0.458824, 0.733333, 0.690196, 1.0 ],
 									"id" : "obj-17",
@@ -3008,7 +3044,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 139.25, 250.0, 91.0, 22.0 ],
+									"patching_rect" : [ 138.25, 303.0, 91.0, 22.0 ],
 									"text" : "s #0_to.meta",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
@@ -3021,7 +3057,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 327.25, 184.5, 76.0, 22.0 ],
+									"patching_rect" : [ 393.25, 219.5, 76.0, 22.0 ],
 									"text" : "attr $1, bang"
 								}
 
@@ -3065,7 +3101,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "float", "bang" ],
-									"patching_rect" : [ 233.850000000000023, 250.0, 99.0, 22.0 ],
+									"patching_rect" : [ 232.850000000000023, 303.0, 99.0, 22.0 ],
 									"text" : "buffer~ #0_rec",
 									"textcolor" : [ 1.0, 0.984314, 0.564706, 1.0 ]
 								}
@@ -3074,6 +3110,20 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
+									"destination" : [ "obj-2", 0 ],
+									"source" : [ "obj-1", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-49", 0 ],
+									"source" : [ "obj-1", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-46", 0 ],
 									"source" : [ "obj-17", 0 ]
 								}
@@ -3081,8 +3131,15 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-4", 0 ],
-									"midpoints" : [ 39.5, 210.25, 243.350000000000023, 210.25 ],
+									"midpoints" : [ 39.5, 210.25, 242.350000000000023, 210.25 ],
 									"source" : [ "obj-20", 0 ]
 								}
 
@@ -3092,6 +3149,14 @@
 									"destination" : [ "obj-46", 0 ],
 									"midpoints" : [ 94.5, 148.5, 124.125, 148.5, 124.125, 105.5, 147.75, 105.5 ],
 									"source" : [ "obj-20", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-46", 0 ],
+									"midpoints" : [ 336.75, 291.5, 479.750000000000114, 291.5, 479.750000000000114, 101.5, 147.75, 101.5 ],
+									"source" : [ "obj-3", 0 ]
 								}
 
 							}
@@ -3107,7 +3172,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-4", 0 ],
-									"midpoints" : [ 242.25, 136.0, 243.350000000000023, 136.0 ],
+									"midpoints" : [ 242.25, 136.0, 242.350000000000023, 136.0 ],
 									"source" : [ "obj-46", 1 ]
 								}
 
@@ -3129,15 +3194,15 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-49", 0 ],
+									"destination" : [ "obj-1", 0 ],
 									"source" : [ "obj-47", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-46", 0 ],
-									"midpoints" : [ 336.75, 216.5, 416.750000000000114, 216.5, 416.750000000000114, 101.5, 147.75, 101.5 ],
+									"destination" : [ "obj-3", 0 ],
+									"midpoints" : [ 402.75, 250.0, 336.75, 250.0 ],
 									"source" : [ "obj-49", 0 ]
 								}
 
@@ -3160,7 +3225,7 @@
 						"bgfillcolor_color" : [ 0.2, 0.2, 0.2, 1 ]
 					}
 ,
-					"patching_rect" : [ 635.0, 196.5, 56.0, 22.0 ],
+					"patching_rect" : [ 635.0, 221.5, 56.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"accentcolor" : [ 0.482352941176471, 0.454901960784314, 0.450980392156863, 1.0 ],
 						"bgcolor" : [ 0.258823529411765, 0.235294117647059, 0.223529411764706, 1.0 ],
@@ -3799,7 +3864,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 426.333333333333314, 205.0, 95.0, 22.0 ],
+									"patching_rect" : [ 445.333333333333314, 205.0, 95.0, 22.0 ],
 									"text" : "s #0_to.buffer",
 									"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 								}
@@ -3811,11 +3876,11 @@
 									"color" : [ 0.45522, 0.188215, 0.381035, 1.0 ],
 									"id" : "obj-7",
 									"maxclass" : "newobj",
-									"numinlets" : 8,
-									"numoutlets" : 8,
-									"outlettype" : [ "", "", "", "", "", "", "", "" ],
+									"numinlets" : 9,
+									"numoutlets" : 9,
+									"outlettype" : [ "", "", "", "", "", "", "", "", "" ],
 									"patching_rect" : [ 50.0, 100.0, 545.0, 22.0 ],
-									"text" : "routepass multichannelsignal signal record play stop clear write",
+									"text" : "routepass multichannelsignal signal record play stop clear write sendbuffer",
 									"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 								}
 
@@ -4300,7 +4365,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-12", 0 ],
-									"midpoints" : [ 435.214285714285722, 163.0, 209.5, 163.0 ],
+									"midpoints" : [ 388.25, 163.0, 209.5, 163.0 ],
 									"order" : 1,
 									"source" : [ "obj-7", 5 ]
 								}
@@ -4309,7 +4374,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-12", 0 ],
-									"midpoints" : [ 360.071428571428555, 163.0, 209.5, 163.0 ],
+									"midpoints" : [ 322.5, 163.0, 209.5, 163.0 ],
 									"source" : [ "obj-7", 4 ]
 								}
 
@@ -4317,7 +4382,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-12", 0 ],
-									"midpoints" : [ 284.928571428571445, 163.0, 209.5, 163.0 ],
+									"midpoints" : [ 256.75, 163.0, 209.5, 163.0 ],
 									"source" : [ "obj-7", 3 ]
 								}
 
@@ -4325,7 +4390,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-12", 0 ],
-									"midpoints" : [ 209.785714285714278, 163.0, 209.5, 163.0 ],
+									"midpoints" : [ 191.0, 163.0, 209.5, 163.0 ],
 									"source" : [ "obj-7", 2 ]
 								}
 
@@ -4333,7 +4398,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-42", 0 ],
-									"midpoints" : [ 134.642857142857139, 330.0, 59.5, 330.0 ],
+									"midpoints" : [ 125.25, 330.0, 59.5, 330.0 ],
 									"source" : [ "obj-7", 1 ]
 								}
 
@@ -4349,6 +4414,14 @@
 								"patchline" : 								{
 									"destination" : [ "obj-5", 0 ],
 									"midpoints" : [ 585.5, 163.0, 628.90002400000003, 163.0 ],
+									"source" : [ "obj-7", 8 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-62", 0 ],
+									"midpoints" : [ 519.75, 163.0, 454.833333333333314, 163.0 ],
 									"source" : [ "obj-7", 7 ]
 								}
 
@@ -4356,7 +4429,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-62", 0 ],
-									"midpoints" : [ 510.357142857142833, 163.0, 435.833333333333314, 163.0 ],
+									"midpoints" : [ 454.0, 163.0, 454.833333333333314, 163.0 ],
 									"source" : [ "obj-7", 6 ]
 								}
 
@@ -4364,7 +4437,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-62", 0 ],
-									"midpoints" : [ 435.214285714285722, 163.0, 435.833333333333314, 163.0 ],
+									"midpoints" : [ 388.25, 163.0, 454.833333333333314, 163.0 ],
 									"order" : 0,
 									"source" : [ "obj-7", 5 ]
 								}
@@ -4588,7 +4661,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 5.523824896131373, 7.999991178512573, 630.0, 137.0 ],
+					"patching_rect" : [ 5.523824896131373, 7.999991178512573, 595.0, 133.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 5.523824896131373, 7.999991178512573, 571.0, 137.0 ]
 				}
