@@ -106,7 +106,7 @@
 				"box" : 				{
 					"border" : 0,
 					"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.xen.svg", "live.rec.xen.svg" ], [ "hover_color", "accentcolor" ], [ "text", "xenorama" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-					"filename" : "the.svgbutton.js",
+					"filename" : "live.rec.svgbutton.js",
 					"id" : "obj-47",
 					"jsarguments" : [ "audiopower2.svg" ],
 					"maxclass" : "jsui",
@@ -124,7 +124,7 @@
 				"box" : 				{
 					"border" : 0,
 					"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.github.svg", "live.rec.github.svg" ], [ "hover_color", "accentcolor" ], [ "text", "github" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-					"filename" : "the.svgbutton.js",
+					"filename" : "live.rec.svgbutton.js",
 					"id" : "obj-7",
 					"jsarguments" : [ "audiopower2.svg" ],
 					"maxclass" : "jsui",
@@ -1651,7 +1651,7 @@
 								"box" : 								{
 									"border" : 0,
 									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 0.8, 0.8 ], [ "svg", "store.svg", "store.svg" ], [ "hover_color", "accentcolor" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-27",
 									"jsarguments" : [ "audiopower2.svg" ],
 									"maxclass" : "jsui",
@@ -2011,7 +2011,7 @@
 								"box" : 								{
 									"border" : 0,
 									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.loop.svg", "live.rec.loop.svg" ], [ "hover_color", "accentcolor" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-7",
 									"jsarguments" : [ "audiopower2.svg" ],
 									"maxclass" : "jsui",
@@ -2029,7 +2029,7 @@
 								"box" : 								{
 									"border" : 0,
 									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 0 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.clear.svg", "live.rec.clear.svg" ], [ "hover_color", 0.7, 0.3, 0.1, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-6",
 									"jsarguments" : [ "audiopower2.svg" ],
 									"maxclass" : "jsui",
@@ -2047,7 +2047,7 @@
 								"box" : 								{
 									"border" : 0,
 									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.play.svg", "live.rec.play.svg" ], [ "hover_color", 0.1, 0.7, 0.2, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"filename" : "live.rec.svgbutton.js",
 									"hidden" : 1,
 									"id" : "obj-5",
 									"ignoreclick" : 1,
@@ -2067,7 +2067,7 @@
 								"box" : 								{
 									"border" : 0,
 									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.rec.svg", "live.rec.rec.svg" ], [ "hover_color", 0.7, 0.1, 0.1, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-4",
 									"jsarguments" : [ "audiopower2.svg" ],
 									"maxclass" : "jsui",
@@ -2085,7 +2085,7 @@
 								"box" : 								{
 									"border" : 0,
 									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 1, 1 ], [ "svg", "live.rec.stop.svg", "live.rec.stop.svg" ], [ "hover_color", 0.1, 0.2, 0.7, 1 ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"filename" : "live.rec.svgbutton.js",
 									"hidden" : 1,
 									"id" : "obj-3",
 									"ignoreclick" : 1,
@@ -2105,7 +2105,7 @@
 								"box" : 								{
 									"border" : 0,
 									"embedstate" : [ [ "outline_color", "bgcolor" ], [ "panel_color", "bgcolor" ], [ "mode", 1 ], [ "align", 1 ], [ "panel", 0 ], [ "circle", 0 ], [ "svg_off_color", "locked_bgcolor" ], [ "offset", 0, 0 ], [ "scale", 0.9, 0.9 ], [ "svg", "live.rec.empty.svg", "live.rec.empty.svg" ], [ "hover_color", "accentcolor" ], [ "outline_size", 0.7 ], [ "font_name", "Lato" ], [ "on_color", "color" ], [ "text_offset", 0 ], [ "text_color", "bgcolor" ], [ "font_size", 13 ], [ "rounded", 0.3 ], [ "help_grid", 0 ], [ "outline", 0 ], [ "active", 1 ] ],
-									"filename" : "the.svgbutton.js",
+									"filename" : "live.rec.svgbutton.js",
 									"id" : "obj-2",
 									"ignoreclick" : 1,
 									"jsarguments" : [ "audiopower2.svg" ],
