@@ -1,5 +1,12 @@
 max objectfile the.mc.spacial.mapper~ the.mc.spatial.mapper~;
 max objectfile the.mc.spacial.listener~ the.mc.spatial.listener~;
+max objectfile hexin oni.hexin;
+max objectfile hexout oni.hexout;
+max objectfile modmidiout oni.modmidiout;
+max objectfile modgate oni.modgate;
+max objectfile momtog oni.momtog;
+max objectfile sysexlist oni.sysexlist;
+max objectfile gatetime oni.gatetime;
 
 max objectfile the.jit.fpsgui the.jit.fpsgui;
 max definesubstitution the.jit.fpsgui bpatcher @name the.jit.fpsgui.maxpat @presentation_size 412. 117.;
@@ -31,3 +38,5 @@ max definesubstitution slider2 slider @size 1 @floatoutput 1 @jspainterfile slid
 max objectfile dial.chrome dial.chrome;
 max definesubstitution dial.chrome dial @size 1 @floatoutput 1 @jspainterfile dial.chrome.js;
 
+max objectfile the.mcs.yafr~ the.mcs.yafr~;
+max definesubstitution the.mcs.yafr~ the.mc.yafr~;

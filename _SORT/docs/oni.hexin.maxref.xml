@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="oni.hexin" module="max" category="Data, SysEx">
+
+	<digest>
+		Convert hexadecimal symbols to decimal integers
+	</digest>
+
+	<description>
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Oni</metadata>
+		<metadata name="tag">Data</metadata>
+		<metadata name="tag">SysEx</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="int/list">
+			<digest>Hexadecimal symbol</digest>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>Decimal integer</digest>
+			</outlet>
+	</outletlist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="int">
+			<arglist />
+			<digest>
+				Hexadecimal integer
+			</digest>
+			<description>
+				Will be translated into a corresponding decimal integer.
+			</description>
+		</method>
+
+		<method name="symbol">
+			<arglist />
+			<digest>
+				Hexadecimal symbol
+			</digest>
+			<description>
+				Will be translated into a correpsonding decimal integer if it matches the hexadecimal format, otherwise replaced by whatever is given as <m>replace</m> attribute.
+			</description>
+		</method>
+
+	</methodlist>
+
+	<attributelist>
+
+		<attribute name='replace' get='1' set='1' type='anything' size='variable'  >
+			<digest>Replacement for invalid hexadecimal input</digest>
+			<description>Set a variable replacement for any input entry which does not match the hexadecimal format.</description>
+		</attribute>
+
+	</attributelist>
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="oni.sysexlist"/>
+		<seealso name="oni.hexout"/>
+	</seealsolist>
+
+</c74object>

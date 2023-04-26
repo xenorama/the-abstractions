@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
-			"revision" : 1,
+			"minor" : 5,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "jit.gen",
-		"rect" : [ 734.0, 197.0, 945.0, 514.0 ],
+		"rect" : [ 2064.0, 229.0, 1218.0, 853.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -52,7 +52,7 @@
 			}
 , 			{
 				"box" : 				{
-					"code" : "scale_up(ratio,target,offset){\r\n\tarea = 1/ratio;\r\n\tshift = offset * (1-area);\n\tcoords = target\n\t\t? vec(norm.x,shift+(area*norm.y))\n\t\t: vec(shift+(area*norm.x),norm.y);\n\treturn coords;\n\t}\n\nParam renderer(1920,1200);\nParam offset(0.5);\nParam repeat(1);\n\nr_aspect = renderer.x/renderer.y;\ni_aspect = dim.x/dim.y;\n\ncoords = (r_aspect > i_aspect)\n\t? scale_up(1 + r_aspect - i_aspect,1,offset)\n\t: scale_up(1 + i_aspect - r_aspect,0,offset);\n\nout1 = repeat\n\t? nearest(in1,coords,boundmode=\"mirror\")\n\t: (coords.x >= 0 && coords.x <= 1. && coords.y >= 0 && coords.y <= 1.) ? nearest(in1,coords) : 0;",
+					"code" : "scale_up(ratio,target,offset){ // mode 0\r\n\tarea = 1/ratio;\r\n\tshift = offset * (1-area);\n\tcoords = target\n\t\t? vec(norm.x,shift+(area*norm.y))\n\t\t: vec(shift+(area*norm.x),norm.y);\n\treturn coords;\n\t}\r\nshift(ratio,target,offset,flag){ // mode 1\r\n\tar_coeff = ratio / target;\r\n\treturn flag \r\n\t\t? vec((norm.x*ar_coeff.x)-((offset+0.5)*ar_coeff*0.125),norm.y)\r\n\t\t: vec(norm.x,(norm.y*ar_coeff.y)-((offset+0.5)*ar_coeff*0.125));\r\n\t}\nget_pix(repeat,coords,erase_color){ // sampler\r\n\t\t if (repeat == 1) return nearest(in1,coords,boundmode=\"mirror\");\n\telse if (repeat == 2) return nearest(in1,coords,boundmode=\"wrap\");\r\n\telse if (repeat == 3) return nearest(in1,coords,boundmode=\"clamp\");\r\n\telse return (coords.x >= 0 && coords.x <= 1. && coords.y >= 0 && coords.y <= 1.)\r\n\t\t? nearest(in1,coords)\r\n\t\t: erase_color;\r\n\t}\r\n\nParam renderer(1920,1200); // size of target rendering window\nParam offset(0.5); // shift image, 0.5 = center\nParam repeat(0); // boundmode (0 = \"erase\")\r\nParam mode(0); // maintain correct ratio and: 0 = maximize input, 1 = minimize input\r\nParam erase_color(0.2,0.2,0.2,1); // background color when @mode 1\n\nr_aspect = renderer.x/renderer.y;\ni_aspect = dim.x/dim.y;\n\nif (mode == 0) {\r\n\tcoords = (r_aspect > i_aspect)\n\t\t? scale_up(1 + r_aspect - i_aspect,1,offset)\n\t\t: scale_up(1 + i_aspect - r_aspect,0,offset);\r\n\tout1 = get_pix(repeat,coords);\r\n\t}\r\nelse if (mode == 1) {\r\n\tar_coeff = r_aspect/i_aspect;\r\n\tcoords = (r_aspect > i_aspect)\n\t\t? shift(r_aspect,i_aspect,offset,1)\r\n\t\t: shift(i_aspect,r_aspect,offset,0);\r\n\tout1 = get_pix(repeat,coords,erase_color);\r\n\t}",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
@@ -61,7 +61,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 50.0, 51.0, 818.0, 375.0 ]
+					"patching_rect" : [ 50.0, 51.0, 890.0, 693.0 ]
 				}
 
 			}
@@ -71,7 +71,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 456.0, 35.0, 22.0 ],
+					"patching_rect" : [ 50.0, 783.0, 35.0, 22.0 ],
 					"text" : "out 1"
 				}
 
@@ -91,13 +91,7 @@
 				}
 
 			}
- ],
-		"bgfillcolor_type" : "gradient",
-		"bgfillcolor_color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
-		"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-		"bgfillcolor_color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-		"bgfillcolor_angle" : 270.0,
-		"bgfillcolor_proportion" : 0.39
+ ]
 	}
 
 }

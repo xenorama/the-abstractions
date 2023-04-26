@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.jit.gl.pong" module="jit" category="Jitter OpenGL">
+
+	<digest>
+		Texture input range handling
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2022, www.xenorama.com. <br/>
+		Use <o>the.jit.gl.pong</o> object to &quot;wrap&quot;, &quot;fold&quot;, or &quot;clamp&quot; its input within the range of a low value and a high value. At the core lies a <o>jit.gl.slab</o> containing the glsl-code for the different operation modes.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">jitter</metadata>
+		<metadata name="tag">Jitter System</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="drawing-context" optional="1" type="symbol" size="1">
+			<digest>
+				Named drawing context
+			</digest>
+			<description>
+				Named drawing context.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="mode" get="1" set="1" type="symbol" size="1">
+			<digest>
+				Behaviour of limiting when input exceeds range
+			</digest>
+			<description>
+				Behaviour of limiting when input exceeds range. Options are none, wrap, and fold and clamp.
+			</description>
+			<attributelist>
+				<attribute name="default" get="1" set="1" type="symbol" size="1" value="none" />
+				<attribute name="enumvals" get="1" set="1" type="atom" size="4">
+					<enumlist>
+						<enum name="none">
+							<digest>
+								Pass thru unchanged
+							</digest>
+							<description>
+								Pass thru unchanged. Same as &quot;ignore&quot; and &quot;pass&quot;
+							</description>
+						</enum>
+						<enum name="wrap">
+							<digest>
+								Wrap values around ranges
+							</digest>
+							<description>
+								Wrap values around ranges. Same as &quot;modulo&quot;
+							</description>
+						</enum>
+						<enum name="fold">
+							<digest>
+								Fold (ping pong) values between ranges
+							</digest>
+							<description>
+								Fold (ping pong) values between ranges. Same as &quot;plaindrome&quot;
+							</description>
+						</enum>
+						<enum name="clamp">
+							<digest>
+								Clamp values between ranges
+							</digest>
+							<description>
+								Clamp values between ranges. Same as &quot;clip&quot;
+							</description>
+						</enum>
+					</enumlist>
+						</attribute>
+		</attributelist>
+	</attribute>
+		<attribute name="range" get="1" set="1" type="bool" size="1">
+			<digest>
+				The range within which to keep values
+			</digest>
+			<description>
+				The range within which to keep values. Values outside of this range will be subject to a limiting algorithm chosen by the mode attribute.
+			</description>
+		</attribute>
+	</attributelist>
+
+	<jitterattributelist>
+		<jitterattribute name="antialias" />
+		<jitterattribute name="automatic" />
+		<jitterattribute name="aux_color" />
+		<jitterattribute name="blend" />
+		<jitterattribute name="blend_enable" />
+		<jitterattribute name="blend_mode" />
+		<jitterattribute name="capture" />
+		<jitterattribute name="depth_clear" />
+		<jitterattribute name="depth_enable" />
+		<jitterattribute name="depth_write" />
+		<jitterattribute name="dest_dim" />
+		<jitterattribute name="drawto" />
+		<jitterattribute name="enable" />
+		<jitterattribute name="gl_color" />
+		<jitterattribute name="layer" />
+		<jitterattribute name="material" />
+		<jitterattribute name="name" />
+		<jitterattribute name="shader" />
+		<jitterattribute name="smooth_shading" />
+		<jitterattribute name="tex_map" />
+		<jitterattribute name="tex_plane_s" />
+		<jitterattribute name="tex_plane_t" />
+		<jitterattribute name="texanchor" />
+		<jitterattribute name="texrotate" />
+		<jitterattribute name="texture" />
+		<jitterattribute name="texzoom" />
+	</jitterattributelist>
+
+	<!--MESSAGES-->
+	<!-- <methodlist>
+		<method name="float">
+			<arglist>
+				<arg name="control-value" optional="0" type="float" />
+			</arglist>
+			<digest>
+				Set control value for all pixels
+			</digest>
+			<description>
+				In right inlet: Set control value for all pixels overriding any previous <m>jit_gl_texture</m>
+			</description>
+		</method>
+		<method name="bang">
+			<arglist />
+			<digest>
+				Reset held texture
+			</digest>
+			<description>
+				Reset any held texture and start sampling anew.
+			</description>
+		</method>
+	</methodlist> -->
+
+	<!--MOP-->
+
+		<!--MESSAGES-->
+		<jittermethodlist>
+			<jittermethod name="bang" />
+			<jittermethod name="draw" />
+			<jittermethod name="drawimmediate" />
+			<jittermethod name="drawraw" />
+			<jittermethod name="exportattrs" />
+			<jittermethod name="exportsummary" />
+			<jittermethod name="getattributes" />
+			<jittermethod name="getstate" />
+			<jittermethod name="importattrs" />
+			<jittermethod name="jit_gl_texture" />
+			<jittermethod name="jit_matrix" />
+			<jittermethod name="summary" />
+		</jittermethodlist>
+
+		<!--EXAMPLE-->
+		<examplelist>
+			<example img="pong.png" caption="pong limits the range of an input by folding it or wrapping it around an upper and lower threshold level" />
+		</examplelist>
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+		<seealsolist>
+			<seealso name="jit.gl.slab" />
+			<seealso name="jit.gl.pix" />
+			<seealso name="jit.gen" />
+			<seealso name="jit.expr" />
+			<seealso name="jit.matrix" />
+			<seealso name="gen~" />
+			<seealso module="gen" name="gen_overview" type="vignette" />
+			<seealso module="gen" name="gen_genexpr" type="vignette" />
+			<seealso module="gen" name="gen_common_operators" type="vignette" />
+			<seealso module="gen" name="gen_jitter_operators" type="vignette" />
+		</seealsolist>
+
+</c74object>

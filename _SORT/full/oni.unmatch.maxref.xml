@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="oni.unmatch" module="max" category="Data">
+
+	<digest>
+		Output if not matched
+	</digest>
+
+	<description>
+		define a list or single entries which must not be matched or part of an input list to be output.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Oni</metadata>
+		<metadata name="tag">Data</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="int/list">
+			<digest>MIDI event</digest>
+		</inlet>
+		<inlet id="1" type="int/list">
+			<digest>MIDI event</digest>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>extracted SysEx string</digest>
+			</outlet>
+		<outlet id="1" type="list">
+			<digest>bulk of SysEx string if argument given</digest>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="entries" optional="0" type="anything">
+			<digest>number of integers before the bulk</digest>
+			<description>The number of integers preceding the bulk (often 6) and are therefore to be cut from it. This optional argument will output the bulk only from the middle outlet. The default is 0 und thus deactivated.
+      </description>
+		</objarg>
+	</objarglist>
+
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="match"/>
+	</seealsolist>
+
+</c74object>

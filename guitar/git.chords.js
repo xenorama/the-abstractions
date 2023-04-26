@@ -490,6 +490,53 @@ function shift_tones(s,l){
   refresh()
 }
 
+function alter_sequence(n,b){
+  // n = number of changes
+  // b = switch another in return (keep number strikes unchanged)
+  var coords = new Array(n)
+  // var offset = [Math.floor(Math.random()*seq),Math.floor(Math.random()*model.num_strings))]
+  var steps = {
+    on: [],
+    off: [],
+    alterations: n ? n : 1,
+    maintain: (b !== undefined) ? b !== 0 : 0
+  }
+
+  if (!steps.off.length) steps.maintain = 0
+
+  for (s=0;s<model.num_strings;s++){
+    // post(s)
+    // post(seq_strings.peek(s+1,0,model.num_strings),'\n')
+    seq_strings.peek(s+1,0,seq).forEach(function(x,i){
+      if (x > 0) { steps.on.push([s+1,i]); }
+      else steps.off.push([s+1,i])
+      // post(s,i)
+    })
+    // post("\n")
+  }
+  if (steps.on.length){
+    // var index = 0 // WHILE LOOP
+    var start_a = Math.floor(Math.random()*steps.on.length)
+    for (s=0;s<Math.min(steps.alterations,steps.on.length);s++){
+      var pos = (s + start_a) % steps.on.length
+      if (steps.on[pos].length) {
+        seq_strings.poke(steps.on[pos][0],steps.on[pos][1],0)
+        steps.on[pos] = []
+      }
+      else s + Math.floor(Math.random()*steps.on.length)
+    }
+    var start_b = Math.floor(Math.random()*steps.off.length)
+    for (s=0;s<Math.min(steps.alterations,steps.off.length);s++){
+      var pos = (s + start_b) % steps.off.length
+      if (steps.off[pos].length) {
+        seq_strings.poke(steps.off[pos][0],steps.off[pos][1],1)
+        steps.off[pos] = []
+      }
+      else s + Math.floor(Math.random()*steps.off.length)
+    }
+  }
+}
+
 // ———————————————————————————————————————————————— MGRAPHICS ————————————————————————————————————————————————
 
 function paint(){

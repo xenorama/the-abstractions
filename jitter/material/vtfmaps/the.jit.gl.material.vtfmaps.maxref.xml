@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.jit.gl.material.vtfmaps" module="jit" category="Jitter OpenGL">
+
+	<digest>
+		Apply Normalmap and Heightmap Textures to a <o>jit.gl.material</o> @heightmap_mode vtf
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2021, www.xenorama.com. <br/>
+		Apply Normalmap and Heightmap Textures to a <o>jit.gl.material</o> fetching its heightmap from texture vertices (vtf) without calculating its own normals internally which would not be adjustable (in heightmap_mode vtf_normals, for example).
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">jitter</metadata>
+		<metadata name="tag">Jitter System</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="drawing-context" optional="1" type="symbol" size="1">
+			<digest>
+				Explicit drawing context
+			</digest>
+			<description>
+				Explicit drawing context.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="amp" get="1" set="1" type="float" size="1">
+			<digest>
+				Amplitude of heightmap
+			</digest>
+			<description>
+				Amplitude of heightmap. Any real floating point number will adjust the amplitude of the heightmap accordingly. When the <at>link</at> flag is set to '1', this will also affect the normalmap.
+			</description>
+		</attribute>
+		<attribute name="scale" get="1" set="1" type="float" size="1">
+			<digest>
+				Scaling of normalmap
+			</digest>
+			<description>
+				Scaling of normalmap. Any real floating point number will adjust the scaling of the normalmap accordingly. When the <at>link</at> flag is set to '1', this will also be affected by the heightmap.
+			</description>
+		</attribute>
+		<attribute name="link" get="1" set="1" type="bool" size="1">
+			<digest>
+				Link heightmap amplitude and normalmap scaling
+			</digest>
+			<description>
+				Link heightmap amplitude and normalmap scaling. When this flag is set to '1' (default), the heightmap is amplified first and then affects the normalmap afterwards. When set to '0', normalmap and heightmap can be adjusted separately and the normalmap is unaffected by the heightmap.
+			</description>
+		</attribute>
+	</attributelist>
+
+	<!--MOP-->
+	<mop matrixinputcount="-1" matrixoutputcount="1">
+		<matrixoutput name="out" planelink="1" typelink="1" dimlink="1" minplanecount="1" maxplanecount="32" mindimcount="1" maxdimcount="32">
+			<types>
+				char long float32 float64
+			</types>
+		</matrixoutput>
+	</mop>
+
+		<!--MESSAGES-->
+		<methodlist>
+			<method name="sendnormals">
+				<arglist>
+				</arglist>
+				<digest>
+					send messages to the normalmap
+				</digest>
+				<description>
+					send any natively supported message to the internal <o>jit.gl.slab</o> calculating the normalmap. Note that the normalmap texture from the first outlet is rectangular.
+				</description>
+			</method>
+			<method name="sendheightmap">
+				<arglist>
+				</arglist>
+				<digest>
+					send messages to the heightmap
+				</digest>
+				<description>
+					send any natively supported message to the internal <o>jit.gl.pix</o> calculating the heightmap. Note that the heightmap texture from the second outlet is non-rectangular.
+				</description>
+			</method>
+		</methodlist>
+		<jittermethodlist>
+			<jittermethod name="bang" />
+			<jittermethod name="clear" />
+			<jittermethod name="draw" />
+			<jittermethod name="drawimmediate" />
+			<jittermethod name="drawraw" />
+			<jittermethod name="exportattrs" />
+			<jittermethod name="exportsummary" />
+			<jittermethod name="getattributes" />
+			<jittermethod name="getstate" />
+			<jittermethod name="importattrs" />
+			<jittermethod name="jit_gl_texture" />
+			<jittermethod name="jit_matrix" />
+			<jittermethod name="outputmatrix" />
+			<jittermethod name="summary" />
+		</jittermethodlist>
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealsolist>
+			<seealso name="jit.gl.pix" />
+			<seealso name="jit.gl.shader" />
+			<seealso name="jit.gl.slab" />
+		</seealsolist>
+	</seealsolist>
+
+</c74object>

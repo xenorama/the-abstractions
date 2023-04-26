@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.yafr~" module="msp" category="Audio">
+
+	<digest>
+		Multichannel-version of the yafr2 Plate reverb, in the style of Griesinger.
+	</digest>
+
+	<description>
+		Apply a plate reverb in the style of Griesinger on an incoming mutlichannel signal.<br/>
+		Orirignal abstraction by Randy Jones rej@2uptech.com <br/>
+		Improvement and modifications by Timo Hoogland www.timohoogland.com <br/>
+		Multichannel support by Tim Heinze, www.xenorama.com
+	</description>
+		Modifications from original yafr abstraction:<br/>
+		Positive feedback with softclipping in the delayline when roomsize or decay is higher than 1.<br/>
+		Lowpass filtering on input signal for parameters to achieve clickless reverb and smooth transitions.<br/>
+		Additional parameter for adjusting gain of early reflections.<br/>
+		Scaling on damping parameter to achieve more precision in the lower frequency region.<br/>
+		Stereo inlet gets summed to mono (deprecated)<br/>
+		Adaptive Multichannel support
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Msp</metadata>
+		<metadata name="tag">Audio</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="size" optional="1" type="float" size="1">
+			<digest>
+				Initial room size
+			</digest>
+			<description>
+				Initial room size (0.-1.). Can be overriden by signal/float input to respective inlet
+			</description>
+		</objarg>
+		<objarg name="decay" optional="1" type="float" size="1">
+			<digest>
+				Initial decay
+			</digest>
+			<description>
+				Initial decay (0.-1.). Can be overriden by signal/float input to respective inlet
+			</description>
+		</objarg>
+		<objarg name="damping" optional="1" type="float" size="1">
+			<digest>
+				Initial damping
+			</digest>
+			<description>
+				Initial damping (0.-1.). Can be overriden by signal/float input to respective inlet
+			</description>
+		</objarg>
+		<objarg name="diffusion" optional="1" type="float" size="1">
+			<digest>
+				Initial diffusion
+			</digest>
+			<description>
+				Initial diffusion (0.-1.). Can be overriden by signal/float input to respective inlet
+			</description>
+		</objarg>
+		<objarg name="early-reflections" optional="1" type="float" size="1">
+			<digest>
+				Initial early reflections
+			</digest>
+			<description>
+				Initial early reflections (0.-1.). Can be overriden by signal/float input to respective inlet
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+	<attribute name="preset" get="1" set="1" type="int" size="1">
+	<digest>
+		Recall a native preset
+	</digest>
+	<description>
+		Recall a native preset of reverb parameters (1-19)
+	</description>
+</attribute>
+	<attribute name="slide" get="1" set="1" type="float" size="1">
+	<digest>
+		Smoothen param changes logarithmically
+	</digest>
+	<description>
+		Smoothen param changes logarithmically. The amount is to be provided in miliseconds.
+	</description>
+</attribute>
+<attribute name="wet" get="1" set="1" type="float" size="1">
+	<digest>
+		Amount of reverberation
+	</digest>
+	<description>
+		Amount of reverberation (0.-1.)
+	</description>
+</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+
+		<methodlist>
+			<method name="sendmc">
+				<arglist>
+				</arglist>
+				<digest>
+					Send any MC-Wrapper messages
+				</digest>
+				<description>
+					In leftmost inlet: Send any MC-Wrapper messages to internal mc-objects
+				</description>
+			</method>
+		</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+	<!-- <mcwrapper>
+		<mcwrappermethod name="applyvalues" />
+		<mcwrappermethod name="deviate" />
+		<mcwrappermethod name="exponential" />
+		<mcwrappermethod name="harmonic" />
+		<mcwrappermethod name="increment" />
+		<mcwrappermethod name="replicatevalues" />
+		<mcwrappermethod name="scaledexponential" />
+		<mcwrappermethod name="setvalue" />
+		<mcwrappermethod name="setvaluerange" />
+		<mcwrappermethod name="spread" />
+		<mcwrappermethod name="spreadexclusive" />
+		<mcwrappermethod name="spreadincludefirst" />
+		<mcwrappermethod name="spreadincludesecond" />
+		<mcwrappermethod name="spreadinclusive" />
+		<mcwrappermethod name="subharmonic" />
+		<mcwrapperattr name="busymapname" />
+		<mcwrapperattr name="bz" />
+		<mcwrapperattr name="bzname" />
+		<mcwrapperattr name="chans" />
+		<mcwrapperattr name="initialvalues" />
+		<mcwrapperattr name="replicate" />
+		<mcwrapperattr name="target" />
+		<mcwrapperattr name="usebusymap" />
+		<mcwrapperattr name="values" />
+		<mcwrapperattr name="zero" />
+	</mcwrapper> -->
+
+</c74object>

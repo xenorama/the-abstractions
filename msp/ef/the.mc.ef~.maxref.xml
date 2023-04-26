@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.mc.ef~" module="msp" category="Audio">
+
+	<digest>
+		Amplitude envelope follower (Multi-Channel)
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2020, www.xenorama.com. <br/>
+		A simple amplitude envelope follower with curve parameters and peak amplitude monitoring.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Msp</metadata>
+		<metadata name="tag">Function</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="ramp-up-samples" optional="1" type="int" size="1">
+			<digest>
+				Number of samples to ramp up absolute signal value
+			</digest>
+			<description>
+				INumber of samples to ramp up absolute signal value, equivalent to an envelope <m>attack</m>. The default is <m>1 sample</m>.
+			</description>
+		</objarg>
+		<objarg name="ramp-down-samples" optional="1" type="int" size="1">
+			<digest>
+				Number of samples to ramp down absolute signal value
+			</digest>
+			<description>
+				INumber of samples to ramp down absolute signal value, equivalent to an envelope <m>decay</m>. The default is <m>4000 samples</m>.
+			</description>
+		</objarg>
+		<objarg name="makeup-gain" optional="1" type="float" size="1">
+			<digest>
+				Amplify ramped delta-samples
+			</digest>
+			<description>
+				Amplify ramped delta-samples. The default is <m>15</m>.
+			</description>
+		</objarg>
+		<objarg name="clipping-toplevel" optional="1" type="float" size="1">
+			<digest>
+				Clip output amplitude envelope
+			</digest>
+			<description>
+				Clip output amplitude envelope flag. The default is <m>1</m> (clip to amplitude of 1.). Any nonzero floating-point value will clip the output to that value.
+			</description>
+		</objarg>
+		<objarg name="peakamp-interval" optional="1" type="int" size="1">
+			<digest>
+				Peak amplitude evaluation interval (in ms)
+			</digest>
+			<description>
+				Peak amplitude evaluation interval (in ms). The default is <m>100 ms</m>, at this rate peak amplitude values are output from the second outlet along with the voice number from the rightmost outlet.
+			</description>
+		</objarg>
+		<objarg name="peakamp-postclip-flag" optional="1" type="bool" size="1">
+			<digest>
+				Evaluate peak amplitudes after clipping
+			</digest>
+			<description>
+				Evaluate peak amplitudes after clipping. The default is <m>1</m>, when set to '0', peak amplitudes represent values before any clipping is applied.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="clip" get="1" type="float" size="1">
+			<digest>
+				Clip output amplitude envelope
+			</digest>
+			<description>
+				Clip output amplitude envelope flag. The default is <m>1</m> (clip to amplitude of 1.). Any nonzero floating-point value will clip the output to that value.
+			</description>
+		</attribute>
+		<attribute name="down" get="0" type="int" size="1">
+			<digest>
+				Number of samples to ramp down absolute signal value
+			</digest>
+			<description>
+				INumber of samples to ramp down absolute signal value, equivalent to an envelope <m>decay</m>. The default is <m>4000 samples</m>.
+			</description>
+		</attribute>
+		<attribute name="interval" get="1" type="int" size="1">
+			<digest>
+				Peak amplitude evaluation interval (in ms)
+			</digest>
+			<description>
+				Peak amplitude evaluation interval (in ms). The default is <m>100 ms</m>, at this rate peak amplitude values are output from the second outlet along with the voice number from the rightmost outlet.
+			</description>
+		</attribute>
+		<attribute name="makeup" get="0" type="float" size="1">
+			<digest>
+				Amplify ramped delta-samples
+			</digest>
+			<description>
+				Amplify ramped delta-samples. The default is <m>4</m>.
+			</description>
+		</attribute>
+		<attribute name="mode" get="0" type="float" size="1">
+			<digest>
+				Set smoothing mode
+			</digest>
+			<description>
+				Set smoothing mode to either &quot;slide&quot; (0, default) or &quot;rampsmooth&quot; (1), using either a symbol or integer value
+			</description>
+		</attribute>
+		<attribute name="postclip" get="1" type="bool" size="1">
+			<digest>
+				Evaluate peak amplitudes after clipping
+			</digest>
+			<description>
+				Evaluate peak amplitudes after clipping. The default is <m>1</m>, when set to '0', peak amplitudes represent values before any clipping is applied.
+			</description>
+		</attribute>
+		<attribute name="up" get="0" type="int" size="1">
+		  <digest>
+		    Number of samples to ramp up absolute signal value
+		  </digest>
+		  <description>
+		    INumber of samples to ramp up absolute signal value, equivalent to an envelope <m>attack</m>. The default is <m>1 sample</m>.
+		  </description>
+		</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<!-- <methodlist>
+		<method name="float">
+			<arglist>
+			</arglist>
+			<digest>
+				Specify makeup-gain
+			</digest>
+			<description>
+				(in right inlet): Specify makeup-gain, the default <at>makeup</at> is <m>4</m>.
+			</description>
+		</method>
+	</methodlist> -->
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+	</seealsolist>
+
+	<mcwrapper>
+		<mcwrapperattr name="busymapname" />
+		<mcwrapperattr name="bz" />
+		<mcwrapperattr name="bzname" />
+		<mcwrapperattr name="chans" />
+		<mcwrapperattr name="usebusymap" />
+		<mcwrapperattr name="zero" />
+	</mcwrapper>
+
+</c74object>

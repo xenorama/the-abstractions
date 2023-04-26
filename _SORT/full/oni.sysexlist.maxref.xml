@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="oni.sysexlist" module="max" category="MIDI, SysEx">
+
+	<digest>
+		Extract lists of SysEx strings from MIDI input stream
+	</digest>
+
+	<description>
+		Recognizes any incoming array of SysEx commands from a MIDI event stream and compiles them into individual lists.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Oni</metadata>
+		<metadata name="tag">MIDI</metadata>
+		<metadata name="tag">SysEx</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="int/list">
+			<digest>MIDI event</digest>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>extracted SysEx string</digest>
+			</outlet>
+		<outlet id="1" type="list">
+			<digest>bulk of SysEx string if argument given</digest>
+		</outlet>
+		<outlet id="2" type="int">
+			<digest>any non-SysEx MIDI</digest>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="port" optional="1" type="symbol">
+			<digest>
+				MIDI port ID
+			</digest>
+			<description>
+				Specifies the port (a-z) from which to receive incoming MIDI system exclusive messages. If there is no argument, <o>sysexin</o> receives from port <m>a</m> (or the first input port listed in the MIDI Setup dialog.)
+			</description>
+		</objarg>
+		<objarg name="developer_bytes" optional="1" type="int">
+			<digest>number of integers before the bulk</digest>
+			<description>The number of integers preceding the bulk (often 6) and are therefore to be cut from it. This optional argument will output the bulk only from the middle outlet after having the given number of command bytes. The default is 0 und thus deactivated.</description>
+		</objarg>
+	</objarglist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="anything">
+			<arglist>
+				<arg name="port" optional="0" type="list" />
+			</arglist>
+			<digest>
+				Set the MIDI input device
+			</digest>
+			<description>
+				Performs the same function as <m>port</m> but without need for the word, &quot;port&quot;.
+			</description>
+		</method>
+		<method name="int">
+			<arglist />
+			<digest>
+				MIDI event
+			</digest>
+			<description>
+				In left inlet: Iterated or <m>list</m> of MIDI events to extract SysEx string from.
+			</description>
+		</method>
+		<method name="list">
+			<arglist />
+			<digest>
+				MIDI event
+			</digest>
+			<description>
+				In left inlet: <m>int</m> or list of MIDI events to extract SysEx string from.
+			</description>
+		</method>
+
+		<method name="dbytes">
+			<arglist>
+				<arg name="bytes" optional="0" type="int" />
+			</arglist>
+			<digest>Number of integers before the bulk</digest>
+			<description>The number of command bytes preceding the bulk (often 6) and are therefore to be cut from it. This optional argument will output the bulk only from the middle outlet after having the given number of command bytes. The default is 0 und thus deactivated.</description>
+		</method>
+
+		<method name="bulk">
+			<arglist>
+				<arg name="bytes" optional="0" type="int" />
+			</arglist>
+			<digest>Number of bytes that make up the bulk</digest>
+			<description>The number of command bytes which the changeable key information within the SysEx message is made of. A list of this length will be output from the middle outlet.</description>
+		</method>
+
+		<method name="command">
+			<arglist>
+				<arg name="command_bytes" optional="0" type="list" />
+			</arglist>
+			<digest>command line before introducing the bulk</digest>
+			<description>Exact command bytes to be watched out for to then output the bulk through the middle outlet.</description>
+		</method>
+
+		<method name="input">
+			<arglist>
+				<arg name="type" optional="0" type="symbol" />
+			</arglist>
+			<digest>change input format to hexadecimal</digest>
+			<description>Setting the argument to 'hex' will accept hexadecimal input bytes only. The default is 'dec' (decimal input).</description>
+		</method>
+
+		<method name="output">
+			<arglist>
+				<arg name="type" optional="0" type="symbol" />
+			</arglist>
+			<digest>change output format to hexadecimal</digest>
+			<description>Setting the argument to 'hex' will output hexadecimal bytes only. The default is 'dec' (decimal output).</description>
+		</method>
+
+	</methodlist>
+
+	<attributelist>
+
+		<attribute name='dbytes' get='1' set='1' type='number' size='1'  >
+			<digest>Number of integers before the bulk</digest>
+			<description>The number of command bytes preceding the bulk (often 6) and are therefore to be cut from it. This optional argument will output the bulk only from the middle outlet after having the given number of command bytes. The default is 0 und thus deactivated.</description>
+		</attribute>
+
+		<attribute name='bulk' get='1' set='1' type='number' size='1' >
+			<digest>Number of bytes that make up the bulk</digest>
+			<description>The number of command bytes which the changeable key information within the SysEx message is made of. A list of this length will be output from the middle outlet.</description>
+		</attribute>
+
+		<attribute name='command' get='1' set='1' type='list' size='variable' >
+			<digest>command line before introducing the bulk</digest>
+			<description>Exact command bytes to be watched out for to then output the bulk through the middle outlet.</description>
+		</attribute>
+
+		<attribute name='input' get='1' set='1' type='symbol' size='1' >
+			<digest>change input format to hexadecimal</digest>
+			<description>Setting the argument to 'hex' will accept hexadecimal input bytes only.
+				<br/> The default is 'dec' (decimal input).</description>
+		</attribute>
+
+		<attribute name='output' get='1' set='1' type='symbol' size='1' >
+			<digest>change output format to hexadecimal</digest>
+			<description>Setting the argument to 'hex' will output hexadecimal bytes only.
+				<br/> The default is 'dec' (decimal output).</description>
+		</attribute>
+
+	</attributelist>
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="oni.modmidiout"/>
+	</seealsolist>
+
+</c74object>

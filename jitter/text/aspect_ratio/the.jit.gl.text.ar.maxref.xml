@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.jit.gl.text.ar" module="jit" category="Jitter OpenGL">
+
+	<digest>
+		Auto-translate a jit.gl.node's context size and jit.gl.text clients to varying parent rendering window
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2022, www.xenorama.com. <br/>
+		Auto-translate a jit.gl.node's context size and jit.gl.text clients to aspect ratio of varying parent rendering window. Designed specifically to auto-scale jit.gl.text object drawing to a jit.gl.node, but can be used with any other OpenGL-clients as well
+	</description>
+
+	<discussion>
+		When resizing the main rendering window, any <o>jit.gl.text</o> object may rescale and transform in unwanted, let alone predictable ways. This object seeks to preserve the aspect ratio and intended size of a rendering group which the text object draws to.<br/>
+		There will be many different usecases, someof which may not work as expected. Note that the <o>jit.gl.node</o> is expected to render in adaptation to the main rendering window (@adapt 1, the default setting).
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">jitter</metadata>
+		<metadata name="tag">Jitter System</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="render-context-name" optional="0" type="symbol" size="1">
+			<digest>
+				Named render context
+			</digest>
+			<description>
+				Named render context
+			</description>
+		</objarg>
+		<objarg name="dim-x" optional="0" type="int" size="1">
+			<digest>
+				Horizontal calibration of window size
+			</digest>
+			<description>
+				Horizontal calibration of window size (default 640x480)
+			</description>
+		</objarg>
+		<objarg name="dim-y" optional="0" type="int" size="1">
+			<digest>
+				Vertical calibration of window size
+			</digest>
+			<description>
+				Vertical calibration of window size (default 640x480)
+			</description>
+		</objarg>
+		<objarg name="node-name" optional="0" type="symbol" size="1">
+			<digest>
+				Named <o>jit.gl.node</o>
+			</digest>
+			<description>
+				Named <o>jit.gl.node</o> to which <o>jit.gl.text</o> draws
+			</description>
+		</objarg>
+		<objarg name="textobj/receive-name" optional="0" type="symbol" size="1">
+			<digest>
+				Named <o>jit.gl.text</o>
+			</digest>
+			<description>
+				Named <o>jit.gl.text</o> or receive port to which transformations are applied/sent
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="active" get="1" set="1" type="bool" size="1">
+			<digest>
+				Observe and apply transforamtion
+			</digest>
+			<description>
+				Observe and apply transforamtion (default: 1)
+			</description>
+		</attribute>
+		<attribute name="preserve_size" get="1" set="1" type="bool" size="1">
+			<digest>
+				Preserve initial size
+			</digest>
+			<description>
+				Preserve initial size upon resizing window (default: 1)
+			</description>
+		</attribute>
+		<attribute name="notify" get="1" set="1" type="bool" size="1">
+			<digest>
+				Post info to Max Window
+			</digest>
+			<description>
+				Post info to Max Window (default: 1)
+			</description>
+		</attribute>
+		<attribute name="scale" get="1" set="1" type="list" size="1">
+			<digest>
+				Apply additional scaling of group
+			</digest>
+			<description>
+				Apply additional scaling of group. The message <m>param scale x y z</m> will be output from the dump outlet
+			</description>
+		</attribute>
+	</attributelist>
+
+	<!--MOP-->
+	<!-- <mop matrixinputcount="-1" matrixoutputcount="1">
+		<matrixoutput name="out" planelink="1" typelink="1" dimlink="1" minplanecount="1" maxplanecount="32" mindimcount="1" maxdimcount="32">
+			<types>
+				char long float32 float64
+			</types>
+		</matrixoutput>
+	</mop> -->
+
+		<!--MESSAGES-->
+		<methodlist>
+			<method name="calibrate">
+				<arglist>
+				</arglist>
+				<digest>
+					Use current window size as reference
+				</digest>
+				<description>
+					Use current window size as reference. When <at>preserve_size</at> is flagged to &quot;1&quot; this method is irrelevant, i.e. can lead to unwanted transformations when unflagging the latter. <br/>
+					The message <m>param size x y</m> will be output from the dump outlet
+				</description>
+			</method>
+			<method name="info">
+				<arglist>
+				</arglist>
+				<digest>
+					Send current bindings to the Max Window
+				</digest>
+				<description>
+					Send current successful bindings to the Max Window
+				</description>
+			</method>
+			<method name="int">
+				<arglist>
+				</arglist>
+				<digest>
+					Set the <at>active</at> flag
+				</digest>
+				<description>
+					Set the <at>active</at> flag
+				</description>
+			</method>
+		</methodlist>
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealsolist>
+			<seealso name="jit.gl.text" />
+			<seealso name="jit.gl.node" />
+			<seealso name="jit.world" />
+			<!-- <seealso name="jit.matrix" />
+			<seealso name="jit.gl.slab" />
+			<seealso name="gen~" />
+			<seealso module="gen" name="gen_overview" type="vignette" />
+			<seealso module="gen" name="gen_genexpr" type="vignette" />
+			<seealso module="gen" name="gen_common_operators" type="vignette" />
+			<seealso module="gen" name="gen_jitter_operators" type="vignette" /> -->
+		</seealsolist>
+	</seealsolist>
+
+</c74object>

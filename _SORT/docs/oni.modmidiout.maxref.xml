@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="oni.modmidiout" module="max" category="Oni, MIDI">
+
+	<digest>
+		Conditional MIDI by Modifierz
+	</digest>
+
+	<description>
+		Defines a set of modifiers and their numeric conditions to allow pass through to a desired MIDI Port and retrieve meanwhile accumulated MIDI once met.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Oni</metadata>
+		<metadata name="tag">MIDI</metadata>
+		<metadata name="tag">Modifier</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="int/list">
+			<digest>MIDI event</digest>
+		</inlet>
+		<inlet id="1" type="symbol">
+			<digest>destination MIDI port</digest>
+			<description>valid MIDI port as destination</description>
+		</inlet>
+		<inlet id="2" type="bang/anything">
+			<digest>updates given MIDI port</digest>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="int (bool)">
+			<digest>0 = closed, 1 = pass through</digest>
+			<description>1 if all given modifiers meet conditions, 0 if one of them does not.</description>
+		</outlet>
+		<outlet id="1" type="list">
+			<digest>current values of given modifiers</digest>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+
+	<objarglist>
+
+		<objarg name="port" optional="0" type="symbol">
+			<digest>destination MIDI port</digest>
+		</objarg>
+
+		<objarg name="modifier conditions" optional="0" type="list">
+			<digest>string of one or more modifiers followed by their numeric conditions</digest>
+			<description>any number of modifiers (symbol), each followed by any number of numeric conditions. Natural numbers allow pass through, negative numbers exclude pass through.
+      <br />
+			<br />
+			A modifier is changed by sending a numeric value to a <o>send</o> or <o>forward</o> object with the modifiers name as argument.
+			</description>
+		</objarg>
+
+	</objarglist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+
+		<method name="int">
+			<arglist />
+			<digest>
+				MIDI event
+			</digest>
+			<description>
+				In left inlet: Iterated MIDI event to be either passed through or temporarily stored. Can also be input as <m>list</m>.
+			</description>
+		</method>
+
+		<method name="list">
+			<arglist />
+			<digest>
+				MIDI event
+			</digest>
+			<description>
+				In left inlet: MIDI event to be either passed through or temporarily stored. Can also be input as iterated <m>int</m>.
+			</description>
+		</method>
+
+		<method name="symbol">
+			<arglist />
+			<digest>
+				MIDI Port
+			</digest>
+			<description>
+				In middle inlet: Name of valid destination MIDI Port.
+			</description>
+		</method>
+
+		<method name="bang">
+			<arglist />
+			<digest>
+				Update MIDI Port and post information to the Max Window
+			</digest>
+			<description>
+				In right inlet: Update the MIDI Port and post the following information to the Max window:
+				<br />
+				<br />
+				murrent MIDI port
+				<br />
+				modifier conditions
+				<br />
+				current state of modifiers
+				<br />
+				all MIDI currently stored
+			</description>
+		</method>
+
+		<method name="update">
+			<arglist />
+			<digest>
+				Change the <m>update</m> behaviour
+			</digest>
+			<description>Output behaviour for accumulated MIDI data whenever modifier conditions change.
+				<br />
+				<br />
+				0: No storage, no output on change.
+				<br />
+				1: Temporary storage and single flush output on change.
+				<br />
+				2 (default): Continuous storage and repeated update whenever modifiers meet conditions.</description>
+		</method>
+
+		<method name="initial">
+			<arglist />
+			<digest>Initial pass through setting</digest>
+			<description>Initial pass through setting regardless of modifiers.<br />
+			<br />
+			0 (default): Wait for modifiers to meet conditions.
+			<br />
+			1: Allows pass through of MIDI data on load until one of the modifiers changes.</description>
+		</method>
+
+		<method name="dirty">
+			<arglist />
+			<digest>Watch for single condition to be met</digest>
+			<description>Allows MIDI pass through when one of the given modifier conditions is met, otherwise all of them have to be true (default).
+			<br />
+			<br />
+			0 (default): Output MIDI data only when <m>all</m> modifiers meet conditions.
+			<br />
+			1: Output MIDI data when <m>any</m> of the modifiers meet conditions.</description>
+		</method>
+
+	</methodlist>
+
+	<!--ATTRIBUTES-->
+
+	<attributelist>
+
+		<attribute name='update' get='1' set='1' type='number' size='1'  >
+			<digest>Output accumulated MIDI data on change</digest>
+			<description>Output behaviour for accumulated MIDI data whenever modifier conditions change.
+				<br />
+				<br />
+				0: No storage, no output on change.
+				<br />
+				1: Temporary storage and single flush output on change.
+				<br />
+				2 (default): Continuous storage and repeated update whenever modifiers meet conditions.</description>
+		</attribute>
+
+		<attribute name='initial' get='1' set='1' type='bool' size='1' >
+			<digest>Initial pass through setting</digest>
+			<description>Initial pass through setting regardless of modifiers.<br />
+			<br />
+			0 (default): Wait for modifiers to meet conditions.
+			<br />
+			1: Allows pass through of MIDI data on load until one of the modifiers changes.</description>
+		</attribute>
+
+		<attribute name='dirty' get='1' set='1' type='bool' size='1' >
+			<digest>Watch for single condition to be met</digest>
+			<description>Allows MIDI pass through when one of the given modifier conditions is met, otherwise all of them have to be true (default).
+				<br />
+				<br />
+				0 (default): Output MIDI data only when <m>all</m> modifiers meet conditions.
+				<br />
+				1: Output MIDI data when <m>any</m> of the modifiers meet conditions.</description>
+		</attribute>
+
+	</attributelist>
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="oni.modmidiin"/>
+		<seealso name="oni.modgate"/>
+		<seealso name="oni.momtog"/>
+	</seealsolist>
+
+</c74object>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="oni.streamfunnel" module="max" category="Data">
+
+	<digest>
+		prepend an increasing index to any number of items
+	</digest>
+
+	<description>
+		An incoming list is iterated into groups of identical sizes and prepended by an increasing index.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Oni</metadata>
+		<metadata name="tag">Data</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="list">
+			<digest>list of any nubmer of items</digest>
+			<description>
+				The list length has to be dividable by the first argument given.
+			</description>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>list with index</digest>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="length" optional="0" type="int">
+			<digest>list length to be extracted</digest>
+			<description>The input list has to be dividable by the first argument given.
+      </description>
+		</objarg>
+		<objarg name="offset" optional="0" type="int">
+			<digest>first index</digest>
+			<description>all following lists will increase on the offset.
+      </description>
+		</objarg>
+	</objarglist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="list">
+			<arglist />
+			<digest>
+				list to be iterated
+			</digest>
+			<description>
+				Has to be dividable by the first argument given.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="listfunnel"/>
+		<seealso name="funnel"/>
+		<seealso name="spray"/>
+	</seealsolist>
+
+</c74object>

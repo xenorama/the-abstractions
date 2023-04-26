@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.jit.gl.3m" module="jit" category="Jitter OpenGL">
+
+	<digest>
+		Calculate min/mean/max values of a texture
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2021, www.xenorama.com. <br/>
+		Calculates the minimum, mean, and maximum values for each channel of a given input texture as individual textures of single cells — in line with the benefits of the ative <o>jit.3m</o> — to be referenced in running shader code as texture uniforms, for example. The scanning process should be performed on a downsampled texture for efficiency reasons.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">jitter</metadata>
+		<metadata name="tag">Jitter System</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="drawing-context" optional="1" type="symbol" size="1">
+			<digest>
+				Explicit drawing context
+			</digest>
+			<description>
+				Explicit drawing context.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="precision" get="1" set="1" type="int" size="2">
+			<digest>
+				Downsampling dimensions
+			</digest>
+			<description>
+				Downsampling dimensions. Unless a '0' is provided as argument, the scan is performed on a downsampled texture of the given dimensions. The default is <m>128 128</m>. Large texture sizes can heavily affect performance.
+			</description>
+		</attribute>
+		<attribute name="ignorealpha" get="1" set="1" type="bool" size="1">
+			<digest>
+				Exclude alpha channel from output textures
+			</digest>
+			<description>
+				Exclude alpha channel from output textures. The default is '1' (ignore alpha channel)
+			</description>
+		</attribute>
+		<attribute name="avgmode" get="1" set="1" type="bool" size="1">
+			<digest>
+				Combined output mode
+			</digest>
+			<description>
+				Combined output mode. By default, <o>the.jit.gl.3m</o> outputs the global minimum (R), mean (G), maximum (B) and alpha channel as one combined texture from the fourth outlet (<at>avgmode</at> 0). Setting this flag to '1', the mean values of all planes is calculated and output. The alpha channel is by default ignored in this process, see the <at>ignorealpha</at> listing
+			</description>
+		</attribute>
+	</attributelist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="bypass">
+			<arglist />
+			<digest>
+				Pass input texture through to leftmost outlet
+			</digest>
+			<description>
+				Pass input texture through to leftmost outlet without texture calculations.
+			</description>
+		</method>
+	</methodlist>
+	<jittermethodlist>
+		<jittermethod name="bang" />
+		<jittermethod name="draw" />
+		<jittermethod name="drawimmediate" />
+		<jittermethod name="drawraw" />
+		<jittermethod name="exportattrs" />
+		<jittermethod name="exportsummary" />
+		<jittermethod name="getattributes" />
+		<jittermethod name="getstate" />
+		<jittermethod name="importattrs" />
+		<jittermethod name="jit_gl_texture" />
+		<jittermethod name="summary" />
+	</jittermethodlist>
+	<!--MOP-->
+
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealsolist>
+			<seealso name="jit.gen" />
+			<seealso name="jit.gl.pix" />
+			<seealso name="jit.expr" />
+			<seealso name="jit.matrix" />
+			<seealso name="jit.gl.slab" />
+			<seealso name="gen~" />
+			<seealso module="gen" name="gen_overview" type="vignette" />
+			<seealso module="gen" name="gen_genexpr" type="vignette" />
+			<seealso module="gen" name="gen_common_operators" type="vignette" />
+			<seealso module="gen" name="gen_jitter_operators" type="vignette" />
+		</seealsolist>
+	</seealsolist>
+
+</c74object>

@@ -4061,80 +4061,141 @@
 ,
 	"octafon.remap" : 	{
 		"settings" : 		{
-			"preview" : 1,
+			"model" : 			{
+				"type" : 1,
+				"file" : "Macintosh HD:/Users/Oni/Projekte/Xenorama/XEN_Cloud/XENcloud/22-09_SNJ_Schuetz-Novalis-Jahr-Weissenfels/SNJ_02_CORE/SNJ_02_3DS/SNJ_CORE_10-with-photo-cam_FOR-TIM.obj",
+				"drawgroup" : 7,
+				"position" : [ -0.453000009059906, 1.179999947547913, 0.239999994635582 ],
+				"scale" : [ 9.949999809265137, 9.949999809265137, 9.949999809265137 ],
+				"rotatexyz" : [ 0.0, 0.0, 180.0 ],
+				"material_mode" : 0,
+				"cull_face" : 1,
+				"patcher" : "*",
+				"cube" : 				{
+					"coords" : [ 1.0, 1.0, 1.2 ],
+					"unit_measures" : [ 6.0, 6.0, 4.0, "meters" ],
+					"texture" : "*",
+					"type" : "*",
+					"opacity" : 0.510204081632653,
+					"cubemap" : "*"
+				}
+
+			}
+,
 			"speaker_size" : 0.15,
 			"show_speakers" : 1,
 			"show_walls" : 1,
 			"axes" : 1,
 			"auto_focus" : 1,
-			"sweetspot" : [ 0, 0, 0.27 ],
-			"cube" : [ 1.19, 1.23, 1.28 ],
-			"view_pos" : [ 0.0, -0.65, 0.007 ],
-			"focus_amt" : 1
+			"shroud" : 1,
+			"reverb" : 			{
+				"enable" : 1,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
+			"preview" : 1,
+			"focus_amt" : 1,
+			"light" : 1,
+			"listener" : 			{
+				"rotation" : 339.622641509434516,
+				"position" : [ 0.46, -0.86, 0.392086330935252 ],
+				"lens_angle" : 106.510791366906474,
+				"reverb" : 				{
+					"amount" : 0.837988826815642,
+					"minimum" : 0.1,
+					"size" : 0.35195530726257,
+					"decay" : 0.402234636871508,
+					"damping" : 0.53072625698324,
+					"diffusion" : 0.379888268156425,
+					"early_reflections" : 0.670391061452514
+				}
+,
+				"filter" : 				{
+					"rear_freq" : 132.0
+				}
+
+			}
+,
+			"sweetspot" : [ 0.0, 0.0, 0.3, 0 ],
+			"view_pos" : [ 0.02, -1.1, 0.36 ]
 		}
 ,
 		"speaker_1" : 		{
 			"index" : 0,
-			"position" : [ -0.999999821186066, -0.999999821186066, 0.000000194707155 ],
-			"rotation" : [ 79.191238403320312, 0.0, 135.0 ],
-			"map_audio" : 1,
-			"map_matrix" : 1
+			"position" : [ -0.999999582767487, -0.999999582767487, 0.000000194707098 ],
+			"rotation" : [ 78.023277282714844, 0.0, 135.0 ],
+			"map_audio" : 0,
+			"map_matrix" : 0,
+			"radius" : 1.5
 		}
 ,
 		"speaker_2" : 		{
 			"index" : 1,
-			"position" : [ -0.999999821186066, 0.999999821186066, -0.000000043711381 ],
-			"rotation" : [ 79.191230773925781, 0.0, 45.0 ],
-			"map_audio" : 0,
-			"map_matrix" : 0
+			"position" : [ -0.999999582767487, 0.999999582767487, -0.000000043711371 ],
+			"rotation" : [ 78.023269653320312, 0.0, 45.0 ],
+			"map_audio" : 1,
+			"map_matrix" : 1,
+			"radius" : 1.5
 		}
 ,
 		"speaker_3" : 		{
 			"index" : 2,
-			"position" : [ 0.999999821186066, -0.999999821186066, 0.000000194707155 ],
-			"rotation" : [ 79.191238403320312, 0.0, -135.0 ],
+			"position" : [ 0.999999582767487, -0.999999582767487, 0.000000194707098 ],
+			"rotation" : [ 78.023277282714844, 0.0, -135.0 ],
 			"map_audio" : 2,
-			"map_matrix" : 2
+			"map_matrix" : 2,
+			"radius" : 1.5
 		}
 ,
 		"speaker_4" : 		{
 			"index" : 3,
-			"position" : [ 0.999999821186066, 0.999999821186066, -0.000000043711381 ],
-			"rotation" : [ 79.191230773925781, 0.0, -45.0 ],
+			"position" : [ 0.999999582767487, 0.999999582767487, -0.000000043711371 ],
+			"rotation" : [ 78.023269653320312, 0.0, -45.0 ],
 			"map_audio" : 3,
-			"map_matrix" : 3
+			"map_matrix" : 3,
+			"radius" : 1.5
 		}
 ,
 		"speaker_5" : 		{
 			"index" : 4,
 			"position" : [ -0.99999988079071, -0.99999988079071, 0.99999988079071 ],
-			"rotation" : [ 117.302230834960938, 0.0, 135.0 ],
+			"rotation" : [ 116.334243774414062, 0.0, 135.0 ],
 			"map_audio" : 4,
-			"map_matrix" : 4
+			"map_matrix" : 4,
+			"radius" : 1.5
 		}
 ,
 		"speaker_6" : 		{
 			"index" : 5,
 			"position" : [ -0.99999988079071, 0.99999988079071, 0.99999988079071 ],
-			"rotation" : [ 117.302230834960938, 0.0, 45.0 ],
+			"rotation" : [ 116.334243774414062, 0.0, 45.0 ],
 			"map_audio" : 5,
-			"map_matrix" : 5
+			"map_matrix" : 5,
+			"radius" : 1.5
 		}
 ,
 		"speaker_7" : 		{
 			"index" : 6,
 			"position" : [ 0.99999988079071, -0.99999988079071, 0.99999988079071 ],
-			"rotation" : [ 117.302230834960938, 0.0, -135.0 ],
+			"rotation" : [ 116.334243774414062, 0.0, -135.0 ],
 			"map_audio" : 6,
-			"map_matrix" : 6
+			"map_matrix" : 6,
+			"radius" : 1.5
 		}
 ,
 		"speaker_8" : 		{
 			"index" : 7,
 			"position" : [ 0.99999988079071, 0.99999988079071, 0.99999988079071 ],
-			"rotation" : [ 117.302230834960938, 0.0, -45.0 ],
+			"rotation" : [ 116.334243774414062, 0.0, -45.0 ],
 			"map_audio" : 7,
-			"map_matrix" : 7
+			"map_matrix" : 7,
+			"radius" : 1.5
 		}
 
 	}
@@ -4147,11 +4208,6 @@
 			"show_walls" : 1,
 			"axes" : 1,
 			"auto_focus" : 1,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
-			"sweetspot" : [ 0, -0.57, 0 ],
-			"cube" : [ 1.19, 1.23, 1.28 ],
-			"view_pos" : [ 0, -0.41, -0.24 ],
-			"focus_amt" : 1,
 			"reverb" : 			{
 				"enable" : 1,
 				"gain" : 0.614457831325301,
@@ -4162,7 +4218,11 @@
 				"diffusion" : 1,
 				"early_reflections" : 0.65
 			}
-
+,
+			"sweetspot" : [ 0, -0.57, 0 ],
+			"cube" : [ 1.19, 1.23, 1.28 ],
+			"view_pos" : [ 0, -0.41, -0.24 ],
+			"focus_amt" : 1
 		}
 ,
 		"speaker_1" : 		{
@@ -4207,7 +4267,6 @@
 			"show_walls" : 1,
 			"axes" : 1,
 			"auto_focus" : 1,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
 			"reverb" : 			{
 				"enable" : 1,
 				"gain" : 0.7,
@@ -4276,11 +4335,6 @@
 			"show_walls" : 1,
 			"axes" : 1,
 			"auto_focus" : 1,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
-			"sweetspot" : [ 0, -0.57, 0 ],
-			"cube" : [ 1.6, 1.0, 1.4 ],
-			"view_pos" : [ 0, -0.41, -0.24 ],
-			"focus_amt" : 1,
 			"reverb" : 			{
 				"enable" : 1,
 				"gain" : 0.614457831325301,
@@ -4292,6 +4346,10 @@
 				"early_reflections" : 0.65
 			}
 ,
+			"sweetspot" : [ 0, -0.57, 0 ],
+			"cube" : [ 1.6, 1.0, 1.4 ],
+			"view_pos" : [ 0, -0.41, -0.24 ],
+			"focus_amt" : 1,
 			"shroud" : 1
 		}
 ,
@@ -4337,11 +4395,6 @@
 			"show_walls" : 1,
 			"axes" : 1,
 			"auto_focus" : 1,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
-			"sweetspot" : [ 1.03, -0.01, 0 ],
-			"cube" : [ 1.19, 1.23, 1.28 ],
-			"view_pos" : [ 0, -0.41, -0.24 ],
-			"focus_amt" : 1,
 			"reverb" : 			{
 				"enable" : 1,
 				"gain" : 0.614457831325301,
@@ -4353,6 +4406,10 @@
 				"early_reflections" : 0.65
 			}
 ,
+			"sweetspot" : [ 1.03, -0.01, 0 ],
+			"cube" : [ 1.19, 1.23, 1.28 ],
+			"view_pos" : [ 0, -0.41, -0.24 ],
+			"focus_amt" : 1,
 			"shroud" : 1
 		}
 ,
@@ -4457,7 +4514,16 @@
 				"rotatexyz" : [ 0.0, 0.0, 180.0 ],
 				"material_mode" : 0,
 				"cull_face" : 1,
-				"patcher" : "*"
+				"patcher" : "*",
+				"cube" : 				{
+					"coords" : [ 1.19, 0.68, 0.7 ],
+					"unit_measures" : [ 60.0, 30.0, 20.0, "meters" ],
+					"texture" : "*",
+					"type" : "*",
+					"opacity" : 0.836734693877551,
+					"cubemap" : "*"
+				}
+
 			}
 ,
 			"speaker_size" : 0.09,
@@ -4465,23 +4531,51 @@
 			"show_walls" : 1,
 			"axes" : 1,
 			"auto_focus" : 1,
+			"dB" : -6,
 			"shroud" : 1,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
-			"listener" : 0,
+			"reverb" : 			{
+				"enable" : 1,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
 			"preview" : 1,
-			"sweetspot" : [ -0.31, -0.35, 0 ],
-			"cube" : [ 1.19, 0.68, 0.7 ],
-			"view_pos" : [ 0, 0.04, -0.24 ],
 			"focus_amt" : 1,
-			"reverb" : [ "jsobject", -1266632186798008.0 ],
-			"lookat" : [ 0.6, 0.127, 0.13 ],
-			"light" : 1
+			"light" : 0,
+			"listener" : 			{
+				"rotation" : 7.733598099023325,
+				"position" : [ -0.28, -0.62, 0.392086330935252 ],
+				"lens_angle" : 94.856115107913666,
+				"reverb" : 				{
+					"amount" : 0.871508379888268,
+					"minimum" : 0.1,
+					"size" : 0.608938547486033,
+					"decay" : 0.307262569832402,
+					"damping" : 0.826815642458101,
+					"diffusion" : 0.569832402234637,
+					"early_reflections" : 0.35195530726257
+				}
+,
+				"filter" : 				{
+					"rear_freq" : 132.0
+				}
+,
+				"lookat" : [ -0.06, 1.0 ],
+				"focus" : 1
+			}
+,
+			"sweetspot" : [ -0.28, -0.62, 0.392086330935252, 0 ]
 		}
 ,
 		"speaker_1" : 		{
 			"index" : 0,
 			"position" : [ -1.139999985694885, -0.720000326633453, 0.010000576265156 ],
-			"rotation" : [ -90.630508422851562, 0.0, 114.026535034179688 ],
+			"rotation" : [ 66.187538146972656, 0.0, 96.632537841796875 ],
 			"map_audio" : 0,
 			"map_matrix" : 0,
 			"radius" : 2.5
@@ -4490,7 +4584,7 @@
 		"speaker_2" : 		{
 			"index" : 1,
 			"position" : [ 1.25, -0.759999990463257, 0.000000243383965 ],
-			"rotation" : [ -90.000007629394531, 0.0, -104.725479125976562 ],
+			"rotation" : [ 75.683731079101562, 0.0, -95.228179931640625 ],
 			"map_audio" : 1,
 			"map_matrix" : 1,
 			"radius" : 2.5
@@ -4498,8 +4592,8 @@
 ,
 		"speaker_3" : 		{
 			"index" : 2,
-			"position" : [ -1.269999980926514, 0.589999735355377, -0.000000055513464 ],
-			"rotation" : [ -90.0, 0.0, 45.60308837890625 ],
+			"position" : [ -1.269999980926514, 0.589999794960022, -0.000000055513464 ],
+			"rotation" : [ 75.921066284179688, 0.0, 39.2894287109375 ],
 			"map_audio" : 2,
 			"map_matrix" : 2,
 			"radius" : 2.5
@@ -4508,7 +4602,7 @@
 		"speaker_4" : 		{
 			"index" : 3,
 			"position" : [ 1.287999987602234, 0.640000104904175, -0.000000056300269 ],
-			"rotation" : [ -90.0, 0.0, -58.22076416015625 ],
+			"rotation" : [ 78.970199584960938, 0.0, -51.21563720703125 ],
 			"map_audio" : 3,
 			"map_matrix" : 3,
 			"radius" : 2.5
@@ -4541,9 +4635,18 @@
 			"view_pos" : [ 0, 0.04, -0.24 ],
 			"focus_amt" : 1,
 			"listener" : 0,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
+			"reverb" : 			{
+				"enable" : 1,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
 			"shroud" : 1,
-			"reverb" : [ "jsobject", -1266632186798008.0 ],
 			"lookat" : [ 0.6, 0.127, 0.13 ]
 		}
 ,
@@ -4588,15 +4691,24 @@
 	"sbg.kunstraum" : 	{
 		"settings" : 		{
 			"model" : 			{
-				"type" : 0,
-				"file" : "Macintosh HD:/Users/Oni/Projekte/Xenorama/XEN_Cloud/XENcloud/22-09_SNJ_Schuetz-Novalis-Jahr-Weissenfels/SNJ_02_CORE/SNJ_02_3DS/SNJ_CORE_10-with-photo-cam_FOR-TIM.obj",
+				"type" : 2,
+				"file" : "*",
 				"drawgroup" : 7,
 				"position" : [ -0.453000009059906, 1.179999947547913, 0.239999994635582 ],
 				"scale" : [ 9.949999809265137, 9.949999809265137, 9.949999809265137 ],
 				"rotatexyz" : [ 0.0, 0.0, 180.0 ],
 				"material_mode" : 0,
 				"cull_face" : 1,
-				"patcher" : "Macintosh HD:/Users/Oni/Documents/Max 8/Packages/the-abstractions/msp/mc/spacial/kunstraum.model.maxpat"
+				"patcher" : "Macintosh HD:/Users/Oni/Documents/Max 8/Packages/the-abstractions/msp/mc/spatial/kunstraum.model.maxpat",
+				"cube" : 				{
+					"coords" : [ 1.0, 1.0, 1.2 ],
+					"unit_measures" : [ 6.0, 6.0, 4.0, "meters" ],
+					"texture" : "*",
+					"type" : "*",
+					"opacity" : 0.836734693877551,
+					"cubemap" : "*"
+				}
+
 			}
 ,
 			"speaker_size" : 0.15,
@@ -4604,23 +4716,51 @@
 			"show_walls" : 0,
 			"axes" : 1,
 			"auto_focus" : 1,
+			"dB" : -1.153182748787827,
 			"shroud" : 1,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
-			"listener" : 0,
+			"reverb" : 			{
+				"enable" : 0,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
 			"preview" : 1,
-			"sweetspot" : [ 0.0, 0.0, 0.2, 0 ],
-			"cube" : [ 1, 1, 1.2 ],
-			"view_pos" : [ 0, 0.04, -0.58 ],
 			"focus_amt" : 1,
-			"reverb" : [ "jsobject", -1266632186798008.0 ],
-			"lookat" : [ 0, 1.2, 0.2 ],
-			"light" : 1
+			"light" : 1,
+			"listener" : 			{
+				"rotation" : 342.801458779934705,
+				"position" : [ 0.3, -0.86, 0.392086330935252 ],
+				"lens_angle" : 106.510791366906474,
+				"reverb" : 				{
+					"amount" : 0.837988826815642,
+					"minimum" : 0.1,
+					"size" : 0.35195530726257,
+					"decay" : 0.402234636871508,
+					"damping" : 0.53072625698324,
+					"diffusion" : 0.379888268156425,
+					"early_reflections" : 0.670391061452514
+				}
+,
+				"filter" : 				{
+					"rear_freq" : 132.0
+				}
+,
+				"lookat" : [ 0.04, -0.02 ],
+				"focus" : 1
+			}
+,
+			"sweetspot" : [ 0.3, -0.86, 0.392086330935252, 0 ]
 		}
 ,
 		"speaker_1" : 		{
 			"index" : 0,
 			"position" : [ -0.989999949932098, -0.989999949932098, 0.700000107288361 ],
-			"rotation" : [ 109.652900695800781, 0.0, 135.0 ],
+			"rotation" : [ 103.359672546386719, 0.0, 95.75457763671875 ],
 			"map_audio" : 0,
 			"map_matrix" : 0,
 			"radius" : 1.799999952316284
@@ -4629,7 +4769,7 @@
 		"speaker_2" : 		{
 			"index" : 1,
 			"position" : [ 0.989999949932098, -0.989999949932098, 0.700000107288361 ],
-			"rotation" : [ 109.652900695800781, 0.0, -135.0 ],
+			"rotation" : [ 113.67919921875, 0.0, -100.669769287109375 ],
 			"map_audio" : 1,
 			"map_matrix" : 1,
 			"radius" : 1.799999952316284
@@ -4638,8 +4778,8 @@
 		"speaker_3" : 		{
 			"index" : 2,
 			"position" : [ -0.989999890327454, 0.989999890327454, 0.699999988079071 ],
-			"rotation" : [ 109.652900695800781, 0.0, 45.0 ],
-			"map_audio" : 3,
+			"rotation" : [ 97.7742919921875, 0.0, 34.887939453125 ],
+			"map_audio" : 2,
 			"map_matrix" : 2,
 			"radius" : 1.799999952316284
 		}
@@ -4647,8 +4787,8 @@
 		"speaker_4" : 		{
 			"index" : 3,
 			"position" : [ 0.989999711513519, 0.989999711513519, 0.699999868869781 ],
-			"rotation" : [ 109.65289306640625, 0.0, -45.0 ],
-			"map_audio" : 2,
+			"rotation" : [ 98.863662719726562, 0.0, -20.45416259765625 ],
+			"map_audio" : 3,
 			"map_matrix" : 3,
 			"radius" : 1.799999952316284
 		}
@@ -4658,6 +4798,7 @@
 	"wms.expose" : 	{
 		"settings" : 		{
 			"model" : 			{
+				"cube" : [ 1, 1, 0.84 ],
 				"type" : 0,
 				"file" : "Macintosh HD:/Users/Oni/Projekte/Xenorama/XEN_Cloud/XENcloud/22-09_SNJ_Schuetz-Novalis-Jahr-Weissenfels/SNJ_02_CORE/SNJ_02_3DS/SNJ_CORE_10-with-photo-cam_FOR-TIM.obj",
 				"drawgroup" : 7,
@@ -4675,14 +4816,22 @@
 			"axes" : 1,
 			"auto_focus" : 1,
 			"shroud" : 1,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
+			"reverb" : 			{
+				"enable" : 1,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
 			"listener" : 0,
 			"preview" : 1,
 			"sweetspot" : [ 0, 0, -0.2, 1 ],
-			"cube" : [ 1, 1, 0.84 ],
 			"view_pos" : [ 0, 0.1, -0.17 ],
 			"focus_amt" : 1,
-			"reverb" : [ "jsobject", -1266632186798008.0 ],
 			"lookat" : [ 0, 1.2, 0.2 ],
 			"light" : 1
 		}
@@ -4772,6 +4921,7 @@
 				"rotatexyz" : [ 0.0, 0.0, 180.0 ],
 				"material_mode" : 0,
 				"cull_face" : 1,
+				"cube" : [ 1, 1, 1.2 ],
 				"patcher" : "Macintosh HD:/Users/Oni/Documents/Max 8/Packages/the-abstractions/msp/mc/spacial/kunstraum.model.maxpat"
 			}
 ,
@@ -4782,13 +4932,21 @@
 			"axes" : 1,
 			"auto_focus" : 1,
 			"sweetspot" : [ 0.0, 0.0, 0.2, 0 ],
-			"cube" : [ 1, 1, 1.2 ],
 			"view_pos" : [ 0, 0.04, -0.58 ],
 			"focus_amt" : 1,
 			"listener" : 0,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
+			"reverb" : 			{
+				"enable" : 1,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
 			"shroud" : 1,
-			"reverb" : [ "jsobject", -1266632186798008.0 ],
 			"lookat" : [ 0, 1.2, 0.2 ],
 			"light" : 1
 		}
@@ -4833,40 +4991,76 @@
 ,
 	"wms.model" : 	{
 		"settings" : 		{
-			"preview" : 1,
-			"speaker_size" : 0.09,
-			"show_speakers" : 1,
-			"show_walls" : 1,
-			"axes" : 1,
-			"auto_focus" : 1,
-			"sweetspot" : [ 0.0, 0.0, -0.2, 1 ],
-			"cube" : [ 1.0, 1.0, 0.7 ],
-			"view_pos" : [ 0, 0.04, -0.24 ],
-			"focus_amt" : 1,
-			"listener" : 0,
-			"reverb_params" : [ 0.7, 0.78, 0.92, 0.61, 1, 0.65 ],
-			"shroud" : 1,
-			"reverb" : [ "jsobject", -1266632186798008.0 ],
-			"lookat" : [ 0.6, 0.127, 0.13 ],
-			"light" : 1,
 			"model" : 			{
-				"type" : 0,
-				"file" : "Macintosh HD:/Users/Oni/Projekte/Xenorama/XEN_Cloud/XENcloud/22-09_SNJ_Schuetz-Novalis-Jahr-Weissenfels/SNJ_02_CORE/SNJ_02_3DS/SNJ_CORE_10-with-photo-cam_FOR-TIM.obj",
+				"type" : 1,
+				"file" : "*",
 				"drawgroup" : 7,
 				"position" : [ -0.453000009059906, 1.179999947547913, 0.239999994635582 ],
 				"scale" : [ 9.949999809265137, 9.949999809265137, 9.949999809265137 ],
 				"rotatexyz" : [ 0.0, 0.0, 180.0 ],
 				"material_mode" : 0,
 				"cull_face" : 1,
-				"patcher" : "*"
-			}
+				"patcher" : "*",
+				"cube" : 				{
+					"coords" : 1.0,
+					"unit_measures" : [ 8.0, 8.0, 5.0, "meters" ],
+					"texture" : "*",
+					"type" : "*",
+					"opacity" : 0.540816326530612,
+					"cubemap" : "*"
+				}
 
+			}
+,
+			"speaker_size" : 0.09,
+			"show_speakers" : 1,
+			"show_walls" : 1,
+			"axes" : 1,
+			"auto_focus" : 1,
+			"shroud" : 1,
+			"reverb" : 			{
+				"enable" : 1,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
+			"preview" : 1,
+			"focus_amt" : 1,
+			"light" : 1,
+			"listener" : 			{
+				"rotation" : 358.781124764869219,
+				"position" : [ 0.0, -0.26, 0.258992805755396 ],
+				"lens_angle" : 80.869565217391312,
+				"reverb" : 				{
+					"amount" : 1,
+					"minimum" : 0.072625698324022,
+					"size" : 0.636871508379888,
+					"decay" : 0.167597765363128,
+					"damping" : 0.893854748603352,
+					"diffusion" : 0.508379888268156,
+					"early_reflections" : 0.269896589006696
+				}
+,
+				"filter" : 				{
+					"rear_freq" : 123.0
+				}
+,
+				"lookat" : [ -0.02, 0.68 ],
+				"focus" : 1
+			}
+,
+			"sweetspot" : [ -0.28, -0.62, -0.1, 1 ]
 		}
 ,
 		"speaker_1" : 		{
 			"index" : 0,
 			"position" : [ 0.913545429706573, 0.406736582517624, -0.000000039932338 ],
-			"rotation" : [ -101.309928894042969, 0.0, -66.0 ],
+			"rotation" : [ -93.634330749511719, 0.0, -49.296539306640625 ],
 			"map_audio" : 0,
 			"map_matrix" : 0,
 			"radius" : 1.5
@@ -4874,8 +5068,8 @@
 ,
 		"speaker_2" : 		{
 			"index" : 1,
-			"position" : [ 0.358367830514908, 0.933580279350281, -0.000000015664755 ],
-			"rotation" : [ -101.3099365234375, 0.0, -21.0 ],
+			"position" : [ 0.358367711305618, 0.933580040931702, -0.000000015664749 ],
+			"rotation" : [ -93.407211303710938, 0.0, -22.33782958984375 ],
 			"map_audio" : 1,
 			"map_matrix" : 1,
 			"radius" : 1.5
@@ -4884,7 +5078,7 @@
 		"speaker_3" : 		{
 			"index" : 2,
 			"position" : [ -0.406736642122269, 0.913545429706573, -0.000000017779023 ],
-			"rotation" : [ -101.309928894042969, 0.0, 24.0 ],
+			"rotation" : [ -93.718238830566406, 0.0, 4.724365234375 ],
 			"map_audio" : 2,
 			"map_matrix" : 2,
 			"radius" : 1.5
@@ -4892,8 +5086,8 @@
 ,
 		"speaker_4" : 		{
 			"index" : 3,
-			"position" : [ -0.933580458164215, 0.358367711305618, -0.000000040808096 ],
-			"rotation" : [ -101.309928894042969, 0.0, 69.0 ],
+			"position" : [ -0.933579742908478, 0.358367413282394, -0.000000040808068 ],
+			"rotation" : [ -94.857963562011719, 0.0, 33.744140625 ],
 			"map_audio" : 3,
 			"map_matrix" : 3,
 			"radius" : 1.5
@@ -4901,8 +5095,8 @@
 ,
 		"speaker_5" : 		{
 			"index" : 4,
-			"position" : [ -0.913545250892639, -0.406736791133881, 0.000000068970749 ],
-			"rotation" : [ -101.3099365234375, 0.0, 114.000015258789062 ],
+			"position" : [ -0.913544416427612, -0.40673640370369, 0.000000068970685 ],
+			"rotation" : [ -98.508026123046875, 0.0, 71.395751953125 ],
 			"map_audio" : 4,
 			"map_matrix" : 4,
 			"radius" : 1.5
@@ -4910,8 +5104,8 @@
 ,
 		"speaker_6" : 		{
 			"index" : 5,
-			"position" : [ -0.358367711305618, -0.933580458164215, 0.000000155218288 ],
-			"rotation" : [ -101.309944152832031, 0.0, 159.000030517578125 ],
+			"position" : [ -0.358367413282394, -0.933579742908478, 0.00000015521816 ],
+			"rotation" : [ -107.191207885742188, 0.0, 165.968490600585938 ],
 			"map_audio" : 5,
 			"map_matrix" : 5,
 			"radius" : 1.5
@@ -4919,8 +5113,8 @@
 ,
 		"speaker_7" : 		{
 			"index" : 6,
-			"position" : [ 0.406737059354782, -0.913545191287994, 0.00000012768146 ],
-			"rotation" : [ -101.309944152832031, 0.0, -155.999969482421875 ],
+			"position" : [ 0.406736791133881, -0.913544356822968, 0.000000127681375 ],
+			"rotation" : [ -97.626373291015625, 0.0, -113.144195556640625 ],
 			"map_audio" : 6,
 			"map_matrix" : 6,
 			"radius" : 1.5
@@ -4928,11 +5122,100 @@
 ,
 		"speaker_8" : 		{
 			"index" : 7,
-			"position" : [ 0.933580458164215, -0.358367562294006, 0.000000070483367 ],
-			"rotation" : [ -101.3099365234375, 0.0, -110.999969482421875 ],
+			"position" : [ 0.933579862117767, -0.358367204666138, 0.000000070483317 ],
+			"rotation" : [ -94.605247497558594, 0.0, -77.833953857421875 ],
 			"map_audio" : 7,
 			"map_matrix" : 7,
 			"radius" : 1.5
+		}
+
+	}
+,
+	"snj.4.model2" : 	{
+		"settings" : 		{
+			"settings" : 			{
+				"model" : 				{
+					"type" : 1,
+					"file" : "Macintosh HD:/Users/Oni/Projekte/Xenorama/XEN_Cloud/XENcloud/22-09_SNJ_Schuetz-Novalis-Jahr-Weissenfels/SNJ_02_CORE/SNJ_02_3DS/SNJ_CORE_10-with-photo-cam_FOR-TIM.obj",
+					"drawgroup" : 7,
+					"position" : [ -0.453000009059906, 1.179999947547913, 0.239999994635582 ],
+					"scale" : [ 9.949999809265137, 9.949999809265137, 9.949999809265137 ],
+					"rotatexyz" : [ 0.0, 0.0, 180.0 ],
+					"material_mode" : 0,
+					"cull_face" : 1,
+					"patcher" : "*",
+					"cube" : 					{
+						"coords" : [ 1.19, 0.68, 0.7 ],
+						"unit_measures" : [ 60.0, 30.0, 20.0, "meters" ],
+						"texture" : "Macintosh HD:/Users/Oni/Documents/Max 8/Packages/the-abstractions/msp/mc/spacial/plane_dirty.jpg",
+						"type" : "*",
+						"opacity" : 0.836734693877551,
+						"cubemap" : "*"
+					}
+
+				}
+
+			}
+,
+			"speaker_size" : 0.09,
+			"show_speakers" : 1,
+			"show_walls" : 1,
+			"axes" : 1,
+			"auto_focus" : 1,
+			"shroud" : 1,
+			"reverb" : 			{
+				"enable" : 1,
+				"gain" : 0.643835616438356,
+				"wet" : 1,
+				"size" : 0.78,
+				"decay" : 0.92,
+				"damping" : 0.61,
+				"diffusion" : 1,
+				"early_reflections" : 0.65
+			}
+,
+			"listener" : 0,
+			"preview" : 1,
+			"sweetspot" : [ -0.31, -0.35, 0 ],
+			"cube" : [ 1.19, 0.68, 0.7 ],
+			"view_pos" : [ 0, 0.04, -0.24 ],
+			"focus_amt" : 1
+		}
+,
+		"speaker_1" : 		{
+			"index" : 0,
+			"position" : [ -1.139999985694885, -0.720000326633453, 0.010000576265156 ],
+			"rotation" : [ -90.630508422851562, 0.0, 114.026535034179688 ],
+			"map_audio" : 0,
+			"map_matrix" : 0,
+			"radius" : 2.5
+		}
+,
+		"speaker_2" : 		{
+			"index" : 1,
+			"position" : [ 1.25, -0.759999990463257, 0.000000243383965 ],
+			"rotation" : [ -90.000007629394531, 0.0, -104.725479125976562 ],
+			"map_audio" : 1,
+			"map_matrix" : 1,
+			"radius" : 2.5
+		}
+,
+		"speaker_3" : 		{
+			"index" : 2,
+			"position" : [ -1.269999980926514, 0.589999794960022, -0.000000055513464 ],
+			"rotation" : [ -90.0, 0.0, 45.60308837890625 ],
+			"map_audio" : 2,
+			"map_matrix" : 2,
+			"radius" : 2.5
+		}
+,
+		"speaker_4" : 		{
+			"index" : 3,
+			"position" : [ 1.287999987602234, 0.640000104904175, -0.000000056300269 ],
+			"rotation" : [ -90.0, 0.0, -58.22076416015625 ],
+			"map_audio" : 3,
+			"map_matrix" : 3,
+			"radius" : 2.5
 		}
 
 	}

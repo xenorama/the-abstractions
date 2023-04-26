@@ -1,0 +1,126 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 5,
+			"revision" : 2,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "jit.gen",
+		"rect" : [ 2086.0, 205.0, 659.0, 831.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 1,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "Default Max 7",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
+					"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 576.0, 14.0, 28.0, 22.0 ],
+					"text" : "in 2",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.366979, 0.311894, 0.21171, 1.0 ],
+					"color" : [ 0.606682, 0.576976, 0.566022, 1.0 ],
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 50.0, 14.0, 28.0, 22.0 ],
+					"text" : "in 1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "// linear crossfade for incoming function beginning and end\r\n\r\nnorm_section(overlap){\n\t\tarea = 1 - overlap;\n\t\tscan = norm.x * area;\n\t\tramp = clamp(scan/overlap,0,1);\n\t\tregular = sample(in1,vec(scan,norm.y));\n\t\tbegin = sample(in1,vec(scan+area,norm.y));\n\t\tfade = mix(begin,regular,ramp);\n\t\treturn fade;\n}\r\n\r\nParam overlap(0.25,min=0,max=0.5);\r\nParam amp_mod(4,min=0,max=4);\r\nParam amp_amt(0,min=0,max=1);\r\n\r\nfade = overlap ? norm_section(overlap) : in1;\r\n\r\nif (amp_amt > 0 && amp_mod > 0) {\r\n\tfunc = fade;\r\n\tmod = in2;\r\n\tif (amp_mod == 1) {\r\n\t\tmod *= amp_amt;\r\n\t\tmod += fade;\r\n\t\tfade = fold(mod,-1,1);\r\n\t\t}\r\n\telse if (amp_mod == 2) {\r\n\t\tfade = mix(func,mod,amp_amt);\r\n\t\t}\r\n\telse if (amp_mod == 3) {\r\n\t\tfunc *= (1-amp_amt);\r\n\t\tmod += func;\r\n\t\tfade = mix(fold(mod,-1,1),fade,1-amp_amt);\r\n\t\t}\r\n\telse if (amp_mod == 4) {\r\n\t\tamt = mix(1,mod,amp_amt);\r\n\t\tfade = func * amt;\r\n\t\t}\r\n\t}\r\n\r\nout1 = fade;",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 50.0, 63.0, 545.0, 678.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.131533, 0.389636, 0.42757, 1.0 ],
+					"color" : [ 0.55409, 0.560734, 0.583737, 1.0 ],
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 50.0, 783.0, 35.0, 22.0 ],
+					"text" : "out 1",
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+ ],
+		"autosave" : 0
+	}
+
+}

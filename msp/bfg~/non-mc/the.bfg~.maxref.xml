@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.bfg~" module="msp" category="Audio">
+
+	<digest>
+		Host and populate a <o>buffer</o> with procedural content (GPU) as wavetable
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2023, www.xenorama.com. <br/>
+		Create a named <o>buffer</o> as a procedural wavetable populated by any function shader available to the internal <o>jit.gl.bfg</o> object.
+		The waveform can be dynamically animated, limited to the maximum framerate with optional smoothing and interpolation. Driven by signal or MIDI Notes <o>the.bfg~</o> can serve as instant monophonic synthesizer.
+		<br/>By default, the waveform is self-windowed. All GPU-generated functions have to be translated to the CPU upon every frame to be available to MSP.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">Msp</metadata>
+		<metadata name="tag">Function</metadata>
+		<metadata name="tag">Jitter</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="buffer-name" optional="0" type="symbol" size="1">
+			<digest>
+				Number of samples to ramp up absolute signal value
+			</digest>
+			<description>
+				INumber of samples to ramp up absolute signal value, equivalent to an envelope <m>attack</m>. The default is <m>1 sample</m>.
+			</description>
+		</objarg>
+		<objarg name="initial-frequency" optional="1" type="float" size="1">
+			<digest>
+				Set the frequency of the wavetable
+			</digest>
+			<description>
+				Set the frequency of the wavetable when provided as float, and MIDI note when provided as int. This argument require the <at>audio</at> listing to be flagged.
+			</description>
+		</objarg>
+
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="amp_mod" get="1" type="list" size="1">
+			<digest>
+				Mix waveform with trigonometrical functions
+			</digest>
+			<description>
+				Mix waveform with trigonometrical functions. This settings requires <m>4 arguments</m>:<br/>
+				<br/>
+				<m>function-name:</m> (symbol) sin/sine, triangle/tri, saw//linear or rect/square<br/>
+				<m>periods:</m> (float) frequency of the function<br/>
+				<m>amp-mode:</m> (0-4) <br/>
+				0 = &quot;none&quot;, <br/>
+				1 = &quot;function + scaled modulator&quot;, <br/>
+				2 = &quot;blend&quot;<br/>
+				3 = &quot;modulator + scaled function&quot;, <br/>
+				4  = &quot;modulator * function&quot; (default)<br/>
+				<m>amount:</m> (0.-1.) amount of amplitude modulation
+			</description>
+		</attribute>
+		<attribute name="animate" get="1" type="float" size="1">
+			<digest>
+				Change the <at>time</at> property of the function per frame
+			</digest>
+			<description>
+				Change the <at>time</at> property of the function per frame. The float number provided will increment the internal function's time by the given amount per frame.<br/>
+				To avoid unwanted artefacts it is advised to keep this setting between <m>0.-1.</m> which scales time increments between <m>0.-0.01</m>.
+			</description>
+		</attribute>
+		<attribute name="audio" get="1" type="float" size="1">
+			<digest>
+				Enable the internal audio engine for direct playback
+			</digest>
+			<description>
+				Enable the internal audio engine for direct playback. This setting is by default off (0).
+			</description>
+		</attribute>
+		<attribute name="dcblock" get="1" type="int" size="1">
+			<digest>
+				Filter digital components in audio output
+			</digest>
+			<description>
+				Filter digital components in audio output. Since the internal <o>buffer~</o> may get populated by amplitude ranges below or above zero due to the offset of the internal <o>jit.gl.bfg</o>, activating <at>dcblock</at> will normalize the waveform output to even amplitude ranges.<br/>
+				This setting is on by default (1).
+			</description>
+		</attribute>
+		<attribute name="dim" get="1" type="int" size="1">
+			<digest>
+				Resolution of the internal function texture
+			</digest>
+			<description>
+				Resolution of the internal function texture. By default, the internal texture has the dimension <m>256 1</m> and can be adapted using this setting. <br/> Note, that this does not change the size of the buffer, which is handled by the <at>samps</at> listing.
+			</description>
+		</attribute>
+		<attribute name="interval" get="1" type="list" size="1">
+			<digest>
+				Set the frame interval of the internal <o>jit.gl.render</o>
+			</digest>
+			<description>
+				Set the maximum frame interval of the internal <o>jit.gl.render</o> object. When provided as floating-point number, will be interpreted as miliseconds, when appened by &quot;fps&quot;, &quot;samples&quot; or &quot;ms&quot; will be translated to miliseconds.<br/>
+			</description>
+		</attribute>
+		<attribute name="interp" get="1" type="int" size="1">
+			<digest>
+				Interpolate sample values in the internal <m>jit_matrix</m>
+			</digest>
+			<description>
+				Interpolate sample values in the internal <m>jit_matrix</m>. This setting is by default on (1).
+			</description>
+		</attribute>
+		<attribute name="samps" get="1" type="int" size="1">
+			<digest>
+				Size in samples of the named <o>buffer~</o>
+			</digest>
+			<description>
+				Size in samples of the named <o>buffer~</o>. The default is 2048 samples.
+			</description>
+		</attribute>
+		<attribute name="sendbfg" get="1" type="list" size="1">
+			<digest>
+				Send any message to the internal <o>jit.gl.bfg~</o>
+			</digest>
+			<description>
+				Send any valid message to the internal <o>jit.gl.bfg~</o> object. Note, that all keys contained in the dictionary sent from the dump outlet can be addressed directly without the messagename &quot;sendbfg&quot;.
+			</description>
+		</attribute>
+		<attribute name="sendbuf" get="1" type="list" size="1">
+			<digest>
+				Send any message to the internal <o>buffer~</o>
+			</digest>
+			<description>
+				Send any valid message to the internal <o>buffer~</o> object. Note, that the <at>samps</at> listing can be addressed directly without the messagename &quot;sendbuf&quot;.
+			</description>
+		</attribute>
+		<attribute name="slide" get="1" type="int" size="1">
+			<digest>
+				Smoothe values of the internal <m>jit_matrix</m>
+			</digest>
+			<description>
+				Smoothe values of the internal <m>jit_matrix</m> before populating the <o>buffer~</o>. This affects the contents of the buffer~ while <at>vec_smooth</at> affects audio output only.<br/>
+				Note also that this setting is ignored when the content is not animated.
+			</description>
+		</attribute>
+		<attribute name="window" get="1" type="float" size="1">
+			<digest>
+				Set the linear windowing range
+			</digest>
+			<description>
+				Set the linear windowing range. A value of <m>0</m> applies no windowing, a value of <m>1</m> applies maximum windowing (across half the function)
+			</description>
+		</attribute>
+		<attribute name="vec_smooth" get="0" type="list" size="1">
+			<digest>
+				Vector-based amplitude smoothing
+			</digest>
+			<description>
+				Vector-based amplitude smoothing. Increase this setting, either as floating point value or as list consisting of a smoothing option and a floating point number, to achieve amplitude smoothing on the signal output of all the buffer's vectors during quick manipulation to avoid clicks.<br/>
+				Available smoothing algorithms are &quot;rampsmooth&quot; (default), &quot;slide&quot; and &quot;deltaclip&quot;<br/>
+				See the <o>vectral~</o> object for more details.
+			</description>
+		</attribute>
+</attributelist>
+
+	<!--MESSAGES-->
+
+	<methodlist>
+		<method name="bang">
+			<arglist>
+			</arglist>
+			<digest>
+				Update the wavetable
+			</digest>
+			<description>
+				Update the wavetable and output dictionary
+			</description>
+		</method>
+		<method name="dictionary">
+			<arglist>
+			</arglist>
+			<digest>
+				Set the internal <o>jit.gl.bfg</o> attributes. <br/>
+				Currently this will throw a warning in the Max console when containing keys which are currently &quot;not used in current shader state&quot;.
+			</digest>
+			<description>
+				Update the wavetable and output dictionary
+			</description>
+		</method>
+		<method name="freq">
+			<arglist>
+			</arglist>
+			<digest>
+				Set the frequency of the wavetable
+			</digest>
+			<description>
+				Set the frequency of the wavetable. This requires the <at>audio</at> listing to be activated.
+			</description>
+		</method>
+		<method name="jit_gl_texture">
+			<arglist>
+			</arglist>
+			<digest>
+				Transform the internal basis function graph
+			</digest>
+			<description>
+				Transform the internal basis function graph when set to basis <m>input.distorted</m> or <m>input.distorted.2axis</m>
+			</description>
+		</method>
+		<method name="jit_matrix">
+			<arglist>
+			</arglist>
+			<digest>
+				Replace <o>buffer~</o> content
+			</digest>
+			<description>
+				Replace <o>buffer~</o> content. Any incoming <m>jit_matrix</m> will override the internal <o>buffer~</o> content, interpolating matrix data as per the <at>interp</at> setting to the samples defined by <at>samps</at> and reading only <m>plane 0</m>.<br/>
+				Note that during animation this message is ignored.
+			</description>
+		</method>
+		<method name="note">
+			<arglist>
+			</arglist>
+			<digest>
+				Set the frequency of the wavetable as MIDI note
+			</digest>
+			<description>
+				Set the frequency of the wavetable as MIDI note. This requires the <at>audio</at> listing to be activated.
+			</description>
+		</method>
+		<method name="signal">
+			<arglist>
+			</arglist>
+			<digest>
+				Set the frequency of the wavetable
+			</digest>
+			<description>
+				Set the frequency of the wavetable. This requires the <at>audio</at> listing to be activated.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--EXAMPLE-->
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealso name='jit.gl.bfg' />
+		<seealso name='jit.gl.render' />
+		<seealso name='jit.gl.asyncread' />
+		<seealso name='buffer~' />
+		<seealso name='jit.buffer~' />
+		<seealso name='gen~' />
+		<seealso name='vectral~' />
+		<seealso name='jit.bfg' />
+	</seealsolist>
+
+</c74object>

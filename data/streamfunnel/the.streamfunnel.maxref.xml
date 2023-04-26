@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.streamfunnel" module="max" category="Data">
+
+	<digest>
+		Prepend an increasing index to any number of items
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2017, www.xenorama.com. <br/>
+		An incoming list is iterated into groups of identical sizes and prepended by an increasing index.
+		Arguments of '1 0' yield the native behaviour of <o>listfunnel</o>.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Oni</metadata>
+		<metadata name="tag">Data</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="list">
+			<digest>list of any nubmer of items</digest>
+			<description>
+				The list length has to be dividable by the first argument given.
+			</description>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>list with index</digest>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="length" optional="0" type="int">
+			<digest>List length to be extracted</digest>
+			<description>list length to be extracted. The input list has to hold entries multiple by the first argument given.
+      </description>
+		</objarg>
+		<objarg name="offset" optional="0" type="int">
+			<digest>First index</digest>
+			<description>First index. All following lists will increase on the offset.
+      </description>
+		</objarg>
+	</objarglist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="list">
+			<arglist />
+			<digest>
+				List to be iterated
+			</digest>
+			<description>
+				Has to be dividable by the first argument given.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="listfunnel"/>
+		<seealso name="funnel"/>
+		<seealso name="spray"/>
+	</seealsolist>
+
+</c74object>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="oni.midiinport" module="max" category="Oni, MIDI">
+
+	<digest>
+		MIDI input port connectivity check
+	</digest>
+
+	<description>
+		Checks if a desired MIDI input device is available and updates all connected nodes.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Oni</metadata>
+		<metadata name="tag">MIDI</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="bang">
+			<digest>Update port availability</digest>
+			<description>
+				Checks if a desired MIDI input device is available and updates all connected nodes.
+			</description>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="symbol">
+			<digest>Iterated list of available ports</digest>
+			<description>Connect to <o>umenu</o> for overview of available ports.</description>
+		</outlet>
+		<outlet id="1" type="bool">
+			<digest>0 = port not connected, 1 = port available</digest>
+		</outlet>
+		<outlet id="2" type="int">
+			<digest>all MIDI input from given port</digest>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="midiport" optional="0" type="symbol">
+			<digest>source MIDI port</digest>
+		</objarg>
+	</objarglist>
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="bang">
+			<arglist />
+			<digest>
+				Update port availability
+			</digest>
+			<description>
+				Checks if a desired MIDI input device is available and updates all connected nodes.
+			</description>
+		</method>
+		<method name="sync">
+			<arglist>
+				<arg name="arguments" optional="1" type="int" />
+			</arglist>
+			<digest>
+				set the sync state
+			</digest>
+			<description>
+				See the <m>sync</m> attribute.
+			</description>
+		</method>
+	</methodlist>
+
+		<!--ATTRIBUTES-->
+
+		<attributelist>
+			<attribute name='sync' get='1' set='1' type='bool' size='1'  >
+				<digest>sync port updates with other instances</digest>
+				<description>Update this port whenever it is updated elsewhere. The default is 1 (active). </description>
+			</attribute>
+		</attributelist>
+
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="oni.modmidiin"/>
+		<seealso name="oni.modgate"/>
+	</seealsolist>
+
+</c74object>

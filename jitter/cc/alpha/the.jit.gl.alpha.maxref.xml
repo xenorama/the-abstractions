@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="the.jit.gl.alpha" module="jit" category="Jitter OpenGL">
+
+	<digest>
+		Map RGB values to transparency
+	</digest>
+
+	<description>
+		Written by Tim Heinze © 2021, www.xenorama.com. <br/>
+		Map an RGB value or luminance of an incoming matrix or texture to a transparent alpha value. The procedure and result is similar to <o>jit.chromakey</o> but processes textures, offers opacity fade and yields black/white alpha mask to further process.
+	</description>
+
+	<discussion>
+	</discussion>
+
+	<!--METADATA (REMOVE FOR SIMPLICITY) -->
+	<metadatalist>
+		<metadata name="author">Tim Heinze</metadata>
+		<metadata name="tag">Xenorama</metadata>
+		<metadata name="tag">jitter</metadata>
+		<metadata name="tag">Jitter System</metadata>
+	</metadatalist>
+
+	<!--INLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
+
+	<!--ARGUMENTS-->
+	<objarglist>
+		<objarg name="rgb" optional="0" type="list" size="1">
+			<digest>
+				Initial transparency color (float32)
+			</digest>
+			<description>
+				Initial transparency color to be provided as RGB-list (float32). The chosen color will render the incoming image transparent, depending on the <at>tolerance</at> setting.<br/>
+				the default is <m>0 0 0</m> (make all black regions transparent). This attribute will be overridden by any <at>rgb</at> setting.
+			</description>
+		</objarg>
+	</objarglist>
+
+	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
+	<attributelist>
+		<attribute name="rgb" get="1" set="1" type="list" size="1">
+			<digest>
+				Transparency color (float32)
+			</digest>
+			<description>
+				Transparency color to be provided as RGB-list (float32). The chosen color will render the incoming image transparent, depending on the <at>tolerance</at> setting.<br/>
+				the default is <m>0 0 0</m> (make all black regions transparent).
+			</description>
+		</attribute>
+		<attribute name="tolerance" get="1" set="1" type="float" size="1">
+			<digest>
+				Render close colors
+			</digest>
+			<description>
+				Render close colors. By default, <o>the.jit.gl.alpha</o> operates with maximum tolerance of <m>1</m> to apply a smooth, fading transparency mask. When reduced to 0., the chosen <at>rgb</at> color is hard-clipped.
+			</description>
+		</attribute>
+		<attribute name="opacity" get="1" set="1" type="float" size="1">
+			<digest>
+				Amount of original to preserve
+			</digest>
+			<description>
+				Amount of original to preserve. By default, <o>the.jit.gl.alpha</o> applies the transparency mask at 100% (opacity at <m>0</m>). When increased towards 1., the original image will be blended in, reducing the transparency.
+			</description>
+		</attribute>
+		<attribute name="luminance" get="1" set="1" type="int" size="1">
+			<digest>
+				Type of transparency masking
+			</digest>
+			<description>
+				Type of transparency masking. Choose between mapping image luminance or <at>rgb</at> to transparency. Three different modes are available:<br/>
+				<br/>
+				<m>-1</m> = brightness: luminous regions will be rendered transparent<br/>
+				<m>0</m> = rgb (default): chosen <at>rgb</at> color will be rendered transparent<br/>
+				<m>1</m> = darkness: all non-luminous regions will be rendered transparent.
+			</description>
+		</attribute>
+	</attributelist>
+
+	<!--MOP-->
+	<mop matrixinputcount="-1" matrixoutputcount="1">
+		<matrixoutput name="out" planelink="1" typelink="1" dimlink="1" minplanecount="1" maxplanecount="32" mindimcount="1" maxdimcount="32">
+			<types>
+				char long float32 float64
+			</types>
+		</matrixoutput>
+	</mop>
+
+		<!--MESSAGES-->
+		<jittermethodlist>
+			<jittermethod name="bang" />
+			<jittermethod name="clear" />
+			<jittermethod name="draw" />
+			<jittermethod name="drawimmediate" />
+			<jittermethod name="drawraw" />
+			<jittermethod name="exportattrs" />
+			<jittermethod name="exportsummary" />
+			<jittermethod name="getattributes" />
+			<jittermethod name="getstate" />
+			<jittermethod name="importattrs" />
+			<jittermethod name="jit_gl_texture" />
+			<jittermethod name="jit_matrix" />
+			<jittermethod name="outputmatrix" />
+			<jittermethod name="summary" />
+		</jittermethodlist>
+
+	<!--SEEALSO (REMOVE FOR SIMPLICITY) -->
+	<seealsolist>
+		<seealsolist>
+			<seealso name="jit.gen" />
+			<seealso name="jit.gl.pix" />
+			<seealso name="jit.expr" />
+			<seealso name="jit.matrix" />
+			<seealso name="jit.gl.slab" />
+			<seealso name="gen~" />
+			<seealso module="gen" name="gen_overview" type="vignette" />
+			<seealso module="gen" name="gen_genexpr" type="vignette" />
+			<seealso module="gen" name="gen_common_operators" type="vignette" />
+			<seealso module="gen" name="gen_jitter_operators" type="vignette" />
+		</seealsolist>
+	</seealsolist>
+
+</c74object>

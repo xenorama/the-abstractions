@@ -1,0 +1,221 @@
+<jittershader name="alb-nor-RMO-env-ref-he-ro-me-he-tph-gm">
+	<description>
+		An auto-generated PBR shader
+	</description>
+	<param name="pos" type="vec3" state="POSITION" />
+	<param name="nor" type="vec3" state="NORMAL" />
+	<param name="tan" type="vec3" state="TANGENT" />
+	<param name="uv" type="vec2" state="TEXCOORD" />
+	<param name="MVP" type="mat4" state="MODELVIEW_PROJECTION_MATRIX" />
+	<param name="prevMVP" type="mat4" state="PREV_MODELVIEW_PROJECTION_MATRIX" />
+	<param name="MV" type="mat4" state="MODELVIEW_MATRIX" />
+	<param name="M" type="mat4" state="WORLD_MATRIX" />
+	<param name="NM" type="mat3" state="NORMAL_MATRIX" />
+	<param name="Vmat" type="mat4" state="VIEW_MATRIX" />
+	<param name="Pmat" type="mat4" state="PROJECTION_MATRIX" />
+	<param name="eye" type="vec3" state="CAMERA_POSITION" />
+	<param name="far" type="float" state="FAR_CLIP" />
+	<param name="near" type="float" state="NEAR_CLIP" />
+	<param name="texMat0" type="mat4" state="TEXTURE0_MATRIX" />
+
+	<param name="PBRParameters" state="PBR" />
+	<param name="roughness" type="float" default="0.8" />
+	<param name="metalness" type="float" default="3.0" />
+	<param name="texRepeat" type="vec2" default="1. 1." />
+	<param name="heightScale" type="float" default="0.01" />
+	<param name="triplanarBlendingAmount" type="float" default="0.7" />
+	<param name="parallaxIterations" type="int" default="100" />
+	<param name="parallaxStep" type="float" default="0.005" />
+	<param name="shadowAmount" type="float" default="300." />
+	<param name="shadowIterations" type="int" default="100" />
+	<param name="shadowStep" type="float" default="0.001" />
+	<param name="occlusionAmount" type="float" default="100." />
+	<param name="occlusionIterations" type="int" default="5" />
+	<param name="occlusionOffset" type="float" default="0.001" />
+
+	<param name="albedoTex" type="int" default="0" />
+	<param name="normalTex" type="int" default="1" />
+	<param name="RMOHTex" type="int" default="2" />
+	<param name="environmentTex" type="int" default="3" />
+	<param name="reflectionTex" type="int" default="4" />
+	<param name="integMap" type="int" default="5" />
+
+	 <!-- <texture file="ibl_brdf_lut.png" type="float16" unit="5" rectangle="0" filter="none none" wrap="repeat repeat" /> -->
+
+	<language name="glsl" version="1.5">
+		<bind param="pos" program="vp" />
+		<bind param="nor" program="vp" />
+		<bind param="tan" program="vp" />
+		<bind param="uv" program="vp" />
+		<bind param="MVP" program="vp" />
+		<bind param="prevMVP" program="vp" />
+		<bind param="MV" program="vp" />
+		<bind param="M" program="vp" />
+		<bind param="M" program="fp" />
+		<bind param="NM" program="vp" />
+		<bind param="Vmat" program="fp" />
+		<bind param="Pmat" program="fp" />
+		<bind param="eye" program="fp" />
+		<bind param="far" program="fp" />
+		<bind param="near" program="fp" />
+		<bind param="texMat0" program="vp" />
+
+		<bind param="PBRParameters" program="fp" />
+		<bind param="roughness" program="fp" />
+		<bind param="metalness" program="fp" />
+		<bind param="texRepeat" program="vp" />
+		<bind param="texRepeat" program="fp" />
+		<bind param="heightScale" program="fp" />
+		<bind param="triplanarBlendingAmount" program="fp" />
+		<bind param="parallaxIterations" program="fp" />
+		<bind param="parallaxStep" program="fp" />
+		<bind param="shadowAmount" program="fp" />
+		<bind param="shadowIterations" program="fp" />
+		<bind param="shadowStep" program="fp" />
+		<bind param="occlusionAmount" program="fp" />
+		<bind param="occlusionIterations" program="fp" />
+		<bind param="occlusionOffset" program="fp" />
+
+		<bind param="albedoTex" program="fp" />
+		<bind param="normalTex" program="fp" />
+		<bind param="RMOHTex" program="fp" />
+		<bind param="environmentTex" program="fp" />
+		<bind param="reflectionTex" program="fp" />
+		<bind param="integMap" program="fp" />
+		<include source="the.mtlfx.glsl" program="fp" />
+		<include source="the.pbr.frag.header.glsl" program="fp" />
+		<include source="the.pbr.common.glsl" program="fp" />
+		<include source="the.pbr.lights.glsl" program="fp" />
+		<program name="vp" type="vertex">
+			<![CDATA[
+#version 330 core
+uniform mat4 MVP, MV, M, prevMVP, texMat0;
+uniform mat3 NM;
+uniform vec2 texRepeat;
+in vec3 pos, nor, tan;
+in vec2 uv;
+
+
+out jit_PerVertex {
+	vec2 texcoord;
+	smooth 	vec3 nor;
+	smooth 	vec3 tan;
+	smooth 	vec3 bit;
+	smooth 	vec3 pos;
+	smooth 	vec2 uv;
+	smooth 	vec3 eyePos;
+	smooth  vec3 modelPos;
+	smooth  vec3 modelNor;
+	smooth  mat3 TBN;
+	smooth  mat3 transTBN;
+	smooth  vec4 currPos;
+	smooth  vec4 prevPos;
+} jit_out;
+
+
+
+void main() {
+	jit_out.currPos = MVP * vec4(pos, 1.);
+	jit_out.prevPos = prevMVP * vec4(pos, 1.);
+	gl_Position = jit_out.currPos;
+	mat4 MM = M;
+	jit_out.nor = (MM * vec4(nor, 0.)).xyz;
+	jit_out.tan = (MM * vec4(tan, 0.)).xyz;
+	jit_out.bit = cross(jit_out.tan, jit_out.nor);
+	jit_out.pos = (MM * vec4(pos, 1.)).xyz;
+	jit_out.uv = vec2(uv.x,1-uv.y);
+	// jit_out.uv = uv * texRepeat;
+	// jit_out.uv = vec2(512,512) * uv * texRepeat;
+	// jit_out.texcoord = vec2(texMat0 * vec4(uv, 0., 1.));
+	// jit_out.uv = vec2(texMat0 * vec4(uv, 0., 1.));
+	jit_out.eyePos = (MV * vec4(pos, 1.)).xyz;
+	// jit_out.modelPos = pos;
+	jit_out.modelPos = vec3(pos.x,1-pos.y,pos.z) * vec3(0.5,0.5,0.5) + vec3(0.,0.,0.5);
+	jit_out.modelNor = nor;
+	jit_out.TBN = mat3(jit_out.tan, jit_out.bit, jit_out.nor);
+	jit_out.transTBN = transpose(jit_out.TBN);
+
+}
+
+]]>
+		</program>
+		<program name="fp" type="fragment">
+			<![CDATA[
+#version 330 core
+
+layout(location = 0) out vec4 col;
+
+
+
+#define NUM_LIGHTS (1)
+layout (std140) uniform PBRParameters {
+	PBRMaterialParameters pbrmtl;
+	PBRLightSourceParameters pbrlight[NUM_LIGHTS];
+};
+
+
+
+// uniform sampler2D albedoTex;
+
+#define PBRTEXMAP triplanar
+
+// uniform sampler2DRect albedoTex;
+
+void 	main() {
+	material 	mate;
+	geometry 	geom;
+
+	geom.uv 	= jit_in.uv;
+	geom.pos  	= jit_in.pos;
+	geom.height = 1.;
+
+	getTriplanarUVs(geom);
+
+	getTriplanarHeightMap(geom);
+
+
+
+	vec4 RMOH	= PBRTEXMAP(RMOHTex, geom);
+
+
+	mate.occ 	=  1.; //ambient occlusion
+
+
+	geom.N 		= triplanarNormals(normalTex, geom);
+
+
+
+	vec4 alb 	= PBRTEXMAP(albedoTex, geom) * pbrmtl.diffuse;
+	// vec4 alb 	= texture(albedoTex, jit_in.texcoord) * pbrmtl.diffuse;
+	mate.alb	= alb.rgb;
+	mate.rou 	= RMOH.r * roughness;
+	mate.met 	= RMOH.g * metalness;
+	mate.F0 	= mix(vec3(0.04), mate.alb, vec3(mate.met));  //use alb as F0 if metallic
+
+	geom.V 		= normalize(eye - jit_in.pos);	//view direction
+	geom.R 		= reflect(geom.V, geom.N);
+
+	col.rgb = vec3(0.);
+
+	col.rgb += get_hemisphere_light(pbrlight[0], mate, geom);
+
+
+	col.rgb += getIBL(mate, geom);
+
+	col.rgb += pbrmtl.emission.rgb;
+
+	col.rgb = gammaCorrection(col.rgb);
+	// col.rgb = texture(albedoTex, geom.uv).rgb;
+
+	// col.rgb = alb.rgb;
+	// col.rgb = vec3(1,1,0);
+
+	col.a = max(alb.a,alb.r);
+
+
+}
+
+]]>
+		</program>
+	</language>
+</jittershader>

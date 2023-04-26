@@ -1,0 +1,75 @@
+{
+	"pattrstorage" : 	{
+		"name" : "pbr_meshes",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"data" : 				{
+					"metalness" : [ "metalness", 11.399999618530273 ],
+					"roughness" : [ "roughness", 0.879999995231628 ],
+					"patcher::alphamap" : [ 1024.0, 0.0, 1.0, 0.0, 0.0, 0, 0.0, 407.404936170216615, 0.0, 0, 0.795, 1024.0, 1.0, 0, -0.75, "curve" ],
+					"bhor" : [ "Macintosh HD:/Users/Oni/Projekte/Creazione/LIM_Covers/Source/Wurzel-Ast-51x38-cm-Dekoholz-Dekoration-Rebholz-Rebenholz-Echt-Holz-D3-221980136876.jpg" ]
+				}
+
+			}
+,
+			"2" : 			{
+				"id" : 2,
+				"data" : 				{
+					"metalness" : [ "metalness", 3.099999904632568 ],
+					"roughness" : [ "roughness", 0.949999988079071 ],
+					"patcher::alphamap" : [ 1024.0, 0.0, 1.0, 0.0, 0.0, 0, 0.0, 140.511319148940032, 0.568591065292097, 0, -0.555, 374.724085106386838, 0.46192439862543, 0, 0.795, 1024.0, 1.0, 0, -0.75, "curve" ],
+					"bhor" : [ "Macintosh HD:/Users/Oni/Projekte/Creazione/LIM_Covers/XEN_Aureal.psd" ]
+				}
+
+			}
+,
+			"3" : 			{
+				"id" : 3,
+				"data" : 				{
+					"metalness" : [ "metalness", 4.0 ],
+					"roughness" : [ "roughness", 0.050000000745058 ],
+					"patcher::alphamap" : [ 1024.0, 0.0, 1.0, 0.0, 1.0, 0, 0.0, 58.809191489365553, 0.888591065292097, 0, -0.555, 374.724085106386838, 0.46192439862543, 0, 0.795, 1024.0, 1.0, 0, -0.75, "curve" ],
+					"bhor" : [ "Macintosh HD:/Users/Oni/Projekte/Creazione/LIM_Covers/XEN_1100000_Dawn.psd" ]
+				}
+
+			}
+,
+			"4" : 			{
+				"id" : 4,
+				"data" : 				{
+					"metalness" : [ "metalness", 20.399999618530273 ],
+					"roughness" : [ "roughness", 1.289999961853027 ],
+					"patcher::alphamap" : [ 1024.0, 0.0, 1.0, 0.0, 0.0, 0, -0.555, 69.702808510642157, 0.0, 0, 0.0, 80.596425531918754, 0.315257731958764, 0, 0.0, 194.979404255323004, 0.0, 0, 0.0, 461.873021276599616, 0.275257731958764, 0, 0.55, 1024.0, 1.0, 0, -0.75, "curve" ],
+					"bhor" : [ "Macintosh HD:/Users/Oni/Projekte/Creazione/Portraits/Oni-Shogun_02.JPG" ]
+				}
+
+			}
+,
+			"5" : 			{
+				"id" : 5,
+				"data" : 				{
+					"metalness" : [ "metalness", 1.200000047683716 ],
+					"roughness" : [ "roughness", 0.059999998658895 ],
+					"patcher::alphamap" : [ 1024.0, 0.0, 1.0, 0.0, 0.008591065292097, 0, 0.0, 434.638978723408115, 0.408591065292097, 0, 0.55, 1024.0, 1.0, 0, -0.75, "curve" ],
+					"bhor" : [ "Macintosh HD:/Users/Oni/Projekte/Creazione/IMG_1438.JPG" ]
+				}
+
+			}
+,
+			"6" : 			{
+				"id" : 6,
+				"data" : 				{
+					"metalness" : [ "metalness", -2.200000047683716 ],
+					"roughness" : [ "roughness", 0.330000013113022 ],
+					"patcher::alphamap" : [ 1024.0, 0.0, 1.0, 4.341106382982577, 0.648591065292097, 0, 0.0, 391.064510638301726, 0.0, 0, 0.55, 1024.0, 1.0, 0, -0.75, "curve" ],
+					"bhor" : [ "Macintosh HD:/Users/Oni/Projekte/Creazione/IMG_4285.JPG" ]
+				}
+
+			}
+
+		}
+
+	}
+
+}
