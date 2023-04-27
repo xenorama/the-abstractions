@@ -154,22 +154,6 @@
 				Size in samples of the named <o>buffer~</o>. The default is 2048 samples.
 			</description>
 		</attribute>
-		<attribute name="sendbfg" get="1" type="list" size="1">
-			<digest>
-				Send any message to the internal <o>jit.gl.bfg~</o>
-			</digest>
-			<description>
-				Send any valid message to the internal <o>jit.gl.bfg~</o> object. Note, that all keys contained in the dictionary sent from the dump outlet can be addressed directly without the messagename &quot;sendbfg&quot;.
-			</description>
-		</attribute>
-		<attribute name="sendbuf" get="1" type="list" size="1">
-			<digest>
-				Send any message to the internal <o>buffer~</o>
-			</digest>
-			<description>
-				Send any valid message to the internal <o>buffer~</o> object. Note, that the <at>samps</at> listing can be addressed directly without the messagename &quot;sendbuf&quot;.
-			</description>
-		</attribute>
 		<attribute name="slide" get="1" type="int" size="1">
 			<digest>
 				Smoothe values of the internal <m>jit_matrix</m>
@@ -272,6 +256,26 @@
 			</digest>
 			<description>
 				Set the frequency of the wavetable. This requires the <at>audio</at> listing to be activated. Any signal will read from the first channel of the buffer~.
+			</description>
+		</method>
+		<method name="sendbfg">
+			<arglist>
+			</arglist>
+			<digest>
+				Send any message to the internal <o>jit.gl.bfg~</o>
+			</digest>
+			<description>
+				Send any valid message to the internal <o>jit.gl.bfg~</o> object. Note, that all keys contained in the dictionary sent from the dump outlet can be addressed directly without the messagename &quot;sendbfg&quot;.
+			</description>
+		</method>
+		<method name="sendbuf">
+			<arglist>
+			</arglist>
+			<digest>
+				Send any message to the internal <o>buffer~</o>
+			</digest>
+			<description>
+				Send any valid message to the internal <o>buffer~</o> object. Note, that the <at>samps</at> listing can be addressed directly without the messagename &quot;sendbuf&quot;.
 			</description>
 		</method>
 		<method name="multichannelsignal">
