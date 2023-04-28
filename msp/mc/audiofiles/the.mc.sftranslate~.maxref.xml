@@ -28,27 +28,26 @@
 	<!--OUTLETS (REMOVE FOR SIMPLICITY) -->
 
 	<!--ARGUMENTS-->
-	<!-- <objarglist>
-		<objarg name="number-of-channels" optional="0" type="int" size="1">
-			<digest>
-				Specify a maximum number of voices
-			</digest>
-			<description>
-				Specify a maximum number of voices. These can be muted or toggled into busy state for mc-objects using the <at>bzname</at> attribute with this named busymap. Their initial number of channels defines how many of the busymap channels these objects can use.
-			</description>
-		</objarg>
-		<objarg name="busymapname" optional="0" type="symbol" size="1">
-			<digest>
-				Provide the name for this global busymap
-			</digest>
-			<description>
-				Provide the name for this global busymap. This name is also used for the buffer which it reads its busymap from. This buffer's values can be modified externally to manage busymaps dynamically.
-			</description>
-		</objarg>
-	</objarglist> -->
 
 	<!--ATTRIBUTES (REMOVE FOR SIMPLICITY) -->
 	<attributelist>
+		<attribute name="auto_path" get="1" set="1" type="bool" size="1">
+			<digest>
+				Always save files to source folder
+			</digest>
+			<description>
+				Always save files to source folder. The default is &quot;1&quot; (save to source folder).
+			</description>
+		</attribute>
+		<attribute name="derive_name" get="1" set="1" type="bool" size="1">
+			<digest>
+				Derive filename from source files
+			</digest>
+			<description>
+				Derive filename from source files. Splitting files will use the name of the single source file, merging multiple files will use all leading strings that match among them. For detailed control see the <at>filename</at> listing.<br/>
+				This feture is disabled by default.
+			</description>
+		</attribute>
 		<attribute name="dither" get="1" set="1" type="int" size="1">
 			<digest>
 				Dither PCM Output
@@ -229,6 +228,15 @@
 				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enum" />
 			</attributelist>
 		</attribute>
+		<attribute name="filename" get="1" set="1" type="symbol" size="1">
+			<digest>
+				Set filename for resulting files
+			</digest>
+			<description>
+				Set filename for resulting files. Splitting multichannel files will result in single files with the given name and trailing indices.<br/>
+				<!-- Note, tat when merging multiple audio files while <at>auto_pat</at> is disabled, te filename cannot be used in the resulting <o>savedialog</o> -->
+			</description>
+		</attribute>
 		<attribute name="labels" get="1" set="1" type="list" size="1">
 			<digest>
 				Label Mono Files
@@ -287,6 +295,15 @@
 				Specify how many channels to compile or split into. When set to &quot;0&quot; (default), the resulting number of channels will match the original channelcount. See also the <at>select</at> listing for mapping desired channels.
 			</description>
 		</attribute>
+		<attribute name="section" get="1" set="1" type="list" size="2">
+			<digest>
+				Set beginning and length of audiofile section
+			</digest>
+			<description>
+				Set beginning and length of audiofile section. Expects two integers or floating-points values representing a beginning and length in miliseconds. Subsequent <m>readfolder</m> or <m>split</m> methods will craete audiofiles as sections of source file.<br/>
+				The message &quot;section&quot; without any arguments uses entire length of source audiofiles.
+			</description>
+		</attribute>
 		<attribute name="select" get="1" set="1" type="list" size="1">
 			<digest>
 				Remap Channels
@@ -303,32 +320,8 @@
 			<description>
 				Set sampling rate of files to be written. The default is 48000 (48kHz).
 			</description>
-			<!-- <attributelist>
-				<attribute name="default" get="1" set="1" type="int" size="1" value="0" />
-				<attribute name="enumvals" get="1" set="1" type="atom" size="2">
-					<enumlist>
-						<enum name="Round">
-							<digest>
-								Round when quantizing to integer values.
-							</digest>
-							<description>
-								TEXT_HERE
-							</description>
-						</enum>
-						<enum name="Floor">
-							<digest>
-								Floor when quantizing to integer values.
-							</digest>
-							<description>
-								TEXT_HERE
-							</description>
-						</enum>
-					</enumlist>
-				</attribute> -->
-				<!-- <attribute name="label" get="1" set="1" type="symbol" size="1" value="PCM Quantization Rule" />
-				<attribute name="style" get="1" set="1" type="symbol" size="1" value="enumindex" />
-			</attributelist> -->
 		</attribute>
+
 </attributelist>
 
 	<!--MESSAGES-->
@@ -342,6 +335,16 @@
 			</digest>
 			<description>
 				Re-apply the previous command on the previously provided sound file or path.
+			</description>
+		</method>
+		<method name="collect">
+			<arglist>
+			</arglist>
+			<digest>
+				Merge audio files from different directories
+			</digest>
+			<description>
+				Merge audio files from different directories. Expects a list of valid paths to audio files. Audio files of different lengths will all be aligned at the beginning of the file(s) with shorter files being subsequently filled with silence in their respective channel.
 			</description>
 		</method>
 		<method name="readfolder">
@@ -361,59 +364,9 @@
 				Split Multichannel to Mono Files
 			</digest>
 			<description>
-				Provide a valid path to a multichannel or stereo file. To the same directory, a specified number of mono files will be written from this file.
+				Provide a valid path to a multichannel or stereo file. To the same directory, a specified number of mono files will be written from this file.<br/>
 			</description>
 		</method>
-		<!-- <method name="mute">
-			<arglist>
-			</arglist>
-			<digest>
-				Toggle the mute flag for entire busymap
-			</digest>
-			<description>
-				Toggle the mute flag for entire busymap
-			</description>
-		</method>
-		<method name="threshold">
-			<arglist>
-			</arglist>
-			<digest>
-				Specify an activation threshold
-			</digest>
-			<description>
-				Specify an activation threshold
-			</description>
-		</method>
-		<method name="manual">
-			<arglist>
-			</arglist>
-			<digest>
-				Set voice activation mode
-			</digest>
-			<description>
-				Set voice activation mode
-			</description>
-		</method>
-<method name="cpumonitor">
-	<arglist>
-	</arglist>
-	<digest>
-		Set CPU-Monitoring interval (ms)
-	</digest>
-	<description>
-		Set CPU-Monitoring interval (ms)
-	</description>
-</method>
-<method name="multichannelsignal">
-	<arglist>
-	</arglist>
-	<digest>
-		Set busymap manually
-	</digest>
-	<description>
-		Set busymap manually when the <at>manual</at> flag is set to '1', otherwise the internal buffer handles the busymap.
-	</description>
-</method> -->
 	</methodlist>
 
 	<!--EXAMPLE-->
